@@ -1,0 +1,21 @@
+{
+  "name": "healthybites",
+  "version": "1.0.0",
+  "description": "An App for a Healthier Lifestyle",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diannaqui/healthybites.git"
+  },
+  "author": "Team 1",
+  "bugs": {
+    "url": "https://github.com/diannaqui/healthybites/issues"
+  },
+  "homepage": "https://github.com/diannaqui/healthybites#readme",
+  "dependencies": {
+    "parcel": "^2.8.3"
+  }
+}
