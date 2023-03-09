@@ -64,7 +64,7 @@ https://fonts.google.com/specimen/Roboto?query=roboto
 
 
 ## Setup
-- `npm install parcel`
+- `npm install`
 - `npm run start` starts up a local server and updates on any JS or CSS/SCSS changes.
 
 

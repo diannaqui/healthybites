@@ -1,0 +1,8 @@
+
+.food-grid {
+    display: flex;
+}
+
+.food-grid div{
+    text-align: center;
+}
