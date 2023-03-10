@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe by Country | Healthy Bites</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <header class="divider" id="main-header">
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="recipe.html">Make Your Recipe</a></li>
+        <li><a href="recipeByCountry.html">Recipe by Country</a></li>
+        <li><a href="recipeDetails.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>Recipe by Country</h1>
+      <form id="country-form">
+        <div class="form-group">
+          <label for="country">Select a Country:</label>
+          <select id="country" name="country">
+          </select>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+      <div id="recipe-container"></div>
+    </div>
+  </main>
+
+  <footer id="main-footer">
+    <p>&copy; 2023 Healthy Bites</p>
+  </footer>
+
+  <script type="module" src="./js/main.js"></script>
+  <script type="module" src="./js/countryRecipe.mjs"></script>
+</body>
+</html>
