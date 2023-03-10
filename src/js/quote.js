@@ -15,9 +15,22 @@ export class InspirationalQuote {
         // Random number between 0 and the length of the quote array
         let numberQuote = Math.floor(Math.random() * newQuote.length);
 
+        // Author's name
         let author = newQuote[numberQuote].author;
-        if (author == null) {author = "Not known"};
+        if (author == null) {author = ""};
 
-        document.querySelector(".quote").innerHTML = `Author: ${author} <br> ${newQuote[numberQuote].text};`
+        const autorH2 = document.createElement("h2");
+        autorH2.classList.add("authorQuote");
+        autorH2.textContent = author;
+
+        // Quote
+        const quoteP = document.createElement("p");
+        quoteP.classList.add("quoteText");
+        quoteP.textContent = newQuote[numberQuote].text;
+
+        // Append author and quote
+        const quoteDay = document.querySelector(".quote");  
+        quoteDay.appendChild(autorH2);
+        quoteDay.appendChild(quoteP);
     }   
 }

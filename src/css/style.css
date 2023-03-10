@@ -1,28 +1,35 @@
 :root {
-    --font-body: Arial, Helvetica, sans-serif;
-    --font-headline: Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    --font-body: 'Roboto', sans-serif;
+    --font-headline: 'Special Elite', cursive;
+
     /* colors */
-    --primary-color: #7AC313;
-    --secondary-color: #C3423F;
-    --tertiary-color: #FDE74C;
+    --primary-yellowGreen: #7AC313;
+    --secondary-persianRed: #C3423F;
+    --accent1-maize: #FDE74C;
+    --accent2-aero: #5BC0EB;
+    --accent3-ivory: #FFFFF4;
+    --accent4-black: #000000;
+
     --light-grey: #d0d0d0;
     --dark-grey: #303030;
   
     /* sizes */
-    --font-base: 18px;
+    --font-size-base: 18px;
     --small-font: 0.8em;
     --large-font: 1.2em;
 }
 
 * {
     box-sizing: border-box;
-    max-width: 100%;
 }
 
 body {
-    margin: 0;
-    font-family: var(--font-body); /* Arial, Helvetica, sans-serif */
-    font-size: var(--font-base); /* 18px */
+    margin: 1rem auto; 
+    padding: 0 1rem;
+    line-height: 2.5rem;
+    max-width: 100em;
+    font-family: var(--font-body); /* 'Roboto', sans-serif; */
+    font-size: var(--font-size-base); /* 18px */
     color: var(--dark-grey); /* font color */
 }
 
@@ -60,10 +67,37 @@ header {
     height: auto;
 }
 
+
+/* Food-grid section home page */
+
 .food-grid {
     display: flex;
 }
 
 .food-grid div{
     text-align: center;
+}
+
+
+/* Inspirational quote */
+
+.quote {
+    border: 3px solid var(--secondary-persianRed);
+    border-radius: 3rem;
+    background: linear-gradient(45deg, var(--light-grey), var(--secondary-persianRed), var(--light-grey));
+    max-width: 30em;
+    margin: 5rem auto;
+    text-align: center;
+    font-size: 2rem;
+    padding: 2rem;
+}
+
+.quote img {
+    width: 5rem;  
+    margin-right: 45rem;
+    animation: moveSide 1s infinite;
+}
+
+@keyframes moveSide {
+    100% {transform: rotate(360deg);}
 }
