@@ -49,10 +49,14 @@ In today's fast-paced life, people often forget to pay attention to their food h
 ## Colors / Typography / Specific Elements
 - Primary       #7AC313
 - Secondary     #C3423F
-- Accent 1        #FDE74C
-- Accent 2        #5BC0EB
-- Accent 3        #FFFFF4
-- Accent 4        #000000
+- Accent 1      #FDE74C
+- Accent 2      #5BC0EB
+- Accent 3      #FFFFF4
+- Accent 4      #000000
+
+
+## Color Palette
+https://coolors.co/7ac313-c3423f-fde74c-5bc0eb-fffff4-000000
 
 
 ## Typography
