@@ -39,16 +39,11 @@ header {
 }
 
 .logo {
-    line-height: 60px;
-    width: 245px;
-    overflow: hidden;
     display: flex;
-    font-family: var(--font-headline);
 }
 
 .logo img {
-    width: 60px;
-    height: 60px;
+    height: 80px;
 }
 
 .hero {
@@ -58,6 +53,10 @@ header {
 .hero img {
     width: 100%;
     height: auto;
+}
+
+main, footer {
+    padding: 18px;
 }
 
 .food-grid {
