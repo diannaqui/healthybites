@@ -24,18 +24,16 @@ export function renderWithTemplate(
 export async function loadTemplate(path) {
   const response = await fetch(path);
   const template = response.text();
-  console.log(template)
   return template
 }
 
 export async function loadHeaderFooter() {
-  console.log("loadHeaderFooter")
-  const headerTemplate = await loadTemplate("../partials/header.html");
-  const footerTemplate = await loadTemplate("../partials/footer.html");
+  const headerTemplate = await loadTemplate(require("../partials/header.html"));
+  const footerTemplate = await loadTemplate(require("../partials/footer.html"));
 
-  const headerElement = document.querySelector("#main-header") // Grab the header element out of the DOM
-  const footerElement = document.querySelector("#main-footer") // Grab the footer element out of the DOM
+  const headerElement = document.querySelector("#main-header") 
+  const footerElement = document.querySelector("#main-footer")
 
   renderWithTemplate(headerTemplate, headerElement);
-  // renderWithTemplate(footerTemplate, footerElement);
+  renderWithTemplate(footerTemplate, footerElement);
 }
