@@ -82,24 +82,25 @@ header {
 /* Inspirational quote */
 
 .quote {
-    border: 3px solid var(--secondary-persianRed);
-    border-radius: 3rem;
-    background: linear-gradient(45deg, var(--light-grey), var(--secondary-persianRed), var(--light-grey));
+    border-radius: 5rem;
     max-width: 30em;
     margin: 5rem auto;
     text-align: center;
     font-size: 2rem;
     padding: 2rem;
+    animation: moveColor 0.5s infinite;
 }
 
 .quote img {
     width: 5rem;  
     margin-right: 45rem;
-    animation: moveSide 1s infinite;
 }
 
-@keyframes moveSide {
-    100% {transform: rotate(360deg);}
+@keyframes moveColor {
+    0% {background: linear-gradient(150deg, var(--secondary-persianRed), var(--light-grey), var(--accent3-ivory));}
+    35% {background: linear-gradient(200deg, var(--secondary-persianRed), var(--light-grey), var(--accent3-ivory));} 
+    70% {background: linear-gradient(330deg, var(--secondary-persianRed), var(--light-grey), var(--accent3-ivory));}
+    100% {background: linear-gradient(380deg, var(--secondary-persianRed), var(--light-grey), var(--accent3-ivory));}
 }
 /* Header styles */
 #main-header {
@@ -177,3 +178,9 @@ header {
     text-align: center;
   }
   
+@keyframes moveColor {
+    0% {background: linear-gradient(150deg, var(--secondary-persianRed), var(--light-grey), var(--accent3-ivory));}
+    35% {background: linear-gradient(200deg, var(--secondary-persianRed), var(--light-grey), var(--accent3-ivory));} 
+    70% {background: linear-gradient(330deg, var(--secondary-persianRed), var(--light-grey), var(--accent3-ivory));}
+    100% {background: linear-gradient(380deg, var(--secondary-persianRed), var(--light-grey), var(--accent3-ivory));}
+}

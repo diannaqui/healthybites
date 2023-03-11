@@ -1,5 +1,6 @@
 // INSPIRATIONAL QUOTE
 import { convertToJson } from "./utils";
+import quoteImg from "../images/quotation.svg";
 
 export class InspirationalQuote {
 
@@ -14,6 +15,10 @@ export class InspirationalQuote {
 
         // Random number between 0 and the length of the quote array
         let numberQuote = Math.floor(Math.random() * newQuote.length);
+
+        const img = document.createElement("img");
+        img.src = quoteImg;
+        img.alt = "Quote mark animation";
 
         // Author's name
         let author = newQuote[numberQuote].author;
@@ -30,6 +35,7 @@ export class InspirationalQuote {
 
         // Append author and quote
         const quoteDay = document.querySelector(".quote");  
+        quoteDay.appendChild(img);
         quoteDay.appendChild(autorH2);
         quoteDay.appendChild(quoteP);
     }   
