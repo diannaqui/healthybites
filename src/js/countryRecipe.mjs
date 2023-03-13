@@ -1,5 +1,5 @@
-const form = document.getElementById('country-form');
-const recipeContainer = document.getElementById('recipe-container');
+const form = document.getElementById("country-form");
+const recipeContainer = document.getElementById("recipe-container");
 
 const countries = [
   "Afghanistan",
@@ -200,19 +200,19 @@ const countries = [
   "Zambia",
   "Zimbabwe"
 ];
-const countrySelect = document.getElementById('country');
+const countrySelect = document.getElementById("country");
 
 countries.forEach(country => {
-  const option = document.createElement('option');
+  const option = document.createElement("option");
   option.value = country.toLowerCase();
   option.textContent = country;
   countrySelect.appendChild(option);
 });
 
-form.addEventListener('submit', async (e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const country = document.getElementById('country').value;
+  const country = document.getElementById("country").value;
 
   const response = await fetch(`https://api.spoonacular.com/food/${country}/complexSearch?apiKey=85fc6e9102e54cd3b863cc238b62f727`);
   const data = await response.json();

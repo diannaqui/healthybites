@@ -47,6 +47,7 @@ header {
 
 .logo {
     display: flex;
+    float: left; /* Align the logo and navigation */
 }
 
 .logo img {
@@ -67,17 +68,15 @@ main, footer {
 }
 
 /* Food-grid section home page */
-
 .food-grid {
     display: flex;
 }
 
-.food-grid div{
+.food-grid div {
     text-align: center;
 }
 
 /* Inspirational quote */
-
 .quote {
     border-radius: 5rem;
     max-width: 30em;
@@ -102,14 +101,86 @@ main, footer {
 
 /* Header styles */
 #main-header {
-    background-color: #333;
+    background-color: var(--primary-yellowGreen);
     color: #fff;
     padding: 1rem;
 }
 
-#main-header nav ul {
+/*************************************************************/
+/* Navbar container */
+.navbar {
+  overflow: hidden;
+  background-color: var(--accent2-aero);
+  font-family: Arial;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+/*************************************************************/
+
+/* #main-header nav ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   list-style: none;
 }
 
@@ -118,13 +189,15 @@ main, footer {
 }
 
 #main-header nav ul li a {
-  color: #d0d0d0;
+  color: var(--accent3-ivory);
   text-decoration: none;
 }
 
 #main-header nav ul li a:hover {
   text-decoration: underline;
-}
+} */
+
+/*************************************************************/
 
 /* Main content styles */
 .container {
@@ -172,7 +245,7 @@ button[type="submit"]:hover {
 
 /* Footer styles */
 #main-footer {
-  background-color: #333;
+  background-color: var(--primary-yellowGreen);
   color: #fff;
   padding: 1rem;
   text-align: center;

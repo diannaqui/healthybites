@@ -1,11 +1,11 @@
-const form = document.getElementById('recipe-form');
+const form = document.getElementById("recipe-form");
 
-form.addEventListener('submit', (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const recipeName = document.getElementById('recipe-name').value;
-  const ingredients = document.getElementById('ingredients').value;
-  const instructions = document.getElementById('instructions').value;
+  const recipeName = document.getElementById("recipe-name").value;
+  const ingredients = document.getElementById("ingredients").value;
+  const instructions = document.getElementById("instructions").value;
 
   const recipeData = {
     name: recipeName,

@@ -1,7 +1,7 @@
-const recipeContainer = document.getElementById('recipe-container');
+const recipeContainer = document.getElementById("recipe-container");
 
 const urlParams = new URLSearchParams(window.location.search);
-const recipeId = urlParams.get('id');
+const recipeId = urlParams.get("id");
 
 fetch(`https://my-api.com/recipes/${recipeId}`)
   .then(response => response.json())
