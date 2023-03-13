@@ -1,7 +1,7 @@
 import { InspirationalQuote } from "./quote";
 import { loadHeaderFooter } from "./utils";
 
-//loadHeaderFooter();
+loadHeaderFooter();
 
 const quote = new InspirationalQuote();
 quote.getQuote();
