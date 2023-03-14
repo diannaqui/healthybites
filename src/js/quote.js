@@ -1,5 +1,5 @@
 // INSPIRATIONAL QUOTE
-import { convertToJson } from "./utils";
+import { convertToJson } from "./ExternalServices.mjs";
 import quoteImg from "../images/quotation.svg";
 
 export class InspirationalQuote {

@@ -1,11 +1,3 @@
-export function convertToJson(res) {
-    if (res.ok) {
-      return res.json();
-    } else {
-      throw { name: "servicesError", message: res.json() };
-    }
-}
-
 // To load templates.
 export function renderWithTemplate(
   template,
@@ -20,6 +12,33 @@ export function renderWithTemplate(
     callback(data);
   }
 }
+
+
+export function renderListWithTemplate(
+  templateFn,
+  parentElement,
+  list,
+  position = "afterbegin",
+  clear = true
+) {
+
+  //const htmlStrings = list.map(templateFn);  //data to html
+  //console.log(toString(htmlStrings))
+  // if clear is true we need to clear out the contents of the parent.
+  if (clear) {
+    parentElement.innerHTML = "";
+  }
+  parentElement.insertAdjacentHTML(position,templateFn);
+}
+
+
+export function getParam(param) {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const recipe = urlParams.get(param);
+  return recipe;
+}
+
 
 export async function loadTemplate(path) {
   const response = await fetch(path);

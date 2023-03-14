@@ -25,7 +25,7 @@ In today's fast-paced life, people often forget to pay attention to their food h
 
 ## Data Sources / External APIs 
 - Food - https://spoonacular.com/food-api 
-- Quote of the day API -  http://api.quotable.io/random 
+- Quote of the day API -  https://forum.freecodecamp.org/t/free-api-inspirational-quotes-json-with-code-examples/311373
 
 
 ## Initial Module List 
