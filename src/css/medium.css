@@ -1,0 +1,10 @@
+@media(min-width: 35rem){
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+    .food-grid {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+    }
+}

@@ -32,12 +32,12 @@ export class InspirationalQuote {
         // Quote
         const quoteP = document.createElement("p");
         quoteP.classList.add("quoteText");
-        quoteP.textContent = newQuote[numberQuote].text;
+        quoteP.textContent = `"${newQuote[numberQuote].text}"`;
 
         // Append mark, author and quote
         const quoteDay = document.querySelector(".quote");  
         quoteDay.appendChild(img);
-        quoteDay.appendChild(autorH2);
         quoteDay.appendChild(quoteP);
+        quoteDay.appendChild(autorH2);
     }   
 }
