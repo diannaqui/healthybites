@@ -19,7 +19,7 @@ export function renderListWithTemplate(
   parentElement,
   list,
   position = "afterbegin",
-  clear = true
+  clear = false
 ) {
 
   //const htmlStrings = list.map(templateFn);  //data to html

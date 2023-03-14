@@ -23,6 +23,6 @@ export function testimonial() {
     const objectTestimonial = JSON.parse(jsonTestimonials);
     console.log(objectTestimonial);
     
-    const testimonialContainer = querySelector(".testimonial");
+    const testimonialContainer = document.querySelector(".testimonial");
     testimonialContainer.textContent = objectTestimonial    
 }
