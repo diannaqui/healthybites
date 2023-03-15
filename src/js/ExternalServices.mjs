@@ -1,6 +1,6 @@
 const baseURL = "https://api.spoonacular.com/recipes/";
 
-const apiKeyNumber = "bd9690f36eb2416991bd24870cd5b0e3";        // Diana 
+ const apiKeyNumber = "6c24c552149041ef978d2802024b4955";        // Diana 
 // const apiKeyNumber = "";        // Nikita
 // const apiKeyNumber = "";        // Zeir
 // const apiKeyNumber = "";        // Josue
@@ -19,6 +19,7 @@ export function convertToJson(res) {
 export default class ExternalServices {
   constructor() {}
 
+  // 4 random foods for the main page  // typeFood = breakfast - dinner - main course - drinks
   async getRandom(typeFood) {
     try {
         const response = await fetch(baseURL + `random?apiKey=${apiKeyNumber}&tags=${typeFood},image&number=1`);
@@ -29,4 +30,16 @@ export default class ExternalServices {
      console.log(err);
    }
   }  
+
+  // Detail information by ID
+  async getRecipeById(idSelected) {
+    try {
+      const response = await fetch(baseURL + `${idSelected}/nutritionWidget.json?apiKey=${apiKeyNumber}`);
+      const data = await convertToJson(response);
+      return data;
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
  }

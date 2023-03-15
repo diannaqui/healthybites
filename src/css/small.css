@@ -40,6 +40,13 @@ h3, h4, h5, h6 {
 img {
     max-width: 100%;
 }
+
+/* don't display other pages on main page at the beginning */
+.recipeType, .recipeDetails, .recipeAbout {
+  display: none;
+}
+
+
 header#main-header {
     color: white;
     margin: 0;
