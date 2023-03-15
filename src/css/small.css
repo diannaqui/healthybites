@@ -133,6 +133,12 @@ section.mission {
 /* Navbar container */
 .navbar {
     font-family: var(--font-body);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 50%;
+    padding-right: 1rem;
 }
 /* Links inside the navbar */
 .navbar a {
@@ -159,7 +165,7 @@ section.mission {
     color: white;
     padding: 14px 16px;
     background-color: inherit;
-    font-family: inherit; /* Important for vertical align on mobile phones */
+    font-family: inherit;
     margin: 0; /* Important for vertical align on mobile phones */
 }
 
