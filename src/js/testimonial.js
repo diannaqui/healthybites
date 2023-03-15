@@ -33,11 +33,8 @@ export function testimonial() {
         <p>${testimonial.name}</p>
         <p>${testimonial.message}</p>
         `
-
+        
         const testimonialContainer = document.querySelector(".testimonial");
         testimonialContainer.appendChild(divElement);
     });
-
-
-
 }
