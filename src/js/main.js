@@ -20,4 +20,3 @@ testimonial();
 // Quote on main 
 const quote = new InspirationalQuote();
 quote.getQuote();
-
