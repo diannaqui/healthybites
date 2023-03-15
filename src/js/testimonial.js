@@ -23,6 +23,18 @@ export function testimonial() {
     const objectTestimonial = JSON.parse(jsonTestimonials);
     console.log(objectTestimonial);
     
-    const testimonialContainer = document.querySelector(".testimonial");
-    testimonialContainer.textContent = objectTestimonial    
+    objectTestimonial.forEach(testimonial => {
+        console.log(testimonial)
+
+        const divElement = document.createElement("div");
+        divElement.classList.add("customerTestimonial");
+
+        divElement.innerHTML = `
+        <p>${testimonial.name}</p>
+        <p>${testimonial.message}</p>
+        `
+        
+        const testimonialContainer = document.querySelector(".testimonial");
+        testimonialContainer.appendChild(divElement);
+    });
 }
