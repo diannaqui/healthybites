@@ -22,9 +22,10 @@ function getType() {
 }
 
 export default class RecipeListingSide { 
-    constructor(dataSource, listElement) {
+    constructor(dataSource, listElement, category=null) {
         this.dataSource = dataSource;
         this.listElement = listElement;
+        this.listCategory = category;
     }
 
     async init() {
@@ -34,7 +35,13 @@ export default class RecipeListingSide {
             this.renderList(list)
         }
     }
+    async listing() {
 
+        for (let i=0; i<4; i++) {
+            const list = await this.dataSource.getRandom(this.listCategory);
+            this.renderList(list)
+        }
+    }
     renderList(list) {
         renderListWithTemplate(recipeCardTemplate(list), this.listElement, list);
       }

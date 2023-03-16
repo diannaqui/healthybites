@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,62 +8,96 @@
     <link rel="stylesheet" href="./css/small.css">
     <link rel="stylesheet" href="./css/medium.css">
     <link rel="stylesheet" href="./css/large.css">
+
+
 </head>
+
 <body>
     <header class="divider" id="main-header"></header>
-    <div class="hero">
-        <img src="images/hero-image.jpg" alt="someone holding a bowl of various types of vegetables">
-    </div>
-    <main class="divider recipeRightSide">
-        <div>
-            <section class="mission"> 
-                <!-- <p>In today's fast-paced life</p> -->
-                <p>People often forget to pay attention to their food habits.</p>
-                <p>In today's fast-paced life</p>
-                <p>people often forget to pay attention to their food habits.</p>
-                <p>Healthy Bites, aims to guide people toward a healthier lifestyle by providing delicious and nutritious food options</p>
-                <p>As a well-known phrase says: "We are what we eat."</p>
-            </section>
-            <section class="foodType">
-                <div class="food-grid">
-                    <div>
-                        <a href="foodListing/index.html">
-                            <!-- ADD IMAGE FOR BREAKFAST -->
-                            <img src="images/logoPlaceholder.webp" alt="ADD TEXT">
-                        </a>
-                        <h2>Breakfast</h2>
-                    </div>
-                    <div>
-                        <a href="foodListing/index.html">
-                            <!-- ADD IMAGE FOR MAIN COURSE -->
-                            <img src="images/logoPlaceholder.webp" alt="ADD TEXT">
-                        </a>
-                        <h2>Main Course</h2>
-                    </div>
-                    <div>
-                        <a href="foodListing/index.html">
-                            <!-- ADD IMAGE FOR DESSERT -->
-                            <img src="images/logoPlaceholder.webp" alt="ADD TEXT">
-                        </a>
-                        <h2>Dessert</h2>
-                    </div>
-                    <div>
-                        <a href="foodListing/index.html">
-                            <!-- ADD IMAGE FOR DRINKS -->
-                            <img src="images/logoPlaceholder.webp" alt="ADD TEXT">
-                        </a>
-                        <h2>Drinks</h2>
-                    </div> 
-                </div>
-            </section>
-            <div class="quote"></div>
-            <div class="testimonial"></div>
-            <div open class="news-letter">news-letter</div>
+    <div id="main-content">
+        <div class="hero">
+            <img src="images/hero-image.jpg" alt="someone holding a bowl of various types of vegetables">
         </div>
 
-        <div class="recipeContainer"></div>
-    </main>
+        <main class="divider recipeRightSide">
+            <div>
+                <section class="mission">
+                    <!-- <p>In today's fast-paced life</p> -->
+                    <p>People often forget to pay attention to their food habits.</p>
+                    <p>In today's fast-paced life</p>
+                    <p>people often forget to pay attention to their food habits.</p>
+                    <p>Healthy Bites, aims to guide people toward a healthier lifestyle by providing delicious and
+                        nutritious food options</p>
+                    <p>As a well-known phrase says: "We are what we eat."</p>
+                </section>
+                <section class="foodType">
+                    <div class="food-grid">
+                        <div>
+                            <a href="/recipe">
+                                <!-- ADD IMAGE FOR BREAKFAST -->
+                                <img src="images/logoPlaceholder.webp" alt="ADD TEXT">
+                            </a>
+                            <h2>Breakfast</h2>
+                        </div>
+                        <div>
+                            <a href="foodListing/index.html?mealtype=">
+                                <!-- ADD IMAGE FOR MAIN COURSE -->
+                                <img src="images/logoPlaceholder.webp" alt="ADD TEXT">
+                            </a>
+                            <h2>Main Course</h2>
+                        </div>
+                        <div>
+                            <a href="foodListing/index.html?mealtype=">
+                                <!-- ADD IMAGE FOR DESSERT -->
+                                <img src="images/logoPlaceholder.webp" alt="ADD TEXT">
+                            </a>
+                            <h2>Dessert</h2>
+                        </div>
+                        <div>
+                            <a href="foodListing/index.html?mealtype=">
+                                <!-- ADD IMAGE FOR DRINKS -->
+                                <img src="images/logoPlaceholder.webp" alt="ADD TEXT">
+                            </a>
+                            <h2>Drinks</h2>
+                        </div>
+                    </div>
+                </section>
+                <div class="quote"></div>
+                <div class="testimonial"></div>
+                <div open class="news-letter">news-letter</div>
+            </div>
+
+            <div class="recipeContainer"></div>
+
+            <!-- Show products by type -->
+            <div class="recipeType">
+                <h2>recipe TYPE </h2>
+                <div class="renderRecipeByType">TYPE</div>
+            </div>
+
+
+            <!-- Show detiles -->
+            <div class="recipeDetails">
+                <h2>recipe DETAILS </h2>
+                <div class="renderRecipeDetails">DETAILS</div>
+            </div>
+
+
+            <!-- About -->
+            <div class="recipeAbout">
+                <h2>recipe ABOUT</h2>
+                <div class="renderAbout">ABOUT</div>
+            </div>
+
+        </main>
+
+
+    </div>
+
     <footer id="main-footer"></footer>
-    <script type="module" src="js/main.js"></script>
+    <script type="module" src="./js/main.js" defer></script>
+    <script src="./js/router.js" type="module" defer></script>
+
 </body>
+
 </html>
