@@ -3,8 +3,8 @@
     --font-headline: 'Special Elite', cursive;
 
     /* colors */
-    --primary-yellowGreen: #7ac142;
-    --secondary-persianRed: #C3423F;
+    --primary-yellowGreen: #88db48;
+    --secondary-persianRed: #dc5856;
     --accent1-maize: #FDE74C;
     --accent2-aero: #5BC0EB;
     --accent3-ivory: #f7f7ef;
@@ -46,7 +46,6 @@ img {
   display: none;
 }
 
-
 header#main-header {
     color: white;
     margin: 0;
@@ -60,6 +59,12 @@ header#main-header {
 div.logo {
     max-width: 7rem;
     max-height: 6rem;
+    transition: all 0.5s ease-in-out;
+}
+div.logo:hover { 
+    cursor: pointer;
+    transform: scaleX(1.1);
+    transition: all 0.5s ease-in-out;
 }
 .logo img {
     max-width: 100%;
@@ -73,9 +78,16 @@ div.logo {
     padding: 0;
     margin: 0;
     border-bottom: 2px solid var(--secondary-persianRed);
+    position: relative;
 }
 .hero img {
     max-width: 100%;
+}
+.titleHero {
+  position: absolute;
+  top: 1rem;
+  color: rgb(255, 132, 0);
+  font-family: var(--font-headline);
 }
 /* Food-grid section home page */
 .food-grid {
@@ -102,7 +114,7 @@ div.quote {
     background-image: linear-gradient(90deg, #b5ff7c, #fff189);
     background-size: 400% 400%;
     animation: rotateColor 5s ease infinite;
-    max-width: 30em;
+    max-width: 100%;
     margin: 1.5rem 1rem;
     text-align: center;
     font-size: 1rem;
@@ -127,6 +139,9 @@ section.mission {
     padding: 1rem 1.5rem;
     margin: 1.5rem 1rem;
 }
+section.mission p {
+  margin: 0;
+}
 @keyframes rotateColor {
     0% {
         background-position: 0 0;
@@ -135,104 +150,96 @@ section.mission {
         background-position: 100% 0;
     }
 }
-
-/*************************************************************/
-/* Navbar container */
 .navbar {
-    font-family: var(--font-body);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 50%;
-    padding-right: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--primary-yellowGreen);
+  padding: 10px;
+  width: 100%;
+  display: none;
 }
-/* Links inside the navbar */
+
+.navbar ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.navbar li {
+  margin-right: 20px;
+  position: relative;
+  transition: all 0.5s ease;
+}
+.navbar li a {
+  font-size: 1rem;
+}
+.navbar li:hover, .dropbtn:hover, .dropdown a:hover {
+  background-color: var(--accent1-maize);
+  border-radius: 2rem 1rem;
+  transition: all 0.5s ease;
+  border: var(--dark-grey) .5px solid;
+}
+
+
+.navbar li:last-child {
+  margin-right: 0;
+}
+
 .navbar a {
-    display: flex;
-    background-color: #b5ff7c;
-    /* float: left;
-    font-size: 16px;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none; */
-}
-/* The dropdown container */
-.dropdown {
-    float: left;
-    overflow: hidden;
+  display: block;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px;
 }
 
-/* Dropdown button */
-.dropdown .dropbtn {
-    font-size: 16px;
-    border: none;
-    outline: none;
-    color: white;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0; /* Important for vertical align on mobile phones */
-}
-
-/* Add a red background color to navbar links on hover */
-.navbar a:hover, .dropdown:hover .dropbtn {
-    
-}
-
-/* Dropdown content (hidden by default) */
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--primary-yellowGreen);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  padding: 0;
+  margin: 0;
+  border-radius: 2rem 1rem;
 }
 
-/* Links inside the dropdown */
 .dropdown-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
+  display: block;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px;
+  text-align: center;
 }
 
-/* Add a grey background color to dropdown links on hover */
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-/* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
 }
-/*************************************************************/
 
-/* #main-header nav ul {
-  display: flex;
-  justify-content: space-evenly;
-  list-style: none;
+.dropbtn {
+  background-color: var(--primary-yellowGreen);
+  color: #333;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px;
 }
 
-#main-header nav ul li {
-  margin: 0 1rem;
+.fa-caret-down {
+  margin-left: 5px;
 }
-
-#main-header nav ul li a {
-  color: var(--accent3-ivory);
-  text-decoration: none;
-}
-
-#main-header nav ul li a:hover {
-  text-decoration: underline;
-} */
-
-/*************************************************************/
-
 /* Main content styles */
 .container {
   max-width: 800px;
@@ -330,4 +337,34 @@ body {
   body {
     grid-auto-flow: column;
   }
+}
+/* ---------testimonials------- */
+.customerTestimonial {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    border: solid var(--dark-grey);
+    border-radius: 2rem;
+    box-shadow: 1px 1px 0.5px 0.5px var(--dark-grey);
+    background-color: rgb(41, 162, 173);
+    color: white;
+}
+.customerTestimonial p, .customerTestimonial h3 {
+  margin: 0;
+}
+.customerTestimonial h3 {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.testimonialsTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 1rem;
+}
+div.testimonial {
+  margin-top: 3rem;
 }
