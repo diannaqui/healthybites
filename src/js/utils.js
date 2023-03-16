@@ -47,28 +47,13 @@ export async function loadTemplate(path) {
 }
 
 export async function loadHeaderFooter() {
+  console.log("TESTING");
   const headerTemplate = await loadTemplate(require("../partials/header.html"));
   const footerTemplate = await loadTemplate(require("../partials/footer.html"));
 
-  const headerElement = document.querySelector("#main-header") 
+  const headerElement = document.querySelector("#main-header")
   const footerElement = document.querySelector("#main-footer")
 
   renderWithTemplate(headerTemplate, headerElement);
   renderWithTemplate(footerTemplate, footerElement);
-}
-
-
-  
-// HOW TO CALL THE FUNCTION
-// let test = document.querySelector(".button1")
-// test.addEventListener("click", activePage.bind(null,".recipe1", ".recipe2"));
-// ".recipe1" ACTUAL PAGE
-// ".recipe2" NEXT PAGE
-
-export function activePage(activeNameClass, newNameClass) {
-  const current = document.querySelector(activeNameClass);
-  current.style.display = "none";
-
-  const newCurrent = document.querySelector(newNameClass);
-  newCurrent.style.display = "block";
 }

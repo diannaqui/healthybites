@@ -1,9 +1,9 @@
 const baseURL = "https://api.spoonacular.com/recipes/";
 
- const apiKeyNumber = "6c24c552149041ef978d2802024b4955";        // Diana 
+const apiKeyNumber = "85fc6e9102e54cd3b863cc238b62f727";        // Diana 
 // const apiKeyNumber = "";        // Nikita
 // const apiKeyNumber = "";        // Zeir
-// const apiKeyNumber = "";        // Josue
+// const apiKeyNumber = "85fc6e9102e54cd3b863cc238b62f727";        // Josue
 // const apiKeyNumber = "";        // Felix
 
 
@@ -19,7 +19,6 @@ export function convertToJson(res) {
 export default class ExternalServices {
   constructor() {}
 
-  // 4 random foods for the main page  // typeFood = breakfast - dinner - main course - drinks
   async getRandom(typeFood) {
     try {
         const response = await fetch(baseURL + `random?apiKey=${apiKeyNumber}&tags=${typeFood},image&number=1`);
@@ -30,16 +29,23 @@ export default class ExternalServices {
      console.log(err);
    }
   }  
+  async getData(category) {
+    const response = await fetch(baseURL + `products/search/${category}`);
+    const data = await convertToJson(response);
+    return data.Result;
+  }
 
-  // Detail information by ID
-  async getRecipeById(idSelected) {
-    try {
-      const response = await fetch(baseURL + `${idSelected}/nutritionWidget.json?apiKey=${apiKeyNumber}`);
-      const data = await convertToJson(response);
-      return data;
-    }
-    catch (err) {
-      console.log(err)
-    }
+  async getOrders(token) {
+    const options = {
+      method: "GET",
+      // the server will reject our request if we don't include the Authorization header with a valid token!
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(baseURL + "orders", options).then(
+      convertToJson
+    );
+    return response;
   }
  }
