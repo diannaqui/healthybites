@@ -1,4 +1,3 @@
-import { loadHeaderFooter } from "./utils";
 
 function renderPage() {
     const path = window.location.pathname;
@@ -12,26 +11,29 @@ function renderPage() {
         case '/recipe':
             pageUrl = require("../recipe.html");
             break;
-       
+
         case '/recipebycountry':
             pageUrl = require("../recipeByCountry.html");
             break;
-       default: 
-       pageUrl = require("../index.html");
+       default:
+       pageUrl = require("../home.html");
        break;
-  
+
     }
+
+console.log("WEEEEEZER", pageUrl);
 
     fetch(pageUrl)
         .then(response => response.text())
         .then(html => {
-            
+
             document.getElementById('main-content').innerHTML = html;
         })
         .catch(error => console.error(error));
 }
 
+export default function() {
+  console.log("THIS SHOULD ONLY RUN ONCE!");
 window.addEventListener('popstate', renderPage);
-
-
 renderPage();
+}
