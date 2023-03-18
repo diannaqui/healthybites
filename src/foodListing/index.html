@@ -7,13 +7,43 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <header class="divider" id="main-heaer"></header>
+    <header class="divider" id="main-header"></header>
 
     <main>
-            <!-- RENDER THE RECEPIES BY CATEGORY {DINNER - BREAKFAST - DRINKS - MAIN COURSE}-->
+        <section class="foodType">
+            <div class="food-grid">
+                <div>
+                    <a href="foodListing.html?category=breakfast">
+                        <img src="images/breakfast.jpg" alt="Breakfast">
+                    </a>
+                    <h2>Breakfast</h2>
+                </div>
+                <div>
+                    <a href="foodListing.html?category=main-course">
+                        <img src="images/main-course.jpg" alt="Main Course">
+                    </a>
+                    <h2>Main Course</h2>
+                </div>
+                <div>
+                    <a href="foodListing.html?category=dessert">
+                        <img src="images/dessert.jpg" alt="Dessert">
+                    </a>
+                    <h2>Dessert</h2>
+                </div>
+                <div>
+                    <a href="foodListing.html?category=drinks">
+                        <img src="images/drinks.jpg" alt="Drinks">
+                    </a>
+                    <h2>Drinks</h2>
+                </div>
+            </div>
+        </section>
+
+        <ul id="recipe-list"></ul>
+        <button id="sort-name">Sort by Name</button>
     </main>
 
     <footer id="main-footer"></footer>
-    <script src="../js/foodListing.js" type="module"></script>
+    <script src="../js/recipeListing.js" type="module"></script>
 </body>
 </html>
