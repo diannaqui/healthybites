@@ -1,4 +1,6 @@
 export function testimonial() {
+    const test = document.createElement('div');
+    test.classList.add('testimonials');
 
     const testimonials = [
         {
@@ -24,7 +26,7 @@ export function testimonial() {
     console.log(objectTestimonial);
     
     objectTestimonial.forEach(testimonial => {
-        console.log(testimonial)
+        
 
         const divElement = document.createElement("div");
         divElement.classList.add("customerTestimonial");
@@ -34,7 +36,7 @@ export function testimonial() {
         <p>${testimonial.message}</p>
         `
         
-        const testimonialContainer = document.querySelector(".testimonial");
-        testimonialContainer.appendChild(divElement);
+        test.appendChild(divElement);
     });
+    return test;
 }
