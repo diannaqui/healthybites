@@ -1,6 +1,4 @@
-// INSPIRATIONAL QUOTE
 import { convertToJson } from "./ExternalServices.mjs";
-import quoteImg from "../images/quotation.svg";
 
 export class InspirationalQuote {
 
@@ -13,13 +11,11 @@ export class InspirationalQuote {
     async getQuote() {
         const newQuote = await this.getData();
 
+        const quoteDay = document.createElement('div');
+        quoteDay.classList.add('quote');
+
         // Random number between 0 and the length of the quote array
         let numberQuote = Math.floor(Math.random() * newQuote.length);
-
-        // Quote mark
-        const img = document.createElement("img");
-        img.src = quoteImg;
-        img.alt = "Quote mark animation";
 
         // Author's name
         let author = newQuote[numberQuote].author;
@@ -34,10 +30,12 @@ export class InspirationalQuote {
         quoteP.classList.add("quoteText");
         quoteP.textContent = `"${newQuote[numberQuote].text}"`;
 
-        // Append mark, author and quote
-        const quoteDay = document.querySelector(".quote");  
-        quoteDay.appendChild(img);
-        quoteDay.appendChild(quoteP);
+        // Append author and quote
         quoteDay.appendChild(autorH2);
+        quoteDay.appendChild(quoteP);
+        
+        const q = quoteDay;
+        console.log(q)
+        return q;
     }   
 }
