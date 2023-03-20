@@ -3,10 +3,9 @@ function renderPage() {
     const path = window.location.pathname;
 
     let pageUrl = '';
-    console.log(path)
     switch (path) {
         case '/about':
-            pageUrl =  require("../about.html");
+            pageUrl =  require("./about");
             break;
         case '/recipe':
             pageUrl = require("../recipe.html");
@@ -21,7 +20,6 @@ function renderPage() {
 
     }
 
-console.log("WEEEEEZER", pageUrl);
 
     fetch(pageUrl)
         .then(response => response.text())
@@ -33,7 +31,6 @@ console.log("WEEEEEZER", pageUrl);
 }
 
 export default function() {
-  console.log("THIS SHOULD ONLY RUN ONCE!");
 window.addEventListener('popstate', renderPage);
 renderPage();
 }

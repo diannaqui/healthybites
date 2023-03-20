@@ -17,14 +17,11 @@ export function testimonial() {
     
     // Convert the array to JSON format
     const jsonTestimonials = JSON.stringify(testimonials);
-    console.log(jsonTestimonials);
     
     // Parse or load the JSON data into JavaScrip object
     const objectTestimonial = JSON.parse(jsonTestimonials);
-    console.log(objectTestimonial);
     
     objectTestimonial.forEach(testimonial => {
-        console.log(testimonial)
 
         const divElement = document.createElement("div");
         divElement.classList.add("customerTestimonial");

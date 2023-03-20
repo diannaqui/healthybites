@@ -8,7 +8,6 @@ import initRouter from "./router.js"
 
 // Four recipes on the right side on main
 let title =  window.location.pathname 
-console.log(title.length)
 function loadAfterRouter() {
     // this function makes sure that this code will be runned after the router makes his job
     if (title == "index.html" || title.length < 2){
