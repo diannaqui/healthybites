@@ -3,25 +3,27 @@ import logoImg from "../images/healthy-bites.jpg"
 
 function Heater(mainDiv) {
 
-    const content = `<div class="logo">
-                        <a href="#/src/js/mainPage"><img src=${logoImg} alt="healthy bites logo"></a>
-                     </div>
-
-                     <div class="navbar">
-                        <a href="#">About</a>
-                        <div class="dropdown">
-                            <button class="dropbtn">Dropdown
-                                <i class="fa fa-caret-down"></i>
-                            </button>
-                            <div class="dropdown-content">
-                                <a href="#">Breakfast</a>
-                                <a href="#">Main Course</a>
-                                <a href="#">Dessert</a>
-                                <a href="#">Drinks</a>
-                            </div>
-                        </div>
-                     </div> `
-        
+    const content = `
+        <div class="logo">
+            <a href="#/src/js/mainPage"><img src=${logoImg} alt="healthy bites logo"></a>
+        </div>
+        <nav class="navbar">
+            <ul>        
+                <li><a href="#">About</a></li>
+                <li class="dropdown">
+                <button class="dropbtn">Dropdown
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">Breakfast</a>
+                    <a href="#">Main Course</a>
+                    <a href="#">Dessert</a>
+                    <a href="#">Drinks</a>
+                </div>
+                </li>
+            </ul>
+            </nav>
+        `
     const header = document.createElement('header');
     header.id = 'main-header';
     header.innerHTML = content;
@@ -46,11 +48,12 @@ function App() {
 
     // Main
     const main = document.createElement('main');
- 
+
     initRouter(main);
 
     // Together / header - main - footer
     const div = document.createElement('div');
+    div.id = 'headerMainFooterContainer';
     div.appendChild(Heater(main));
     div.appendChild(main);
     div.appendChild(Footer());

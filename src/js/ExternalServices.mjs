@@ -1,6 +1,6 @@
 const baseURL = "https://api.spoonacular.com/recipes/";
 
- const apiKeyNumber = "6c24c552149041ef978d2802024b4955";        // Diana 
+ const apiKeyNumber = "ee1b4b2469124adba61e35fc8ed4c30c";        // Diana 
 // const apiKeyNumber = "";        // Nikita
 // const apiKeyNumber = "";        // Zeir
 // const apiKeyNumber = "";        // Josue
