@@ -11,7 +11,7 @@ function Heater(mainDiv) {
             <ul>        
                 <li><a href="#">About</a></li>
                 <li class="dropdown">
-                <button class="dropbtn">Dropdown
+                <button class="dropbtn">Recipes
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">

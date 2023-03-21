@@ -24,6 +24,7 @@
 }
 * {
   box-sizing: border-box;
+  max-width: 100%;
 }
 body {
   margin: 0;
@@ -345,11 +346,11 @@ body {
 }
 }
 /* ---------testimonials------- */
-.customerTestimonial {
+div.customerTestimonial {
   display: flex;
   flex-direction: column;
   margin: 1rem;
-  padding: 1rem;
+  padding: 1rem 2rem;
   text-align: center;
   font-size: 1rem;
   border: solid var(--dark-grey);
@@ -357,6 +358,7 @@ body {
   box-shadow: 1px 1px 0.5px 0.5px var(--dark-grey);
   background-color: rgb(41, 162, 173);
   color: white;
+  max-width: 98%;
 }
 .customerTestimonial p, .customerTestimonial h3 {
 margin: 0;

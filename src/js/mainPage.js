@@ -29,7 +29,7 @@ function mainContent() {
 
                     // first child recipeRightSide - Testimonials / Quote / Four Links Recipes / Mission
                     const divContainer = document.createElement('div');
-                    
+                    divContainer.id = 'testimonialsMainContainer'
                             // Quote on main 
                             async function renderQuote(divContainer) {
                                 const quote = new InspirationalQuote();
