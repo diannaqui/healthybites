@@ -7,4 +7,24 @@
         display: grid;
         grid-template-columns: auto auto auto auto;
     }
+    .navbar ul {
+        display: flex;
+        flex-direction: row;
+    }
+    .testimonial {
+        display: grid;
+    }
+    .navbar {
+        display: block;
+    }
+    div.cardsContainer {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+    .titleHero {
+        position: absolute;
+        top: 1rem;
+        color: rgb(255, 132, 0);
+        font-size: 5em;
+    }
 }

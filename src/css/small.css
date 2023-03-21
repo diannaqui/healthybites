@@ -1,333 +1,378 @@
 :root {
-    --font-body: 'Roboto', sans-serif;
-    --font-headline: 'Special Elite', cursive;
+  --font-body: 'Roboto', sans-serif;
+  --font-headline: 'Special Elite', cursive;
 
-    /* colors */
-    --primary-yellowGreen: #7ac142;
-    --secondary-persianRed: #C3423F;
-    --accent1-maize: #FDE74C;
-    --accent2-aero: #5BC0EB;
-    --accent3-ivory: #f7f7ef;
-    --accent4-black: #000000;
+  /* colors */
+  --primary-yellowGreen: #88db48;
+  --secondary-persianRed: #dc5856;
+  --accent1-maize: #FDE74C;
+  --accent2-aero: #5BC0EB;
+  --accent3-ivory: #f7f7ef;
+  --accent4-black: #000000;
 
-    --light-grey: #d0d0d0;
-    --dark-grey: #303030;
-    /* sizes */
-    --font-size-base: 18px;
-    --small-font: 0.8em;
-    --large-font: 1.2em;
+  --light-grey: #d0d0d0;
+  --dark-grey: #303030;
+  /* sizes */
+  --font-size-base: 18px;
+  --small-font: 0.8em;
+  --large-font: 1.2em;
 }
-
+#root, div {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 body {
-    margin: 0;
-    padding: 0;
-    line-height: 2rem;
-    max-width: 100%;
-    font-family: var(--font-body);
-    font-size: var(--font-size-base);
-    color: var(--dark-grey);
-    background-color: ivory;
+  margin: 0;
+  padding: 0;
+  line-height: 2rem;
+  max-width: 100%;
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  color: var(--dark-grey);
+  background-color: ivory;
 }
 h1, h2 {
-    font-family: var(--font-body)
+  font-family: var(--font-body)
 }
 h3, h4, h5, h6 {
-    font-family: var(--font-headline)
+  font-family: var(--font-headline)
 }
 img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 /* don't display other pages on main page at the beginning */
 .recipeType, .recipeDetails, .recipeAbout {
-  display: none;
+display: none;
 }
-
 
 header#main-header {
-    color: white;
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0;
-    background-color: var(--primary-yellowGreen);
-    border-bottom: 2px solid var(--secondary-persianRed);
+  max-width: 100%;
+  color: white;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  background-color: var(--primary-yellowGreen);
+  border-bottom: 2px solid var(--secondary-persianRed);
 }
 div.logo {
-    max-width: 7rem;
-    max-height: 6rem;
+  max-width: 7rem;
+  max-height: 6rem;
+  transition: all 0.5s ease-in-out;
+}
+div.logo:hover { 
+  cursor: pointer;
+  transform: scaleX(1.1);
+  transition: all 0.5s ease-in-out;
 }
 .logo img {
-    max-width: 100%;
+  max-width: 100%;
 }
 .hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--accent3-ivory);
-    padding: 0;
-    margin: 0;
-    border-bottom: 2px solid var(--secondary-persianRed);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--accent3-ivory);
+  padding: 0;
+  margin: 0;
+  border-bottom: 2px solid var(--secondary-persianRed);
+  position: relative;
 }
 .hero img {
-    max-width: 100%;
+  max-width: 100%;
+}
+.titleHero {
+position: absolute;
+top: 1rem;
+color: rgb(255, 132, 0);
+font-family: var(--font-headline);
+text-shadow: 1px 1px 0px #fff;
 }
 /* Food-grid section home page */
 .food-grid {
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: .5rem;
-    margin: 1rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: .5rem;
+  margin: 1rem;
 }
 
 .food-grid div {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    text-align: center;
-    font-size: .7rem;
-    border: 1px solid var(--light-grey);
-    border-radius: 2rem;
-    box-shadow: 1px 1px 0.5px 0.5px var(--light-grey);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  text-align: center;
+  font-size: .7rem;
+  border: 1px solid var(--light-grey);
+  border-radius: 2rem;
+  box-shadow: 1px 1px 0.5px 0.5px var(--light-grey);
 }
 
 /* Inspirational quote */
 div.quote {
-    background-image: linear-gradient(90deg, #b5ff7c, #fff189);
-    background-size: 400% 400%;
-    animation: rotateColor 5s ease infinite;
-    max-width: 30em;
-    margin: 1.5rem 1rem;
-    text-align: center;
-    font-size: 1rem;
-    padding: 1rem 1.5rem;
-    border: solid var(--dark-grey);
-    border-radius: 2rem;
-    /* add box shadow to appear a card */
-    box-shadow: 1px 1px 0.5px 0.5px var(--dark-grey);
+  background-image: linear-gradient(90deg, #b5ff7c, #fff189);
+  background-size: 400% 400%;
+  animation: rotateColor 5s ease infinite;
+  max-width: 100%;
+  margin: 1.5rem 1rem;
+  text-align: center;
+  font-size: 1rem;
+  padding: 1rem 1.5rem;
+  border: solid var(--dark-grey);
+  border-radius: 2rem;
+  /* add box shadow to appear a card */
+  box-shadow: 1px 1px 0.5px 0.5px var(--dark-grey);
 }
 .quote img {
-    display: none;
+  display: none;
 }
 section.mission {
-    text-align: center;
-    color: white;
-    font-weight: 400;
-    background-color: tomato;
-    border: solid var(--dark-grey);
-    border-radius: 2rem;
-    /* add box shadow to appear a card */
-    box-shadow: 1px 1px 0.5px 0.5px var(--dark-grey);
-    padding: 1rem 1.5rem;
-    margin: 1.5rem 1rem;
+  text-align: center;
+  color: white;
+  font-weight: 400;
+  background-color: tomato;
+  border: solid var(--dark-grey);
+  border-radius: 2rem;
+  /* add box shadow to appear a card */
+  box-shadow: 1px 1px 0.5px 0.5px var(--dark-grey);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 1rem;
+}
+section.mission p {
+margin: 0;
 }
 @keyframes rotateColor {
-    0% {
-        background-position: 0 0;
-    }
-    100% {
-        background-position: 100% 0;
-    }
+  0% {
+      background-position: 0 0;
+  }
+  100% {
+      background-position: 100% 0;
+  }
 }
-
-/*************************************************************/
-/* Navbar container */
 .navbar {
-    font-family: var(--font-body);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 50%;
-    padding-right: 1rem;
+display: flex;
+justify-content: space-around;
+align-items: center;
+background-color: var(--primary-yellowGreen);
+padding: 10px;
+width: 100%;
+/* display: none; */
 }
-/* Links inside the navbar */
+
+.navbar ul {
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+align-items: center;
+list-style-type: none;
+margin: 0;
+padding: 0;
+width: 100%;
+}
+
+.navbar li {
+margin-right: 20px;
+position: relative;
+transition: all 0.5s ease;
+}
+.navbar li a {
+font-size: 1rem;
+}
+.navbar li:hover, .dropbtn:hover, .dropdown a:hover {
+background-color: var(--accent1-maize);
+border-radius: 2rem 1rem;
+transition: all 0.5s ease;
+border: var(--dark-grey) .5px solid;
+}
+
+
+.navbar li:last-child {
+margin-right: 0;
+}
+
 .navbar a {
-    display: flex;
-    background-color: #b5ff7c;
-    /* float: left;
-    font-size: 16px;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none; */
-}
-/* The dropdown container */
-.dropdown {
-    float: left;
-    overflow: hidden;
+display: block;
+color: #333;
+font-size: 16px;
+font-weight: bold;
+text-decoration: none;
+padding: 10px;
 }
 
-/* Dropdown button */
-.dropdown .dropbtn {
-    font-size: 16px;
-    border: none;
-    outline: none;
-    color: white;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0; /* Important for vertical align on mobile phones */
-}
-
-/* Add a red background color to navbar links on hover */
-.navbar a:hover, .dropdown:hover .dropbtn {
-    
-}
-
-/* Dropdown content (hidden by default) */
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+display: none;
+position: absolute;
+top: 100%;
+left: 0;
+background-color: var(--primary-yellowGreen);
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+z-index: 1;
+padding: 0;
+margin: 0;
+border-radius: 2rem 1rem;
 }
 
-/* Links inside the dropdown */
 .dropdown-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
+display: block;
+color: #333;
+font-size: 16px;
+font-weight: bold;
+text-decoration: none;
+padding: 10px;
+text-align: center;
 }
 
-/* Add a grey background color to dropdown links on hover */
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-/* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
-  display: block;
-}
-/*************************************************************/
-
-/* #main-header nav ul {
-  display: flex;
-  justify-content: space-evenly;
-  list-style: none;
+display: block;
 }
 
-#main-header nav ul li {
-  margin: 0 1rem;
+.dropbtn {
+background-color: var(--primary-yellowGreen);
+color: #333;
+border: none;
+font-size: 16px;
+font-weight: bold;
+cursor: pointer;
+padding: 10px;
 }
 
-#main-header nav ul li a {
-  color: var(--accent3-ivory);
-  text-decoration: none;
+.fa-caret-down {
+margin-left: 5px;
 }
-
-#main-header nav ul li a:hover {
-  text-decoration: underline;
-} */
-
-/*************************************************************/
-
 /* Main content styles */
 .container {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 2rem;
+max-width: 800px;
+margin: 2rem auto;
+padding: 0 2rem;
 }
 
 h1 {
-  margin-bottom: 2rem;
+margin-bottom: 2rem;
 }
 
 .form-group {
-  margin-bottom: 1rem;
+margin-bottom: 1rem;
 }
 
 label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
+display: block;
+margin-bottom: 0.5rem;
+font-weight: bold;
 }
 
 input[type="text"],
 textarea {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 button[type="submit"] {
-    display: block;
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  display: block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 button[type="submit"]:hover {
-    background-color: #555;
+  background-color: #555;
 }
 
 /* Footer styles */
 #main-footer {
-    background-color: var(--primary-yellowGreen);
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
+  background-color: var(--primary-yellowGreen);
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
 }
 
 h1::before {  
-  transform: scaleX(0);
-  transform-origin: bottom right;
+transform: scaleX(0);
+transform-origin: bottom right;
 }
 
 h1:hover::before {
-  transform: scaleX(1);
-  transform-origin: bottom left;
+transform: scaleX(1);
+transform-origin: bottom left;
 }
 
 h1::before {
-  content: " ";
-  display: block;
-  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
-  inset: 0 0 0 0;
-  background: hsl(200 100% 80%);
-  z-index: -1;
-  transition: transform .3s ease;
+content: " ";
+display: block;
+position: absolute;
+top: 0; right: 0; bottom: 0; left: 0;
+inset: 0 0 0 0;
+background: hsl(200 100% 80%);
+z-index: -1;
+transition: transform .3s ease;
 }
 
 h1 {
-  position: relative;
-  font-size: 5rem;
+position: relative;
+font-size: 5rem;
 }
 
 html {
-  block-size: 100%;
-  inline-size: 100%;
+block-size: 100%;
+inline-size: 100%;
 }
 
 body {
-  min-block-size: 100%;
-  min-inline-size: 100%;
-  margin: 0;
-  box-sizing: border-box;
-  display: grid;
-  place-content: center;
-  font-family: system-ui, sans-serif;
+min-block-size: 100%;
+min-inline-size: 100%;
+margin: 0;
+box-sizing: border-box;
+display: grid;
+place-content: center;
+font-family: system-ui, sans-serif;
 }
 
 @media (orientation: landscape) {
-  body {
-    grid-auto-flow: column;
-  }
+body {
+  grid-auto-flow: column;
+}
+}
+/* ---------testimonials------- */
+div.customerTestimonial {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 1rem;
+  border: solid var(--dark-grey);
+  border-radius: 2rem;
+  box-shadow: 1px 1px 0.5px 0.5px var(--dark-grey);
+  background-color: rgb(41, 162, 173);
+  color: white;
+  max-width: 98%;
+}
+.customerTestimonial p, .customerTestimonial h3 {
+margin: 0;
+}
+.customerTestimonial h3 {
+font-weight: bold;
+font-size: 1.3rem;
+}
+.testimonialsTitle {
+font-size: 2rem;
+font-weight: bold;
+text-align: center;
+margin: 1rem;
+}
+div.testimonial {
+margin-top: 3rem;
 }

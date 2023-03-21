@@ -16,7 +16,10 @@ function mainContent() {
             // first child mainPage - Hero Image
             const heroImage = document.createElement('div');
             heroImage.classList.add('hero');
-            heroImage.innerHTML = `<img src=${heroImg} alt="Spoons Image">`
+            heroImage.innerHTML = `
+                <img src=${heroImg} alt="Spoons Image">
+                <h1 class="titleHero">Love Life</h1>
+                `
 
             // second child mainPage - Content
             const containerRecipes = document.createElement('div');
@@ -26,7 +29,7 @@ function mainContent() {
 
                     // first child recipeRightSide - Testimonials / Quote / Four Links Recipes / Mission
                     const divContainer = document.createElement('div');
-                    
+                    divContainer.id = 'testimonialsMainContainer'
                             // Quote on main 
                             async function renderQuote(divContainer) {
                                 const quote = new InspirationalQuote();
