@@ -2,24 +2,27 @@ import spoon from "../images/sp2.webp";
 
 // Show this HTML on the main page when no API is use / API expire / API problem and etc.
 export function recipeCardTemplateNoList(num) {
-    return `<div class="container">
+    return `<div class="recipeCardContainer">
                 <h2>Coming SOON</h2>
-                <img src=${spoon} alt="Spoons Image">
+                <div class='imgRecipeContainer
+                    <img src=${spoon} alt="Spoons Image">
+                </div>
                 <h4>more Recipes</h4>
+            </div>
             `;
 }
 
 // Generate HTML on the main page
 export function recipeCardTemplate(list) {
     return `
-                    <h2>${list[0].title}</h2>
-                    <img src="${list[0].image}" alt=Recipe Image for ${list[0].title}>
-                    <div class="divInfo">
-                        <h4>${list[0].readyInMinutes} min</h4>
-                        <h4>Servings: ${list[0].servings}</h4>
-                    </div>
-                    
-            
+        <h3>${list[0].title}</h3>
+        <div class='recipeCardImgContainer'>
+            <img src="${list[0].image}" alt=Recipe Image for ${list[0].title}>
+        </div>
+        <div class="divInfo">
+            <p>Estimated time:${list[0].readyInMinutes} min</p>
+            <p>Servings: ${list[0].servings}</p>
+        </div>
     `;
 }
 
@@ -27,7 +30,6 @@ export function recipeCardTemplate(list) {
 function getType() {
     const type = ["dessert", "drink", "main course", "breakfast"];
     const selectType = Math.floor(Math.random() * 4);
-   
     return type[selectType];
 }
 

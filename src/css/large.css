@@ -1,39 +1,45 @@
 @media (min-width: 60rem) {
-/* Recipe Right Side */
-body {
-    display: flex;
-    flex-direction: column;
-}
+    /* Recipe Right Side */
+    body {
+        display: flex;
+        flex-direction: column;
+    }
 
-.recipeRightSide {
-    display: grid;
-    grid-template-columns: 80% 20%;
-    justify-content: space-around;
-    margin: 0 2rem;
-}
+    .recipeRightSide {
+        display: grid;
+        grid-template-columns: 80% 20%;
+        justify-content: space-around;
+        margin: 0 2rem;
+    }
 
-.recipeContainer {
-    display: flex;
-    flex-direction: column;
-    row-gap: 2rem;
-}
+    .recipeContainer {
+        display: flex;
+        flex-direction: column;
+        row-gap: 2rem;
+    }
 
-.recipeContainer div{
-    border: 2px solid var(--secondary-persianRed);
-    border-radius: 2rem;
-}
+    .recipeContainer div{
+        border: 2px solid var(--secondary-persianRed);
+        border-radius: 2rem;
+    }
 
-.container {
-    margin: 0;
-}
+    .container {
+        margin: 0;
+    }
 
-.container img {
-    padding-top: 1.5rem;
-}
+    .container img {
+        padding-top: 1.5rem;
+    }
 
-/* Newsletter form */
-form {
-    display: inline-block;
-    
-}
+    /* Newsletter form */
+    form {
+        display: inline-block;
+        
+    }
+    /* =======================cards type of meal in homepage==================== */
+    section div.product-grid {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        gap: 1rem;
+    }
 }

@@ -6,7 +6,6 @@ export function initRouter(mainView) {
     // mainView.innerHTML = ""
 
     function updateView(newView) {
-        console.log(newView)
         mainView.innerHTML = '';
         mainView.appendChild(newView);
     }
@@ -21,10 +20,7 @@ export function initRouter(mainView) {
     function hashToRoute(path) {
 
         let hash = path.split('?')[0];
-        console.log(hash);
         let id = path.split('=')[1];
-
-        console.log(id);
 
         switch (hash) {
             case '#/src/js/mainPage':

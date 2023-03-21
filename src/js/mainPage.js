@@ -54,8 +54,8 @@ function mainContent() {
                     renderRecipeSide(containerRecipes);
 
     mainDivContainer.appendChild(heroImage);
-    mainDivContainer.appendChild(containerRecipes);
     mainDivContainer.appendChild(mealtypeSection())
+    mainDivContainer.appendChild(containerRecipes);
 
     return mainDivContainer;
 }

@@ -3,50 +3,39 @@ import ExternalServices from "./ExternalServices.mjs";
 
 export  function recipeCardTemplate(list) {
     return `
-                    <h2>${list.title}</h2>
-                    <img src="${list.image}" alt=Recipe Image for ${list.title}>
-                    
-            
+        <p>${list.title}</h2>
+        <img src="${list.image}" alt=Recipe Image for ${list.title}>
     `;
 }
-  
+
 function getType() {
     const type = ["dessert", "drink", "main course", "breakfast"];
     const selectType = Math.floor(Math.random() * 4);
-   
     return type[selectType];
 }
 
-export function mealtypeListingPage(id){
+export function mealtypeListingPage(id) {
     const dataSource = new ExternalServices();
     const mealTypeData = dataSource.getByMealtype(id);
     const listElement = document.createElement("div");
-            listElement.classList.add("recipeContainer");
-   mealTypeData.then(data => {
+    listElement.classList.add("recipeContainer");
+    mealTypeData.then(data => {
     data.results.map(item => {console.log(item)
     
-    
     const listContainer = document.createElement("div");
-                 listContainer.classList.add("container");
+    listContainer.classList.add("container");
 
     listContainer.innerHTML = recipeCardTemplate(item);                
-     listElement.appendChild(listContainer);
+    listElement.appendChild(listContainer);
 
     const a = document.createElement('a');
     a.href = `#/src/js/recipePageDetailsEntrance?idSelected=${item.id}`;    //hash segment
     a.textContent = 'Recipe';
     listContainer.appendChild(a)
-    
     }
-    );
-
-   
-    
-
-
-
-  });
-  return listElement
+);
+});
+return listElement
 }
 
 // CONTINUE DOING THE FUNCTION TO DISPLAY EACH MEALTYPE 

@@ -2,7 +2,7 @@ const baseURL = "https://api.spoonacular.com/recipes/";
 const mealTypeUrl = "https://api.spoonacular.com/recipes/complexSearch"
 
 //  const apiKeyNumber = "85fc6e9102e54cd3b863cc238b62f727";        // Josue 
-const apiKeyNumber = "d3803da0dba2444fac1dbeeb579fe87f";        // Nikita
+const apiKeyNumber = "11ba0971201241a89d43b8e7edef3ce1";        // Nikita
 // const apiKeyNumber = "";        // Zeir
 // const apiKeyNumber = "";        // Josue
 // const apiKeyNumber = "";        // Felix
