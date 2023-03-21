@@ -26,6 +26,7 @@
   box-sizing: border-box;
   max-width: 100%;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -36,12 +37,15 @@ body {
   color: var(--dark-grey);
   background-color: ivory;
 }
+
 h1, h2 {
   font-family: var(--font-body)
 }
+
 h3, h4, h5, h6 {
   font-family: var(--font-headline)
 }
+
 img {
   max-width: 100%;
 }
@@ -62,6 +66,7 @@ header#main-header {
   background-color: var(--primary-yellowGreen);
   border-bottom: 2px solid var(--secondary-persianRed);
 }
+
 div.logo {
   max-width: 7rem;
   max-height: 6rem;
@@ -72,9 +77,11 @@ div.logo:hover {
   transform: scaleX(1.1);
   transition: all 0.5s ease-in-out;
 }
+
 .logo img {
   max-width: 100%;
 }
+
 .hero {
   display: flex;
   flex-direction: column;
@@ -86,6 +93,7 @@ div.logo:hover {
   border-bottom: 2px solid var(--secondary-persianRed);
   position: relative;
 }
+
 .hero img {
   max-width: 100%;
 }
@@ -118,22 +126,24 @@ text-shadow: 1px 1px 0px #fff;
 
 /* Inspirational quote */
 div.quote {
-  background-image: linear-gradient(90deg, #b5ff7c, #fff189);
-  background-size: 400% 400%;
-  animation: rotateColor 5s ease infinite;
-  max-width: 100%;
-  margin: 1.5rem 1rem;
-  text-align: center;
-  font-size: 1rem;
-  padding: 1rem 1.5rem;
-  border: solid var(--dark-grey);
-  border-radius: 2rem;
-  /* add box shadow to appear a card */
-  box-shadow: 1px 1px 0.5px 0.5px var(--dark-grey);
+    background-image: linear-gradient(90deg, #b5ff7c, #fff189);
+    background-size: 400% 400%;
+    animation: rotateColor 5s ease infinite;
+    /* max-width: 30em; */
+    margin: 1.5rem 1rem;
+    text-align: center;
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+    border: solid var(--dark-grey);
+    border-radius: 2rem;
+    /* add box shadow to appear a card */
+    box-shadow: 1px 1px 0.5px 0.5px var(--dark-grey);
 }
+
 .quote img {
   display: none;
 }
+
 section.mission {
   text-align: center;
   color: white;
@@ -193,9 +203,15 @@ transition: all 0.5s ease;
 border: var(--dark-grey) .5px solid;
 }
 
-
-.navbar li:last-child {
-margin-right: 0;
+/* Dropdown button */
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0; /* Important for vertical align on mobile phones */
 }
 
 .navbar a {

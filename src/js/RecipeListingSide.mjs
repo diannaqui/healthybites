@@ -1,13 +1,15 @@
 import spoon from "../images/sp2.webp";
 
-export function recipeCardTemplateNoList() {
-    return `
+// Show this HTML on the main page when no API is use / API expire / API problem and etc.
+export function recipeCardTemplateNoList(num) {
+    return `<div class="container">
                 <h2>Coming SOON</h2>
                 <img src=${spoon} alt="Spoons Image">
                 <h4>more Recipes</h4>
             `;
 }
 
+// Generate HTML on the main page
 export function recipeCardTemplate(list) {
     return `
                     <h2>${list[0].title}</h2>
@@ -20,7 +22,8 @@ export function recipeCardTemplate(list) {
             
     `;
 }
-  
+
+// Randomly choose 1 of the 4 food types from the main page
 function getType() {
     const type = ["dessert", "drink", "main course", "breakfast"];
     const selectType = Math.floor(Math.random() * 4);
@@ -28,6 +31,7 @@ function getType() {
     return type[selectType];
 }
 
+// Display 4 recipes on the right side of the main page
 export default class RecipeListingSide { 
     constructor(dataSource) {
         this.dataSource = dataSource;
