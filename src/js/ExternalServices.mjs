@@ -1,6 +1,7 @@
 const baseURL = "https://api.spoonacular.com/recipes/";
+const mealTypeUrl = "https://api.spoonacular.com/recipes/complexSearch"
 
- const apiKeyNumber = "6c24c552149041ef978d2802024b4955";        // Diana 
+ const apiKeyNumber = "85fc6e9102e54cd3b863cc238b62f727";        // Josue 
 // const apiKeyNumber = "";        // Nikita
 // const apiKeyNumber = "";        // Zeir
 // const apiKeyNumber = "";        // Josue
@@ -42,4 +43,15 @@ export default class ExternalServices {
       console.log(err)
     }
   }
+  async getByMealtype(typeFood){
+    try {
+      const response = await fetch(mealTypeUrl + `?apiKey=${apiKeyNumber}&type=${typeFood}`);
+      const data = await convertToJson(response);
+      return data;
+  } 
+ catch (err){
+   console.log(err);
+ }
+}  
+
  }
