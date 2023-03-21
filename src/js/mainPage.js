@@ -3,7 +3,7 @@ import { testimonial } from "./testimonial.js";
 import RecipeListingSide from "./RecipeListingSide.mjs"
 import ExternalServices from "./ExternalServices.mjs";
 import heroImg from "../images/hero-image.jpg"
-
+import mealtypeSection from "./mealtypeSection.js";
 
 function mainContent() {
 
@@ -43,6 +43,7 @@ function mainContent() {
                     // second child recipeRightSide - Four recipes on the right side on main
                     async function renderRecipeSide(containerRecipes) {
                         const dataSource = new ExternalServices();
+                        
                         const listing = new RecipeListingSide(dataSource);
                         containerRecipes.appendChild(await listing.init());    
                     
@@ -51,6 +52,7 @@ function mainContent() {
 
     mainDivContainer.appendChild(heroImage);
     mainDivContainer.appendChild(containerRecipes);
+    mainDivContainer.appendChild(mealtypeSection())
 
     return mainDivContainer;
 }

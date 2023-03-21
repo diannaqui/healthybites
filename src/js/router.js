@@ -1,5 +1,6 @@
 import mainPage from './mainPage.js';
 import RecipePageDetailsEntrance from './recipePageDetailsEntrance.js';
+import {mealtypeListingPage} from './mealtypeListingPage.js';
 
 export function initRouter(mainView) {
     // mainView.innerHTML = ""
@@ -18,20 +19,24 @@ export function initRouter(mainView) {
     }
 
     function hashToRoute(path) {
-        
+
         let hash = path.split('?')[0];
         console.log(hash);
         let id = path.split('=')[1];
-        
+
         console.log(id);
 
-        switch(hash) {
+        switch (hash) {
             case '#/src/js/mainPage':
                 updateView(mainPage());
                 break;
 
             case '#/src/js/recipePageDetailsEntrance':
                 updateView(RecipePageDetailsEntrance(id));
+                break;
+
+            case '#/src/js/mealtypeListingPage':
+                updateView(mealtypeListingPage(id));
                 break;
 
             default:
@@ -47,7 +52,7 @@ export function initRouter(mainView) {
 
 
     window.addEventListener('hashchange', (evt) => {
-        
+
         //console.log(evt.newURL)
 
         const newURL = new URL(evt.newURL);
