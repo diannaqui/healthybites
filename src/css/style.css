@@ -79,6 +79,7 @@ img {
 
 
 /*************************************************************/
+
 /* Navbar container */
 
       .navbar {
@@ -260,12 +261,30 @@ img {
 /*************************************************************/
 /* Footer */
 
-      #main-footer {
-          background-color: var(--primary-yellowGreen);
-          color: #fff;
-          padding: 1rem;
-          text-align: center;
-      }
+@keyframes textColor {
+  0% { transform: rotate(-10deg);}
+  50% { transform: rotate(10deg);}
+  100% { transform: rotate(-10deg);}
+  100% { color: var(--light-grey) }
+}
+
+/* Recipe Listing */
+#recipe-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+#recipe-list li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  border: 2px solid var(--secondary-persianRed);
+  border-radius: 2rem;
+  transition: transform 0.2s ease-in-out;
+}
 
 /* Footer END */
 /*************************************************************/
