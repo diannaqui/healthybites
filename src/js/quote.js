@@ -35,7 +35,6 @@ export class InspirationalQuote {
         quoteDay.appendChild(quoteP);
         
         const q = quoteDay;
-        console.log(q)
         return q;
     }   
 }

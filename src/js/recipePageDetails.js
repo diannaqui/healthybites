@@ -13,27 +13,33 @@ export default class RecipeDetails {
         divRecipeDetails.classList.add('pageDetails');
 
         const listRecipeDetails = await this.dataSource.getRecipeById(this.idSelected);
-        console.log(listRecipeDetails);
 
         if (listRecipeDetails) {
+            //container for ul element
+            const nutrientsUlContainer = document.createElement('div');
+            nutrientsUlContainer.classList.add('ContainerForUl')
 
             // list of good nutrients per recipe
             const titleGoodNutrition = document.createElement('h2');
             titleGoodNutrition.classList.add("titleNutrients");
-            titleGoodNutrition.textContent = "Good nutrition";
+            titleGoodNutrition.textContent = "Good Nutrition";
             const good = this.renderTemplateList(listRecipeDetails.good, "goodNutrients");
 
             divRecipeDetails.appendChild(titleGoodNutrition);
-            divRecipeDetails.appendChild(good);
+            divRecipeDetails.appendChild(nutrientsUlContainer);
+            nutrientsUlContainer.appendChild(good);
 
             // list of bad nutrients per recipe
+            const nutrientsUlContainerbad = document.createElement('div');
+            nutrientsUlContainerbad.classList.add('ContainerForUlBadNutrients')
             const titleBadNutrients = document.createElement('h2');
             titleBadNutrients.classList.add("titleNutrients");
-            titleBadNutrients.textContent = "Be careful with...";
+            titleBadNutrients.textContent = "Be aware of...";
             const bad = this.renderTemplateList(listRecipeDetails.bad, "badNutrients");
             
             divRecipeDetails.appendChild(titleBadNutrients);
-            divRecipeDetails.appendChild(bad);
+            nutrientsUlContainerbad.appendChild(bad);
+            divRecipeDetails.appendChild(nutrientsUlContainerbad);
         } 
 
         return divRecipeDetails;
@@ -44,9 +50,14 @@ export default class RecipeDetails {
         
         const ul = document.createElement('ul');
         ul.classList.add(className)
-
+        let colorNumber = 0;
         list.forEach(item => {
+            if(colorNumber > 5) {
+                colorNumber = 0;
+            }
+            colorNumber++;
             const li = document.createElement('li');
+            li.classList.add('color' + colorNumber, 'nutrient');
             const pAmount = document.createElement('p');
             const pDaily = document.createElement('p');
             pAmount.textContent = `${item.title}: ${item.amount}`;
@@ -57,7 +68,5 @@ export default class RecipeDetails {
         })
     
         return ul
- 
-    
     }
 }

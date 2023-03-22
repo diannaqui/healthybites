@@ -1,3 +1,4 @@
+/*///////////THIS IS THE BASE AND MOBILE VIEW//////////////// */
 :root {
   --font-body: 'Roboto', sans-serif;
   --font-headline: 'Special Elite', cursive;
@@ -16,6 +17,8 @@
   --font-size-base: 18px;
   --small-font: 0.8em;
   --large-font: 1.2em;
+  /* =======measure base for the bubbles========== */
+  --measure-base: 7rem;
 }
 #root, div {
   width: 100%;
@@ -26,7 +29,9 @@
   box-sizing: border-box;
   max-width: 100%;
 }
-
+li {
+  list-style: none;
+}
 body {
   margin: 0;
   padding: 0;
@@ -205,15 +210,15 @@ border: var(--dark-grey) .5px solid;
 
 /* Dropdown button */
 .dropdown .dropbtn {
-    font-size: 16px;
+    /* font-size: 16px;
     border: none;
     outline: none;
     padding: 14px 16px;
     background-color: inherit;
     font-family: inherit;
-    margin: 0; /* Important for vertical align on mobile phones */
+    margin: 0;  */
+    /* Important for vertical align on mobile phones */
 }
-
 .navbar a {
 display: block;
 color: #333;
@@ -264,16 +269,6 @@ padding: 10px;
 margin-left: 5px;
 }
 /* Main content styles */
-.container {
-max-width: 800px;
-margin: 2rem auto;
-padding: 0 2rem;
-}
-
-h1 {
-margin-bottom: 2rem;
-}
-
 .form-group {
 margin-bottom: 1rem;
 }
@@ -337,31 +332,18 @@ transition: transform .3s ease;
 }
 
 h1 {
-position: relative;
-font-size: 5rem;
+  position: relative;
+  font-size: 5rem;
 }
-
-html {
-block-size: 100%;
-inline-size: 100%;
-}
-
-body {
-min-block-size: 100%;
-min-inline-size: 100%;
-margin: 0;
-box-sizing: border-box;
-display: grid;
-place-content: center;
-font-family: system-ui, sans-serif;
-}
-
 @media (orientation: landscape) {
 body {
   grid-auto-flow: column;
 }
 }
-/* ---------testimonials------- */
+/* ------------------testimonials---------------------- */
+div#testimonialsMainContainer {
+  padding: 1rem;
+}
 div.customerTestimonial {
   display: flex;
   flex-direction: column;
@@ -374,7 +356,7 @@ div.customerTestimonial {
   box-shadow: 1px 1px 0.5px 0.5px var(--dark-grey);
   background-color: rgb(41, 162, 173);
   color: white;
-  max-width: 98%;
+  max-width: 97%;
 }
 .customerTestimonial p, .customerTestimonial h3 {
 margin: 0;
@@ -391,4 +373,173 @@ margin: 1rem;
 }
 div.testimonial {
 margin-top: 3rem;
+}
+/* =======================cards type of meal in homepage==================== */
+section.products {
+  max-width: 100%;
+}
+section h2 {
+  text-align: center;
+  font-size: 2rem;
+}
+section div.product-grid {
+  max-width: 97%;
+  display: flex;
+  display: grid;
+  grid-template-columns: auto;
+  justify-content: space-around;
+  align-items: center;
+}
+div.cardProduct {
+  min-width: 40%;;
+  background-color: lightgray;
+  border: 1px solid var(--dark-grey);
+  border-radius: 3rem 1rem;
+  margin: 1rem;
+  padding: 1rem;
+  box-shadow: 1px 1px 0.5px 0.5px var(--dark-grey);
+}
+div.cardProduct h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+div.cardProduct a {
+  max-width: 50%;
+}
+div.cardProduct img{
+  width: 100%;
+}
+/* ====================card recipe in the homepage========== */
+div.recipeContainer {
+  max-width: 100%;
+  padding: 1rem;
+}
+div.container {
+  max-width: 97%;
+  /* card apperance */
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 3rem 1rem;
+  margin: 1rem;
+  padding: 1rem;
+  box-shadow: 1px 1px 0.5px 0.5px var(--dark-grey);
+}
+div.container h3 {
+  text-align: center;
+  font-size: 1.6rem;
+}
+div.container a {
+  /* beautiful buttom */
+  display: block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+div.container a:hover {
+  background-color: #555;
+  transition: all 0.3s ease;
+}
+div.recipeCardImgContainer {
+  max-width: 100%;
+  max-height: 19rem;
+  overflow: hidden;
+  border-radius: 3rem 1rem;
+}
+div.recipeCardImgContainer img {
+  width: 100%;
+}
+div.divInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+/* =======================good nutrition page========================== */
+div.ContainerForUl {
+  padding: 1rem;
+  display: block;
+}
+ul.goodNutrients {
+  position: relative;
+  list-style: none;
+  margin-bottom: calc(var(--measure-base) * 6.5);
+}
+ul.goodNutrients .nutrient {
+  position: absolute;
+  display: inline-block;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  z-index: 1;
+}
+/* ==============starts---bubbles============ */
+ul.goodNutrients .nutrient.color1 {
+  background-color: #ff5252;
+  top: 0;
+  left: 0;
+}
+
+ul.goodNutrients .nutrient.color2 {
+  background-color: #ff9800;
+  top: var(--measure-base);
+  left: calc(var(--measure-base) + 3rem);
+}
+
+ul.goodNutrients .nutrient.color3 {
+  background-color: #ffeb3b;
+  top: calc(var(--measure-base) * 2);
+  left: 0;
+}
+
+ul.goodNutrients .nutrient.color4 {
+  background-color: #4caf50;
+  top: calc(var(--measure-base) * 3);
+  left: calc(var(--measure-base) + 3rem);
+}
+
+ul.goodNutrients .nutrient.color5 {
+  background-color: #2196f3;
+  top: calc(var(--measure-base) * 4);
+  left: 0;
+}
+
+ul.goodNutrients .nutrient.color6 {
+  background-color: #9c27b0;
+  top: calc(var(--measure-base) * 5);
+  left: calc(var(--measure-base) + 3rem);
+}
+/* ======================ends bubbles======================
+====================== */
+.goodNutrients li:nth-child(even):hover {
+  transform: rotate(360deg);
+  transform: scale(1.5);
+  transition: all 0.4s ease;
+}
+
+.goodNutrients li:hover {
+  transform: rotate(-360deg);
+  transition: all 0.4s ease;
+}
+.goodNutrients li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.goodNutrients li p {
+  font-size: 1rem;
+  margin: 0;
+  color: white;
+  text-align: center;
+  position: relative;
+  top: 2.6rem;
 }
