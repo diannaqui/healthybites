@@ -2,7 +2,7 @@ import { InspirationalQuote } from "./quote.js";
 import { testimonial } from "./testimonial.js";
 import RecipeListingSide from "./RecipeListingSide.mjs"
 import ExternalServices from "./ExternalServices.mjs";
-import heroImg from "../images/hero-image.jpg"
+import heroImg from "../images/hero-image.webp"
 import mealtypeSection from "./mealtypeSection.js";
 import { newsletter } from "./newsletter.js"
 
