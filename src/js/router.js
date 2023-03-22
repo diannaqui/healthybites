@@ -1,6 +1,7 @@
 import mainPage from './mainPage.js';
 import RecipePageDetailsEntrance from './recipePageDetailsEntrance.js';
-import {mealtypeListingPage} from './mealtypeListingPage.js';
+import { mealtypeListingPage } from './mealtypeListingPage.js';
+import Nutrition from './recipeNutrientsDetailsEntrance.js'
 
 export function initRouter(mainView) {
     // mainView.innerHTML = ""
@@ -33,6 +34,10 @@ export function initRouter(mainView) {
 
             case '#/src/js/mealtypeListingPage':
                 updateView(mealtypeListingPage(id));
+                break;
+            
+            case '#/src/js/recipeNutrientsDetailsEntrance':
+                updateView(Nutrition(id));
                 break;
 
             default:
