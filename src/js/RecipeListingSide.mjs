@@ -1,14 +1,10 @@
 import spoon from "../images/sp2.webp";
 
 // Show this HTML on the main page when no API is use / API expire / API problem and etc.
-export function recipeCardTemplateNoList(num) {
-    return `<div class="recipeCardContainer">
-                <h2>Coming SOON</h2>
-                <div class='imgRecipeContainer
-                    <img src=${spoon} alt="Spoons Image">
-                </div>
-                <h4>more Recipes</h4>
-            </div>
+export function recipeCardTemplateNoList() {
+    return `
+            <h3>Recipes Coming SOON</h3>
+            <img src=${spoon} alt="Spoons Image">
             `;
 }
 

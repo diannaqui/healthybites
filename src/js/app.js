@@ -1,7 +1,7 @@
 import { initRouter } from "./router.js";
 import logoImg from "../images/healthy-bites.jpg"
 
-function Heater(mainDiv) {
+function Heater() {
 
     const content = `
         <div class="logo">
@@ -15,10 +15,10 @@ function Heater(mainDiv) {
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="#">Breakfast</a>
-                    <a href="#">Main Course</a>
-                    <a href="#">Dessert</a>
-                    <a href="#">Drinks</a>
+                    <a href="#/src/js/mealtypeListingPage?idSelected=breakfast">Breakfast</a>
+                    <a href="#/src/js/mealtypeListingPage?idSelected=maincourse">Main Course</a>
+                    <a href="#/src/js/mealtypeListingPage?idSelected=dessert">Dessert</a>
+                    <a href="#/src/js/mealtypeListingPage?idSelected=drinks">Drinks</a>
                 </div>
                 </li>
             </ul>
@@ -54,7 +54,7 @@ function App() {
     // Together / header - main - footer
     const div = document.createElement('div');
     div.id = 'headerMainFooterContainer';
-    div.appendChild(Heater(main));
+    div.appendChild(Heater());
     div.appendChild(main);
     div.appendChild(Footer());
 

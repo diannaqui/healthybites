@@ -1,12 +1,11 @@
 const baseURL = "https://api.spoonacular.com/recipes/";
 const mealTypeUrl = "https://api.spoonacular.com/recipes/complexSearch"
 
-//  const apiKeyNumber = "85fc6e9102e54cd3b863cc238b62f727";        // Josue 
+// const apiKeyNumber = "85fc6e9102e54cd3b863cc238b62f727";        // Josue 
 // const apiKeyNumber = "11ba0971201241a89d43b8e7edef3ce1";        // Nikita
-// const apiKeyNumber = "";        // Zeir
-// const apiKeyNumber = "";        // Josue
-// const apiKeyNumber = "";        // Felix
-
+// const apiKeyNumber = "d3803da0dba2444fac1dbeeb579fe87f";        // Zeir
+// const apiKeyNumber = "bd9690f36eb2416991bd24870cd5b0e3";        // Diana
+// const apiKeyNumber = "079ad1367c2e40e79eb0363dd32b6c51";        // Felix
 
 export function convertToJson(res) {
     if (res.ok) {
@@ -43,15 +42,36 @@ export default class ExternalServices {
       console.log(err)
     }
   }
+
+  // Info by meal type by ID
   async getByMealtype(typeFood){
     try {
       const response = await fetch(mealTypeUrl + `?apiKey=${apiKeyNumber}&type=${typeFood}`);
       const data = await convertToJson(response);
       return data;
-  } 
- catch (err){
-   console.log(err);
- }
-}  
+    } 
+    catch (err){
+      console.log(err);
+    }
+  }
+  
+  // 
+
+  async getRecipeByIdInformation(idSelected) {
+    try {
+
+      //https://api.spoonacular.com/recipes/716429/information?includeNutrition=false
+
+
+      const response = await fetch(baseURL + `${idSelected}/information?apiKey=${apiKeyNumber}&includeNutrition=true`);
+      const data = await convertToJson(response);
+      console.log(data);
+      return data;
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
+
 
  }

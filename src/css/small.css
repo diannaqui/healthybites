@@ -424,6 +424,7 @@ div.container {
   margin: 1rem;
   padding: 1rem;
   box-shadow: 1px 1px 0.5px 0.5px var(--dark-grey);
+  text-align: center;
 }
 div.container h3 {
   text-align: center;
@@ -446,6 +447,10 @@ div.container a {
 div.container a:hover {
   background-color: #555;
   transition: all 0.3s ease;
+}
+div.container img {
+  border-radius: 15rem;
+  width: 50%;
 }
 div.recipeCardImgContainer {
   max-width: 100%;
@@ -542,4 +547,100 @@ ul.goodNutrients .nutrient.color6 {
   text-align: center;
   position: relative;
   top: 2.6rem;
+}
+
+
+/* Render Recipe Details */
+
+.pageDetails {
+  margin: 5rem auto;
+  max-width: 90%;
+
+}
+
+.titleRecipe {
+  line-height: 5rem;
+  text-align: center;
+  font-size: 4rem;
+}
+
+.generalInfoRecipe {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 10rem;
+  
+}
+
+.generalInfo {
+  padding: 1rem;
+  background-image: url('/src/images/cloud.png');
+  background-repeat: no-repeat;
+  background-size: 10rem;
+  background-position: center;
+}
+
+.cuisinesDiet {
+  display: flex;
+  column-gap: 5rem;
+}
+
+.dietsDiv, .cuisinesDiv {
+  max-width: fit-content;
+  border: 3px solid var(--accent1-maize);
+  border-radius: 1rem;
+  padding: 3rem;
+  text-align: center;
+}
+
+.dietsRecipeList, .cuisinesRecipeList {
+  padding: 1rem;
+}
+.nutrientsPerServingDiv {
+  margin-left: 80%;
+  padding: 1rem;
+  border: 3px solid var(--accent1-maize);
+  border-radius: 1rem;
+  width: fit-content;
+  text-align: center;
+}
+
+.nutrientsPerServingDiv img { 
+  border-radius: 10rem;
+}
+
+.containerInstructionsTitle {
+  margin-top: 5rem;
+}
+
+.recipeInstructions {
+  margin: 0 auto;
+  width: 70%;
+}
+
+.instructionsStep {
+  margin: 5rem 1rem;
+}
+
+.divingredients, .divequipment {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 15rem);
+  justify-content: center;
+  align-items: end;
+  
+}
+
+.div2ingredients, .div2equipment {
+  min-width: 9rem;
+  text-align: center;
+}
+
+.analyzedInstructionsElement {
+  padding: 1rem;
+  border: 2px solid var(--primary-yellowGreen);
+  border-radius: 1rem;
+}
+
+.ingredientsListClassName {
+  margin: 0;
+  margin-bottom: 3rem;
 }
