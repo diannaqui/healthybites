@@ -23,16 +23,21 @@ export function testimonial() {
     
     // Convert the array to JSON format
     const jsonTestimonials = JSON.stringify(testimonials);
+
     // Parse or read the JSON data into JavaScrip object
     const objectTestimonial = JSON.parse(jsonTestimonials);
+
     // Create <h2> element
     const title = document.createElement("h2");
     title.classList.add("testimonialsTitle");
     title.textContent = "Testimonials";
-    const testimonialsSectionContainer = document.createElement('section');
+
+    const testimonialsSectionContainer = document.createElement("section");
     testimonialsSectionContainer.appendChild(title);
+
     // Loop through each testimonial and create a new HTML element for it
     objectTestimonial.forEach(testimonial => {
+
         // Create a <div> element for every single testimonial
         const singleTestimonialContainer = document.createElement("div");
         singleTestimonialContainer.classList.add("customerTestimonial");
@@ -45,6 +50,7 @@ export function testimonial() {
         
         testimonialsMainContainer.appendChild(singleTestimonialContainer);
     });
+    
     testimonialsSectionContainer.appendChild(testimonialsMainContainer)
     return testimonialsSectionContainer;
 }
