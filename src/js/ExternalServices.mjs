@@ -15,7 +15,6 @@ export function convertToJson(res) {
     }
 }
 
-
 export default class ExternalServices {
   constructor() {}
 
@@ -55,17 +54,11 @@ export default class ExternalServices {
     }
   }
   
-  // 
-
+  // Recipe Information with details
   async getRecipeByIdInformation(idSelected) {
     try {
-
-      //https://api.spoonacular.com/recipes/716429/information?includeNutrition=false
-
-
       const response = await fetch(baseURL + `${idSelected}/information?apiKey=${apiKeyNumber}&includeNutrition=true`);
       const data = await convertToJson(response);
-      console.log(data);
       return data;
     }
     catch (err) {

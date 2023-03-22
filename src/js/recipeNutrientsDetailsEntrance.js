@@ -12,13 +12,11 @@ function Nutrition(id) {
         const goNutrientsDetails = new RecipeNutrients(dataSource, id);
 
         nutritionPage.appendChild(await goNutrientsDetails.init());
-        console.log(nutritionPage);
     }
 
     content(nutritionPage);
 
 return nutritionPage;
-
 }
 
 export default Nutrition;

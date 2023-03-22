@@ -12,7 +12,6 @@ function RecipePageDetailsEntrance(id) {
         const goRecipeDetails = new RecipeDetails(dataSource, id);
 
         detailsPage.appendChild(await goRecipeDetails.init());
-        console.log(detailsPage);
     }
 
     content(detailsPage);
