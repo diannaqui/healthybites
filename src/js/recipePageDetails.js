@@ -1,4 +1,3 @@
-import nutrients from "../images/sp2.webp"
 
 export default class RecipeDetails {
     constructor(dataSource, idSelected) {
@@ -14,22 +13,28 @@ export default class RecipeDetails {
 
         const listRecipeDetails = await this.dataSource.getRecipeByIdInformation(this.idSelected);
         
-                // Title - child of divRecipeDetails
-                const titleRecipe = document.createElement('h1');
-                titleRecipe.classList.add('titleRecipe');
-                titleRecipe.textContent = listRecipeDetails.title;
+            // Title - child of divRecipeDetails
+            const titleRecipe = document.createElement('h1');
+            titleRecipe.classList.add('titleRecipe');
+            titleRecipe.textContent = listRecipeDetails.title;
 
-                // Image - child of divRecipeDetails
-                const imageRecipe = document.createElement('img');
-                imageRecipe.classList.add('imageRecipe');
-                imageRecipe.src = listRecipeDetails.image;
+            // Image - child of divRecipeDetails
+            const containerInfo = document.createElement('div');
+            containerInfo.classList.add('containerInfo');
+                const containerImg = document.createElement('div');
+                containerImg.classList.add('containerImg');
+                    const imageRecipe = document.createElement('img');
+                    imageRecipe.classList.add('imageRecipe');
+                    imageRecipe.src = listRecipeDetails.image;
+                    containerImg.appendChild(imageRecipe);                           // IMAGE
+                    containerImg.appendChild(this.generalInfo(listRecipeDetails));   // READY IN - SERVINGS
+            containerInfo.appendChild(containerImg);                                 // IMAGE  /  READY IN - SERVINGS
+            containerInfo.appendChild(this.recipeCuisineDiet(listRecipeDetails));    // CUISINES - DIETS
 
-                divRecipeDetails.appendChild(titleRecipe);                                  // TITLE
-                divRecipeDetails.appendChild(imageRecipe);                                  // IMAGE
-                divRecipeDetails.appendChild(this.generalInfo(listRecipeDetails));          // READY IN - SERVINGS
-                divRecipeDetails.appendChild(this.recipeCuisineDiet(listRecipeDetails));    // CUISINES - DIETS
-                divRecipeDetails.appendChild(this.nutrientsPerServing());                   // NUTRIENTS
-                divRecipeDetails.appendChild(this.instructionsRecipe(listRecipeDetails));   // INSTRUCTIONS
+        divRecipeDetails.appendChild(titleRecipe);                                  // TITLE
+        divRecipeDetails.appendChild(containerInfo)
+        divRecipeDetails.appendChild(this.nutrientsPerServing());                   // NUTRIENTS
+        divRecipeDetails.appendChild(this.instructionsRecipe(listRecipeDetails));   // INSTRUCTIONS
                 
         return divRecipeDetails;
     }
@@ -123,22 +128,17 @@ export default class RecipeDetails {
         const nutrientsPerServingDiv = document.createElement('div');
         nutrientsPerServingDiv.classList.add('nutrientsPerServingDiv');
 
-            const titleNutrients = document.createElement('h3');
-            titleNutrients.textContent = 'Click to see a complete';
-            nutrientsPerServingDiv.appendChild(titleNutrients);
-
-            const titleNutrients2 = document.createElement('h3');
-            titleNutrients2.textContent = 'List of Nutrients';
-            nutrientsPerServingDiv.appendChild(titleNutrients2);
-
             const linkNutrients = document.createElement('a');
             linkNutrients.href = `#/src/js/recipeNutrientsDetailsEntrance?idSelected=${this.idSelected}`;
 
-                const imgNutrients = document.createElement('img');
-                imgNutrients.src = nutrients;
-                imgNutrients.alt = 'Image for the nutrients page';
-                linkNutrients.appendChild(imgNutrients);
-                
+                const titleNutrients = document.createElement('h3');
+                titleNutrients.textContent = 'Complete list';
+                linkNutrients.appendChild(titleNutrients);
+
+                const titleNutrients2 = document.createElement('h3');
+                titleNutrients2.textContent = 'of Nutrients';
+                linkNutrients.appendChild(titleNutrients2);
+
         nutrientsPerServingDiv.appendChild(linkNutrients);
 
         return nutrientsPerServingDiv;
