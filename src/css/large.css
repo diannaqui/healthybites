@@ -34,8 +34,9 @@
     /* Newsletter form */
     form {
         display: inline-block;
-        
+        width: 50%;
     }
+
     /* =======================cards type of meal in homepage==================== */
     section div.product-grid {
         display: grid;

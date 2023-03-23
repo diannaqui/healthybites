@@ -20,18 +20,21 @@
   /* =======measure base for the bubbles========== */
   --measure-base: 7rem;
 }
+
 #root, div {
-  width: 100%;
   padding: 0;
   margin: 0;
 }
+
 * {
   box-sizing: border-box;
   max-width: 100%;
 }
+
 li {
   list-style: none;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -57,7 +60,7 @@ img {
 
 /* don't display other pages on main page at the beginning */
 .recipeType, .recipeDetails, .recipeAbout {
-display: none;
+  display: none;
 }
 
 header#main-header {
@@ -77,6 +80,7 @@ div.logo {
   max-height: 6rem;
   transition: all 0.5s ease-in-out;
 }
+
 div.logo:hover { 
   cursor: pointer;
   transform: scaleX(1.1);
@@ -102,6 +106,7 @@ div.logo:hover {
 .hero img {
   max-width: 100%;
 }
+
 .titleHero {
 position: absolute;
 top: 1rem;
@@ -109,6 +114,7 @@ color: rgb(255, 132, 0);
 font-family: var(--font-headline);
 text-shadow: 1px 1px 0px #fff;
 }
+
 /* Food-grid section home page */
 .food-grid {
   display: grid;
@@ -127,6 +133,13 @@ text-shadow: 1px 1px 0px #fff;
   border: 1px solid var(--light-grey);
   border-radius: 2rem;
   box-shadow: 1px 1px 0.5px 0.5px var(--light-grey);
+}
+
+/* Newsletter */
+.newsletterContainer {
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 5px;
 }
 
 /* Inspirational quote */
@@ -161,9 +174,11 @@ section.mission {
   padding: 1rem 1.5rem;
   margin: 1.5rem 1rem;
 }
+
 section.mission p {
 margin: 0;
 }
+
 @keyframes rotateColor {
   0% {
       background-position: 0 0;
@@ -172,6 +187,7 @@ margin: 0;
       background-position: 100% 0;
   }
 }
+
 .navbar {
 display: flex;
 justify-content: space-around;
@@ -198,9 +214,11 @@ margin-right: 20px;
 position: relative;
 transition: all 0.5s ease;
 }
+
 .navbar li a {
 font-size: 1rem;
 }
+
 .navbar li:hover, .dropbtn:hover, .dropdown a:hover {
 background-color: var(--accent1-maize);
 border-radius: 2rem 1rem;
@@ -219,6 +237,7 @@ border: var(--dark-grey) .5px solid;
     margin: 0;  */
     /* Important for vertical align on mobile phones */
 }
+
 .navbar a {
 display: block;
 color: #333;
@@ -279,23 +298,24 @@ margin-bottom: 0.5rem;
 font-weight: bold;
 }
 
-input[type="text"],
-textarea {
+input[type="text"], input[type="email" i], textarea {
   width: 100%;
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  margin-bottom: 1rem;
 }
 
 button[type="submit"] {
   display: block;
   margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: #333;
+  padding: 0.7rem;
+  background-color: #88db48;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  width: 100%;
 }
 
 button[type="submit"]:hover {
@@ -335,15 +355,18 @@ h1 {
   position: relative;
   font-size: 5rem;
 }
+
 @media (orientation: landscape) {
 body {
   grid-auto-flow: column;
 }
 }
+
 /* ------------------testimonials---------------------- */
 div#testimonialsMainContainer {
   padding: 1rem;
 }
+
 div.customerTestimonial {
   display: flex;
   flex-direction: column;
@@ -358,30 +381,37 @@ div.customerTestimonial {
   color: white;
   max-width: 97%;
 }
+
 .customerTestimonial p, .customerTestimonial h3 {
 margin: 0;
 }
+
 .customerTestimonial h3 {
 font-weight: bold;
 font-size: 1.3rem;
 }
+
 .testimonialsTitle {
 font-size: 2rem;
 font-weight: bold;
 text-align: center;
 margin: 1rem;
 }
+
 div.testimonial {
 margin-top: 3rem;
 }
+
 /* =======================cards type of meal in homepage==================== */
 section.products {
   max-width: 100%;
 }
+
 section h2 {
   text-align: center;
   font-size: 2rem;
 }
+
 section div.product-grid {
   max-width: 97%;
   display: flex;
@@ -390,6 +420,7 @@ section div.product-grid {
   justify-content: space-around;
   align-items: center;
 }
+
 div.cardProduct {
   min-width: 40%;;
   background-color: lightgray;
@@ -399,22 +430,27 @@ div.cardProduct {
   padding: 1rem;
   box-shadow: 1px 1px 0.5px 0.5px var(--dark-grey);
 }
+
 div.cardProduct h3 {
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
 }
+
 div.cardProduct a {
   max-width: 50%;
 }
+
 div.cardProduct img{
   width: 100%;
 }
+
 /* ====================card recipe in the homepage========== */
 div.recipeContainer {
   max-width: 100%;
   padding: 1rem;
 }
+
 div.container {
   max-width: 97%;
   /* card apperance */
@@ -425,10 +461,12 @@ div.container {
   padding: 1rem;
   box-shadow: 1px 1px 0.5px 0.5px var(--dark-grey);
 }
+
 div.container h3 {
   text-align: center;
   font-size: 1.6rem;
 }
+
 div.container a {
   /* beautiful buttom */
   display: block;
@@ -443,19 +481,23 @@ div.container a {
   text-decoration: none;
   transition: all 0.3s ease;
 }
+
 div.container a:hover {
   background-color: #555;
   transition: all 0.3s ease;
 }
+
 div.recipeCardImgContainer {
   max-width: 100%;
   max-height: 19rem;
   overflow: hidden;
   border-radius: 3rem 1rem;
 }
+
 div.recipeCardImgContainer img {
   width: 100%;
 }
+
 div.divInfo {
   display: flex;
   flex-direction: row;
@@ -469,11 +511,13 @@ div.ContainerForUl {
   padding: 1rem;
   display: block;
 }
+
 ul.goodNutrients {
   position: relative;
   list-style: none;
   margin-bottom: calc(var(--measure-base) * 6.5);
 }
+
 ul.goodNutrients .nutrient {
   position: absolute;
   display: inline-block;
@@ -482,6 +526,7 @@ ul.goodNutrients .nutrient {
   border-radius: 50%;
   z-index: 1;
 }
+
 /* ==============starts---bubbles============ */
 ul.goodNutrients .nutrient.color1 {
   background-color: #ff5252;
@@ -518,8 +563,7 @@ ul.goodNutrients .nutrient.color6 {
   top: calc(var(--measure-base) * 5);
   left: calc(var(--measure-base) + 3rem);
 }
-/* ======================ends bubbles======================
-====================== */
+/* ======================ends bubbles====================== */
 .goodNutrients li:nth-child(even):hover {
   transform: rotate(360deg);
   transform: scale(1.5);
@@ -530,11 +574,13 @@ ul.goodNutrients .nutrient.color6 {
   transform: rotate(-360deg);
   transition: all 0.4s ease;
 }
+
 .goodNutrients li {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .goodNutrients li p {
   font-size: 1rem;
   margin: 0;

@@ -2,7 +2,10 @@ import newsletterImage from "../images/happy-jumping.webp"
 
 export function newsletter() {
     const newsletterContainer = document.createElement("div");
-    newsletterContainer.classList.add("newsletter");
+    newsletterContainer.classList.add("newsletterContainer");
+    
+    const newsletter = document.createElement("div");
+    newsletter.classList.add("newsletter");
 
     // Create <img> element
     const image = document.createElement("img");
@@ -47,10 +50,11 @@ export function newsletter() {
     form.appendChild(submitButton);
 
     // Append the title, image and form to the testimonial container
-    newsletterContainer.appendChild(title);
-    newsletterContainer.appendChild(image);
-    newsletterContainer.appendChild(form);
+    newsletter.appendChild(title);
+    newsletter.appendChild(image);
+    newsletter.appendChild(form);
 
-    const newsletterMainContainer = newsletterContainer;
-    return newsletterMainContainer;
+    newsletterContainer.appendChild(newsletter);
+    const section = newsletterContainer;
+    return section;
 }
