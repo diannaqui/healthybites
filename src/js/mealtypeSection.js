@@ -15,7 +15,7 @@ export default function mealtypeSection() {
   <div class='cardProduct'>
     <h3>${link.title}</h3>
       <a href="${link.href}">
-        <img src="${link.src}" alt="${link.alt}">
+        <img src="${link.src}" alt="${link.alt}"> 
       </a>
   </div>
 `).join('');
