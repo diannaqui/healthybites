@@ -602,7 +602,6 @@ ul.goodNutrients .nutrient.color6 {
 .pageDetails {
   margin: 5rem auto;
   max-width: 90%;
-
 }
 
 .titleRecipe {
@@ -612,10 +611,10 @@ ul.goodNutrients .nutrient.color6 {
 }
 
 .generalInfoRecipe {
-  display: flex;
-  justify-content: flex-end;
-  column-gap: 10rem;
-  
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 15rem);
+  justify-content: space-evenly;
+  text-align: center;
 }
 
 .generalInfo {
@@ -626,33 +625,65 @@ ul.goodNutrients .nutrient.color6 {
   background-position: center;
 }
 
+.imageRecipe{
+  border-radius: 10rem;
+  animation: rotateImage 3s ease infinite;  
+}
+
+.containerImg {
+  max-width: fit-content;
+}
 .cuisinesDiet {
   display: flex;
-  column-gap: 5rem;
+  justify-content: left;
 }
 
 .dietsDiv, .cuisinesDiv {
+  align-items: center;
   max-width: fit-content;
-  border: 3px solid var(--accent1-maize);
   border-radius: 1rem;
   padding: 3rem;
   text-align: center;
+}
+
+.containerInfo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 50rem);
+  justify-content: space-between;
 }
 
 .dietsRecipeList, .cuisinesRecipeList {
   padding: 1rem;
 }
 .nutrientsPerServingDiv {
-  margin-left: 80%;
-  padding: 1rem;
-  border: 3px solid var(--accent1-maize);
-  border-radius: 1rem;
+  margin-left: auto;
+  padding: 2rem;
+  background-color: #eaea2d;
+  border: 5px solid var(--primary-yellowGreen);
+  border-top-right-radius: 70%;
+  border-bottom-left-radius: 70%;
   width: fit-content;
   text-align: center;
 }
 
+.nutrientsPerServingDiv:hover {
+  background-color: rgb(8, 48, 6);
+  border-radius: 0%;
+  border-bottom-right-radius: 70%;
+  border-top-left-radius: 70%;
+}
+
 .nutrientsPerServingDiv img { 
   border-radius: 10rem;
+}
+
+.nutrientsPerServingDiv a { 
+  text-decoration: none;
+  color: rgb(15, 128, 9);
+}
+
+.nutrientsPerServingDiv a:hover { 
+  color: #eaea2d;
 }
 
 .containerInstructionsTitle {
@@ -673,7 +704,6 @@ ul.goodNutrients .nutrient.color6 {
   grid-template-columns: repeat(auto-fill, 15rem);
   justify-content: center;
   align-items: end;
-  
 }
 
 .div2ingredients, .div2equipment {
@@ -690,4 +720,11 @@ ul.goodNutrients .nutrient.color6 {
 .ingredientsListClassName {
   margin: 0;
   margin-bottom: 3rem;
+}
+
+@keyframes rotateImage {
+  0%    { rotate: 0deg;  }
+  50%   { rotate: 5deg;  }
+  75%   { rotate: -5deg; }
+  100%  { rotate: 0deg;  }
 }
