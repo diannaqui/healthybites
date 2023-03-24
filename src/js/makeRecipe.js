@@ -84,7 +84,8 @@ export function createRecipeForm() {
     });
   });
   
-  
+  const recipeView = makeRecipeView();
+  recipeFormContainer.appendChild(recipeView);
   
     
   form.appendChild(saveButton);
