@@ -63,15 +63,14 @@ export function createRecipeForm() {
   
     instructionsDisplay = document.createElement('p');
     instructionsDisplay.textContent = `Instructions: ${newRecipe.instructions}`;
-    
-    // Add data-index attribute to each display element
-    const index = storedRecipes.length - 1;
-    recipeNameDisplay.setAttribute('data-index', storedRecipes.length - 1);
-    ingredientsDisplay.setAttribute('data-index', storedRecipes.length - 1);
-    instructionsDisplay.setAttribute('data-index', storedRecipes.length - 1);
-    
-    
     form.appendChild(instructionsDisplay);
+
+    
+    // Call the displayRecipe function with the necessary parameters
+    const recipeDisplay = displayRecipe(newRecipe.name, newRecipe.ingredients, newRecipe.instructions);
+    recipeDisplay.setAttribute('data-index', storedRecipes.length - 1);
+    form.appendChild(recipeDisplay);
+    
   });
   
   const deleteAllButton = document.createElement('button');
@@ -84,8 +83,6 @@ export function createRecipeForm() {
     });
   });
   
-  const recipeView = makeRecipeView();
-  recipeFormContainer.appendChild(recipeView);
   
     
   form.appendChild(saveButton);
