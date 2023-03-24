@@ -1,4 +1,4 @@
-import { makeRecipeView } from "./makeRecipeView";
+import  makeRecipeView  from "./makeRecipeView";
 
 export function createRecipeForm() {
   const recipeFormContainer = document.createElement('div');
@@ -53,25 +53,12 @@ export function createRecipeForm() {
     ingredientsTextarea.value = '';
     instructionsTextarea.value = '';
   
-    recipeNameDisplay = document.createElement('p');
-    recipeNameDisplay.textContent = `Recipe Name: ${newRecipe.name}`;
-    form.appendChild(recipeNameDisplay);
-  
-    ingredientsDisplay = document.createElement('p');
-    ingredientsDisplay.textContent = `Ingredients: ${newRecipe.ingredients}`;
-    form.appendChild(ingredientsDisplay);
-  
-    instructionsDisplay = document.createElement('p');
-    instructionsDisplay.textContent = `Instructions: ${newRecipe.instructions}`;
-    form.appendChild(instructionsDisplay);
-
-    
-    // Call the displayRecipe function with the necessary parameters
-    const recipeDisplay = displayRecipe(newRecipe.name, newRecipe.ingredients, newRecipe.instructions);
-    recipeDisplay.setAttribute('data-index', storedRecipes.length - 1);
-    form.appendChild(recipeDisplay);
-    
+    // Call the makeRecipeView function with the necessary parameters
+    const recipeView = makeRecipeView(recipeName, recipeIngredients, recipeInstructions);
+    recipeView.setAttribute('data-index', storedRecipes.length - 1);
+    form.appendChild(recipeView);
   });
+  
   
   const deleteAllButton = document.createElement('button');
   deleteAllButton.textContent = 'Delete All';

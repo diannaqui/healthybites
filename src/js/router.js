@@ -5,7 +5,8 @@ import Nutrition from './recipeNutrientsDetailsEntrance.js'
 import Print from './recipePrint.js'
 import aboutPage from './about.js';
 import { createRecipeForm } from './makeRecipe.js';
-import { makeRecipeView } from './makeRecipeView.js';
+import makeRecipeView from './makeRecipeView.js';
+
 
 export function initRouter(mainView) {
     //mainView.innerHTML = ""
@@ -60,9 +61,14 @@ export function initRouter(mainView) {
                 case '#/src/js/makeRecipeView':
                     const storedRecipes = JSON.parse(localStorage.getItem('recipes'));
                     const index = parseInt(id);
-                    const recipe = storedRecipes[index];
-                    updateView(makeRecipeView(recipe.recipeName, recipe.recipeIngredients, recipe.recipeInstructions));
+                    if (storedRecipes && storedRecipes[index]) {
+                        const recipe = storedRecipes[index];
+                        updateView(makeRecipeView(recipe.recipeName, recipe.recipeIngredients, recipe.recipeInstructions));
+                    } else {
+                        updateView(page404());
+                    }
                     break;
+                    
 
             default:
                 updateView(page404());
