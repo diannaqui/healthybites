@@ -53,7 +53,7 @@ export function createRecipeForm() {
     ingredientsTextarea.value = '';
     instructionsTextarea.value = '';
   
-    const recipeView = makeRecipeView(newRecipe);
+    const recipeView = makeRecipeView(newRecipe, storedRecipes);
     form.appendChild(recipeView);
     form.appendChild(instructionsDisplay);
   });
