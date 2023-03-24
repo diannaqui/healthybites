@@ -30,11 +30,10 @@ export function createRecipeForm() {
   form.appendChild(instructionsLabel);
   form.appendChild(instructionsTextarea);
 
+  const storedRecipe = JSON.parse(localStorage.getItem('recipes')) || []; 
+
   const saveButton = document.createElement('button');
   saveButton.textContent = 'Save';
-
-  // Define variables outside of the event listener
-  let recipeNameDisplay, ingredientsDisplay, instructionsDisplay;
 
   saveButton.addEventListener('click', (event) => {
     event.preventDefault();
@@ -53,7 +52,7 @@ export function createRecipeForm() {
     ingredientsTextarea.value = '';
     instructionsTextarea.value = '';
   
-    const recipeView = makeRecipeView(newRecipe, storedRecipes);
+    const recipeView = makeRecipeView(newRecipe, storedRecipe);
     form.appendChild(recipeView);
     form.appendChild(instructionsDisplay);
   });
