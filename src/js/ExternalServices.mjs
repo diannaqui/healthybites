@@ -30,6 +30,19 @@ export default class ExternalServices {
    }
   }  
 
+   // Recipe ready to be printed
+   async printRecipe(id) {
+    try {
+        const response = await fetch(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${apiKeyNumber}`);
+        const data = await convertToJson(response);
+        console.log(data);
+        return data.url;
+    } 
+   catch (err){
+     console.log(err);
+   }
+  } 
+
   // Detail information by ID
   async getRecipeById(idSelected) {
     try {

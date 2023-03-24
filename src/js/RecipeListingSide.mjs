@@ -39,7 +39,7 @@ export default class RecipeListingSide {
         const listElement = document.createElement("div");
         listElement.classList.add("recipeContainer");
 
-        for (let i=0; i<2; i++) {
+        for (let i=0; i<1; i++) {
 
             const listContainer = document.createElement("div");
             listContainer.classList.add("container");
