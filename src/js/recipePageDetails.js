@@ -31,9 +31,14 @@ export default class RecipeDetails {
             containerInfo.appendChild(containerImg);                                 // IMAGE  /  READY IN - SERVINGS
             containerInfo.appendChild(this.recipeCuisineDiet(listRecipeDetails));    // CUISINES - DIETS
 
+            const links = document.createElement('div');
+            links.classList.add('links');
+                links.appendChild(this.nutrientsPerServing());                   // NUTRIENTS
+                links.appendChild(this.print());                                 // PRINT CARD
+
         divRecipeDetails.appendChild(titleRecipe);                                  // TITLE
-        divRecipeDetails.appendChild(containerInfo)
-        divRecipeDetails.appendChild(this.nutrientsPerServing());                   // NUTRIENTS
+        divRecipeDetails.appendChild(containerInfo);
+        divRecipeDetails.appendChild(links);
         divRecipeDetails.appendChild(this.instructionsRecipe(listRecipeDetails));   // INSTRUCTIONS
                 
         return divRecipeDetails;
@@ -143,6 +148,29 @@ export default class RecipeDetails {
 
         return nutrientsPerServingDiv;
     }
+
+
+    // Print Recipe LINK - child of divRecipeDetails 
+    print() {
+        const printRecipe = document.createElement('div');
+        printRecipe.classList.add('nutrientsPerServingDiv');
+
+            const printRecipeLink = document.createElement('a');
+            printRecipeLink.href = `#/src/js/recipePrint?idSelected=${this.idSelected}`;
+
+                const titlePrint = document.createElement('h3');
+                titlePrint.textContent = 'Print';
+                printRecipeLink.appendChild(titlePrint);
+
+                const titlePrint2 = document.createElement('h3');
+                titlePrint2.textContent = 'your Recipe';
+                printRecipeLink.appendChild(titlePrint2);
+
+                printRecipe.appendChild(printRecipeLink);
+
+        return printRecipe;
+    }
+
 
     // Instructions - how to create de recipe - child of divRecipeDetails     
     instructionsRecipe(listRecipeDetails) {
