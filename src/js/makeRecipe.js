@@ -35,6 +35,8 @@ export function createRecipeForm() {
   const saveButton = document.createElement('button');
   saveButton.textContent = 'Save';
 
+  const savedRecipesContainer = document.createElement('div');
+
   saveButton.addEventListener('click', (event) => {
     event.preventDefault();
     const storedRecipes = JSON.parse(localStorage.getItem('recipes')) || [];
@@ -51,30 +53,26 @@ export function createRecipeForm() {
     nameInput.value = '';
     ingredientsTextarea.value = '';
     instructionsTextarea.value = '';
-  
+
     const recipeView = makeRecipeView(newRecipe, storedRecipe);
-    form.appendChild(recipeView);
-    form.appendChild(instructionsDisplay);
+    savedRecipesContainer.appendChild(recipeView);
   });
-  
+
   const deleteAllButton = document.createElement('button');
   deleteAllButton.textContent = 'Delete All';
   deleteAllButton.addEventListener('click', (event) => {
     event.preventDefault();
     localStorage.removeItem('recipes');
-    form.querySelectorAll('[data-index]').forEach(element => {
+    savedRecipesContainer.querySelectorAll('[data-index]').forEach(element => {
       element.remove();
     });
   });
-  
-  
-  
-    
+
   form.appendChild(saveButton);
   form.appendChild(deleteAllButton);
   recipeFormContainer.appendChild(title);
   recipeFormContainer.appendChild(form);
-  
+  recipeFormContainer.appendChild(savedRecipesContainer);
+
   return recipeFormContainer;
 }
-
