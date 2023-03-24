@@ -53,24 +53,7 @@ export function createRecipeForm() {
     ingredientsTextarea.value = '';
     instructionsTextarea.value = '';
   
-    recipeNameDisplay = document.createElement('p');
-    recipeNameDisplay.textContent = `Recipe Name: ${newRecipe.name}`;
-    form.appendChild(recipeNameDisplay);
-  
-    ingredientsDisplay = document.createElement('p');
-    ingredientsDisplay.textContent = `Ingredients: ${newRecipe.ingredients}`;
-    form.appendChild(ingredientsDisplay);
-  
-    instructionsDisplay = document.createElement('p');
-    instructionsDisplay.textContent = `Instructions: ${newRecipe.instructions}`;
-    
-    // Add data-index attribute to each display element
-    const index = storedRecipes.length - 1;
-    recipeNameDisplay.setAttribute('data-index', storedRecipes.length - 1);
-    ingredientsDisplay.setAttribute('data-index', storedRecipes.length - 1);
-    instructionsDisplay.setAttribute('data-index', storedRecipes.length - 1);
-
-    const recipeView = makeRecipeView(newRecipe, recipeNameDisplay, ingredientsDisplay, instructionsDisplay);
+    const recipeView = makeRecipeView(newRecipe);
     form.appendChild(recipeView);
     form.appendChild(instructionsDisplay);
   });
