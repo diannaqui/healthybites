@@ -63,7 +63,8 @@ export function initRouter(mainView) {
                     const index = parseInt(id);
                     if (storedRecipes && storedRecipes[index]) {
                         const recipe = storedRecipes[index];
-                        updateView(makeRecipeView(recipe.recipeName, recipe.recipeIngredients, recipe.recipeInstructions));
+                        updateView(makeRecipeView(recipe.recipeName, recipe.recipeIngredients, recipe.recipeInstructions, index));
+
                     } else {
                         updateView(page404());
                     }

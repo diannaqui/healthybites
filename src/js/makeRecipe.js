@@ -59,6 +59,7 @@ export function createRecipeForm() {
     const recipeView = makeRecipeView(recipeName, recipeIngredients, recipeInstructions, index);
     recipeView.setAttribute('data-index', index);
     recipeViewsContainer.appendChild(recipeView); // append the new recipe view to the container element
+    
   });
   
   
@@ -74,13 +75,13 @@ export function createRecipeForm() {
   });
   
   
-    
+  
   form.appendChild(saveButton);
   form.appendChild(deleteAllButton);
   recipeFormContainer.appendChild(title);
   recipeFormContainer.appendChild(form);
   recipeFormContainer.appendChild(recipeViewsContainer); // append the container element to the form
-  document.body.appendChild(recipeFormContainer);
+  
 
   return recipeFormContainer;
 }
