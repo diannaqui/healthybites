@@ -5,7 +5,7 @@ import Nutrition from './recipeNutrientsDetailsEntrance.js'
 import Print from './recipePrint.js'
 import aboutPage from './about.js';
 import { createRecipeForm } from './makeRecipe.js';
-import { renderRecipe } from './makeRecipeView.js';
+import { makeRecipeView } from './makeRecipeView.js';
 export function initRouter(mainView) {
     // mainView.innerHTML = ""
 
@@ -57,9 +57,9 @@ export function initRouter(mainView) {
                     break;
                 
                 case '#/src/js/makeRecipeView':
-                    updateView(renderRecipe());
+                    updateView(makeRecipeView());
                     break;
-                    
+
             default:
                 updateView(page404());
                 break;

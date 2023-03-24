@@ -1,35 +1,15 @@
-export function renderRecipe(recipe) {
+export function makeRecipeView(recipe, recipeNameDisplay, ingredientsDisplay, instructionsDisplay) {
     const recipeContainer = document.createElement('div');
   
-    const name = document.createElement('h2');
-    name.textContent = recipe.name;
-    recipeContainer.appendChild(name);
+    recipeNameDisplay.textContent = `Recipe Name: ${recipe.name}`;
+    recipeContainer.appendChild(recipeNameDisplay);
   
-    const ingredients = document.createElement('p');
-    ingredients.textContent = recipe.ingredients;
-    recipeContainer.appendChild(ingredients);
+    ingredientsDisplay.textContent = `Ingredients: ${recipe.ingredients}`;
+    recipeContainer.appendChild(ingredientsDisplay);
   
-    const instructions = document.createElement('p');
-    instructions.textContent = recipe.instructions;
-    recipeContainer.appendChild(instructions);
+    instructionsDisplay.textContent = `Instructions: ${recipe.instructions}`;
+    recipeContainer.appendChild(instructionsDisplay);
   
-    // Add a class or ID to the recipe container for styling
-    recipeContainer.classList.add('recipe');
-  
-    // Append the recipe container to the page
-    document.querySelector('#recipe-list').appendChild(recipeContainer);
+    return recipeContainer;
   }
-  function renderAllRecipes() {
-    const storedRecipes = JSON.parse(localStorage.getItem('recipes')) || [];
-  
-    // Clear the recipe list before rendering the recipes
-    document.querySelector('#recipe-list').innerHTML = '';
-  
-    storedRecipes.forEach(recipe => {
-      renderRecipe(recipe);
-    });
-  }
-  window.addEventListener('load', () => {
-    renderAllRecipes();
-  });
   

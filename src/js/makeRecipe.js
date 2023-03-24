@@ -1,3 +1,5 @@
+import { makeRecipeView } from "./makeRecipeView";
+
 export function createRecipeForm() {
   const recipeFormContainer = document.createElement('div');
   const title = document.createElement('h2');
@@ -68,6 +70,8 @@ export function createRecipeForm() {
     ingredientsDisplay.setAttribute('data-index', storedRecipes.length - 1);
     instructionsDisplay.setAttribute('data-index', storedRecipes.length - 1);
 
+    const recipeView = makeRecipeView(newRecipe, recipeNameDisplay, ingredientsDisplay, instructionsDisplay);
+    form.appendChild(recipeView);
     form.appendChild(instructionsDisplay);
   });
   
