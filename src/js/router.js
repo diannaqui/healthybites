@@ -4,6 +4,7 @@ import { mealtypeListingPage } from './mealtypeListingPage.js';
 import Nutrition from './recipeNutrientsDetailsEntrance.js'
 import Print from './recipePrint.js'
 import aboutPage from './about.js';
+import { createRecipeForm } from './makeRecipe.js';
 
 export function initRouter(mainView) {
     // mainView.innerHTML = ""
@@ -50,6 +51,11 @@ export function initRouter(mainView) {
                 case '#/src/js/about':
                     updateView(aboutPage());
                     break;
+                
+                case '#/src/js/makeRecipe':
+                    updateView(createRecipeForm());
+                    break;
+                    
             default:
                 updateView(page404());
                 break;
