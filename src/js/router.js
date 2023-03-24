@@ -2,12 +2,14 @@ import mainPage from './mainPage.js';
 import RecipePageDetailsEntrance from './recipePageDetailsEntrance.js';
 import { mealtypeListingPage } from './mealtypeListingPage.js';
 import Nutrition from './recipeNutrientsDetailsEntrance.js'
+import Print from './recipePrint.js'
 import aboutPage from './about.js';
 
 export function initRouter(mainView) {
     // mainView.innerHTML = ""
 
     function updateView(newView) {
+        console.log(newView);
         mainView.innerHTML = '';
         mainView.appendChild(newView);
     }
@@ -39,6 +41,10 @@ export function initRouter(mainView) {
             
             case '#/src/js/recipeNutrientsDetailsEntrance':
                 updateView(Nutrition(id));
+                break;
+
+            case '#/src/js/recipePrint':
+                updateView(Print(id));
                 break;
 
                 case '#/src/js/about':

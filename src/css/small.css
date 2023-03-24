@@ -506,9 +506,10 @@ div.recipeCardImgContainer img {
 
 div.divInfo {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  column-gap: 1rem;
+  justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
   padding: 0 1rem;
 }
 
@@ -633,10 +634,10 @@ ul.goodNutrients .nutrient.color6 {
 .containerImg {
   max-width: fit-content;
 }
-.cuisinesDiet {
+/* .cuisinesDiet {
   display: flex;
-  justify-content: left;
-}
+  /* justify-content: left; 
+} */
 
 .dietsDiv, .cuisinesDiv {
   align-items: center;
@@ -646,16 +647,18 @@ ul.goodNutrients .nutrient.color6 {
   text-align: center;
 }
 
-.containerInfo {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 50rem);
-  justify-content: space-between;
+.containerInfo, .cuisinesDiet {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  column-gap: 3rem;
 }
 
 .dietsRecipeList, .cuisinesRecipeList {
   padding: 1rem;
 }
 .nutrientsPerServingDiv {
+  margin: 2rem;
   margin-left: auto;
   padding: 2rem;
   background-color: #eaea2d;
@@ -727,6 +730,26 @@ ul.goodNutrients .nutrient.color6 {
   50%   { rotate: 5deg;  }
   75%   { rotate: -5deg; }
   100%  { rotate: 0deg;  }
+}
+
+/* Print Recipe  */
+
+.links {
+  margin: 5rem auto;
+  display: flex;
+  /* justify-content: flex-end; */
+  width: fit-content;
+  flex-wrap: wrap;
+
+}
+.recipeCard {
+  border: 5px solid var(--accent1-maize);
+  border-radius: 10%;
+  padding: 5rem;
+  margin: 5rem auto;
+  justify-content: center;
+  width: fit-content;
+
 }
 
 /* ========================= ABOUT PAGE ===================== */
