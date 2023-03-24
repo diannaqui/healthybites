@@ -70,9 +70,6 @@ export function createRecipeForm() {
     ingredientsDisplay.setAttribute('data-index', storedRecipes.length - 1);
     instructionsDisplay.setAttribute('data-index', storedRecipes.length - 1);
     
-    const [title, recipeViewContainer] = makeRecipeView();
-    recipeFormContainer.appendChild(title);
-    recipeFormContainer.appendChild(recipeViewContainer);
     
     form.appendChild(instructionsDisplay);
   });

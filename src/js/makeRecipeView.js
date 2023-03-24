@@ -42,5 +42,5 @@ export function makeRecipeView() {
     recipeViewContainer.appendChild(recipeList);
   }
   
-  return [title, recipeViewContainer];
+  
 }
