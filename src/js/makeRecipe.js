@@ -1,4 +1,4 @@
-import  makeRecipeView  from "./makeRecipeView";
+import  {makeRecipeView}  from "./makeRecipeView";
 
 export function createRecipeForm() {
   const recipeFormContainer = document.createElement('div');
@@ -34,7 +34,7 @@ export function createRecipeForm() {
   saveButton.textContent = 'Save';
 
   // Define variables outside of the event listener
-  let recipeNameDisplay, ingredientsDisplay, instructionsDisplay;
+  //let recipeNameDisplay, ingredientsDisplay, instructionsDisplay;
 
   saveButton.addEventListener('click', (event) => {
     event.preventDefault();
@@ -53,11 +53,15 @@ export function createRecipeForm() {
     ingredientsTextarea.value = '';
     instructionsTextarea.value = '';
   
-    // Call the makeRecipeView function with the necessary parameters
-    const recipeView = makeRecipeView(recipeName, recipeIngredients, recipeInstructions);
-    recipeView.setAttribute('data-index', storedRecipes.length - 1);
+    // Get the index of the newly added recipe
+    const index = storedRecipes.length - 1;
+  
+    // Call the makeRecipeView function with the necessary parameters, including the index
+    const recipeView = makeRecipeView(recipeName, recipeIngredients, recipeInstructions, index);
+    recipeView.setAttribute('data-index', index);
     form.appendChild(recipeView);
   });
+  
   
   
   const deleteAllButton = document.createElement('button');

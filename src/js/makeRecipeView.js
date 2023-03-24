@@ -1,4 +1,4 @@
-export function makeRecipeView(recipeName, recipeIngredients, recipeInstructions) {
+export function makeRecipeView(recipeName, recipeIngredients, recipeInstructions, index) {
     const recipeContainer = document.createElement("div");
   
     const recipeNameDisplay = document.createElement("p");
@@ -17,7 +17,7 @@ export function makeRecipeView(recipeName, recipeIngredients, recipeInstructions
   
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
-    deleteButton.setAttribute("data-index", i);
+    deleteButton.setAttribute("data-index", index);
     deleteButton.addEventListener("click", (event) => {
       event.preventDefault();
       const index = event.target.getAttribute("data-index");
