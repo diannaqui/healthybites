@@ -1,5 +1,3 @@
-import { makeRecipeView } from "./makeRecipeView";
-
 export function createRecipeForm() {
   const recipeFormContainer = document.createElement('div');
   const title = document.createElement('h2');
@@ -30,12 +28,11 @@ export function createRecipeForm() {
   form.appendChild(instructionsLabel);
   form.appendChild(instructionsTextarea);
 
-  const storedRecipe = JSON.parse(localStorage.getItem('recipes')) || []; 
-
   const saveButton = document.createElement('button');
   saveButton.textContent = 'Save';
 
-  const savedRecipesContainer = document.createElement('div');
+  // Define variables outside of the event listener
+  let recipeNameDisplay, ingredientsDisplay, instructionsDisplay;
 
   saveButton.addEventListener('click', (event) => {
     event.preventDefault();
@@ -53,26 +50,45 @@ export function createRecipeForm() {
     nameInput.value = '';
     ingredientsTextarea.value = '';
     instructionsTextarea.value = '';
+  
+    recipeNameDisplay = document.createElement('p');
+    recipeNameDisplay.textContent = `Recipe Name: ${newRecipe.name}`;
+    form.appendChild(recipeNameDisplay);
+  
+    ingredientsDisplay = document.createElement('p');
+    ingredientsDisplay.textContent = `Ingredients: ${newRecipe.ingredients}`;
+    form.appendChild(ingredientsDisplay);
+  
+    instructionsDisplay = document.createElement('p');
+    instructionsDisplay.textContent = `Instructions: ${newRecipe.instructions}`;
+    
+    // Add data-index attribute to each display element
+    const index = storedRecipes.length - 1;
+    recipeNameDisplay.setAttribute('data-index', storedRecipes.length - 1);
+    ingredientsDisplay.setAttribute('data-index', storedRecipes.length - 1);
+    instructionsDisplay.setAttribute('data-index', storedRecipes.length - 1);
 
-    const recipeView = makeRecipeView(newRecipe, storedRecipe);
-    savedRecipesContainer.appendChild(recipeView);
+    form.appendChild(instructionsDisplay);
   });
-
+  
   const deleteAllButton = document.createElement('button');
   deleteAllButton.textContent = 'Delete All';
   deleteAllButton.addEventListener('click', (event) => {
     event.preventDefault();
     localStorage.removeItem('recipes');
-    savedRecipesContainer.querySelectorAll('[data-index]').forEach(element => {
+    form.querySelectorAll('[data-index]').forEach(element => {
       element.remove();
     });
   });
-
+  
+  
+  
+    
   form.appendChild(saveButton);
   form.appendChild(deleteAllButton);
   recipeFormContainer.appendChild(title);
   recipeFormContainer.appendChild(form);
-  recipeFormContainer.appendChild(savedRecipesContainer);
-
+  
   return recipeFormContainer;
 }
+

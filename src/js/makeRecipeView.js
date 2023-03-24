@@ -1,21 +1,46 @@
-export function makeRecipeView(recipe, storedRecipes) {
-    const recipeContainer = document.createElement('div');
+export function makeRecipeView() {
+  const recipeViewContainer = document.createElement('div');
+  const title = document.createElement('h2');
+  title.textContent = 'Your Recipes';
   
-    const recipeNameDisplay = document.createElement('p');
-    recipeNameDisplay.textContent = `Recipe Name: ${recipe.name}`;
-    recipeNameDisplay.setAttribute('data-index', storedRecipes.length - 1);
-    recipeContainer.appendChild(recipeNameDisplay);
+  const storedRecipes = JSON.parse(localStorage.getItem('recipes')) || [];
+  if (storedRecipes.length === 0) {
+    const message = document.createElement('p');
+    message.textContent = 'You have no saved recipes yet.';
+    recipeViewContainer.appendChild(message);
+  } else {
+    const recipeList = document.createElement('ul');
+    for (let i = 0; i < storedRecipes.length; i++) {
+      const recipe = storedRecipes[i];
+      const recipeItem = document.createElement('li');
+      const recipeName = document.createElement('h3');
+      recipeName.textContent = recipe.name;
+      recipeItem.appendChild(recipeName);
+      
+      const ingredientsDisplay = document.createElement('p');
+      ingredientsDisplay.textContent = `Ingredients: ${recipe.ingredients}`;
+      recipeItem.appendChild(ingredientsDisplay);
   
-    const ingredientsDisplay = document.createElement('p');
-    ingredientsDisplay.textContent = `Ingredients: ${recipe.ingredients.join(', ')}`;
-    ingredientsDisplay.setAttribute('data-index', storedRecipes.length - 1);
-    recipeContainer.appendChild(ingredientsDisplay);
-  
-    const instructionsDisplay = document.createElement('p');
-    instructionsDisplay.textContent = `Instructions: ${recipe.instructions}`;
-    instructionsDisplay.setAttribute('data-index', storedRecipes.length - 1);
-    recipeContainer.appendChild(instructionsDisplay);
-  
-    return recipeContainer;
+      const instructionsDisplay = document.createElement('p');
+      instructionsDisplay.textContent = `Instructions: ${recipe.instructions}`;
+      recipeItem.appendChild(instructionsDisplay);
+      
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Delete';
+      deleteButton.setAttribute('data-index', i);
+      deleteButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        const index = event.target.getAttribute('data-index');
+        storedRecipes.splice(index, 1);
+        localStorage.setItem('recipes', JSON.stringify(storedRecipes));
+        recipeItem.remove();
+      });
+      recipeItem.appendChild(deleteButton);
+      
+      recipeList.appendChild(recipeItem);
+    }
+    recipeViewContainer.appendChild(recipeList);
   }
   
+  return [title, recipeViewContainer];
+}
