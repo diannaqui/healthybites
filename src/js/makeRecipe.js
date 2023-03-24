@@ -1,4 +1,4 @@
-import  {makeRecipeView}  from "./makeRecipeView";
+import { makeRecipeView } from "./makeRecipeView";
 
 export function createRecipeForm() {
   const recipeFormContainer = document.createElement('div');
@@ -33,8 +33,7 @@ export function createRecipeForm() {
   const saveButton = document.createElement('button');
   saveButton.textContent = 'Save';
 
-  // Define variables outside of the event listener
-  //let recipeNameDisplay, ingredientsDisplay, instructionsDisplay;
+  const recipeViewsContainer = document.createElement('div'); // create container element for recipe views
 
   saveButton.addEventListener('click', (event) => {
     event.preventDefault();
@@ -59,7 +58,7 @@ export function createRecipeForm() {
     // Call the makeRecipeView function with the necessary parameters, including the index
     const recipeView = makeRecipeView(recipeName, recipeIngredients, recipeInstructions, index);
     recipeView.setAttribute('data-index', index);
-    form.appendChild(recipeView);
+    recipeViewsContainer.appendChild(recipeView); // append the new recipe view to the container element
   });
   
   
@@ -69,7 +68,7 @@ export function createRecipeForm() {
   deleteAllButton.addEventListener('click', (event) => {
     event.preventDefault();
     localStorage.removeItem('recipes');
-    form.querySelectorAll('[data-index]').forEach(element => {
+    recipeViewsContainer.querySelectorAll('[data-index]').forEach(element => {
       element.remove();
     });
   });
@@ -80,7 +79,8 @@ export function createRecipeForm() {
   form.appendChild(deleteAllButton);
   recipeFormContainer.appendChild(title);
   recipeFormContainer.appendChild(form);
-  
+  recipeFormContainer.appendChild(recipeViewsContainer); // append the container element to the form
+  document.body.appendChild(recipeFormContainer);
+
   return recipeFormContainer;
 }
-
