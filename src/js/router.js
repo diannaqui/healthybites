@@ -5,7 +5,7 @@ import Nutrition from './recipeNutrientsDetailsEntrance.js'
 import Print from './recipePrint.js'
 import aboutPage from './about.js';
 import { createRecipeForm } from './makeRecipe.js';
-
+import { renderRecipe } from './makeRecipeView.js';
 export function initRouter(mainView) {
     // mainView.innerHTML = ""
 
@@ -54,6 +54,10 @@ export function initRouter(mainView) {
                 
                 case '#/src/js/makeRecipe':
                     updateView(createRecipeForm());
+                    break;
+                
+                case '#/src/js/makeRecipeView':
+                    updateView(renderRecipe());
                     break;
                     
             default:
