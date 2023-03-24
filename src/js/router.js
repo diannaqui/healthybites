@@ -6,6 +6,7 @@ import Print from './recipePrint.js'
 import aboutPage from './about.js';
 import { createRecipeForm } from './makeRecipe.js';
 import { makeRecipeView } from './makeRecipeView.js';
+
 export function initRouter(mainView) {
     // mainView.innerHTML = ""
 

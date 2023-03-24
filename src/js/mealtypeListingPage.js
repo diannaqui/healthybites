@@ -10,7 +10,7 @@ export  function recipeCardTemplate(list) {
 
 
 
-export function mealtypeListingPage(id) {
+export const mealtypeListingPage = (id) => {
     const dataSource = new ExternalServices();
     const mealTypeData = dataSource.getByMealtype(id);
     const listElement = document.createElement("div");
