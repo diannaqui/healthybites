@@ -59,18 +59,9 @@ export function initRouter(mainView) {
                     break;
                 
                 case '#/src/js/makeRecipeView':
-                    const storedRecipes = JSON.parse(localStorage.getItem('recipes'));
-                    const index = parseInt(id);
-                    if (storedRecipes && storedRecipes[index]) {
-                        const recipe = storedRecipes[index];
-                        updateView(makeRecipeView(recipe.recipeName, recipe.recipeIngredients, recipe.recipeInstructions, index));
-
-                    } else {
-                        updateView(page404());
-                    }
+                    updateView(makeRecipeView(recipe.recipeName, recipe.recipeIngredients, recipe.recipeInstructions, index));
                     break;
                     
-
             default:
                 updateView(page404());
                 break;
