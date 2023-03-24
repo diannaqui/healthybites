@@ -31,15 +31,16 @@ function getType() {
 
 // Display 4 recipes on the right side of the main page
 export default class RecipeListingSide { 
-    constructor(dataSource) {
+    constructor(dataSource, amountOfImages) {
         this.dataSource = dataSource;
+        this.amountOfImages = amountOfImages
     }
 
     async init() {
         const listElement = document.createElement("div");
         listElement.classList.add("recipeContainer");
 
-        for (let i=0; i<2; i++) {
+        for (let i=0; i<this.amountOfImages; i++) {
 
             const listContainer = document.createElement("div");
             listContainer.classList.add("container");

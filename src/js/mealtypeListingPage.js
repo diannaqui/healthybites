@@ -8,11 +8,7 @@ export  function recipeCardTemplate(list) {
     `;
 }
 
-function getType() {
-    const type = ["dessert", "drink", "main course", "breakfast"];
-    const selectType = Math.floor(Math.random() * 4);
-    return type[selectType];
-}
+
 
 export function mealtypeListingPage(id) {
     const dataSource = new ExternalServices();

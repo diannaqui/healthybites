@@ -9,7 +9,7 @@ function Heater() {
         </div>
         <nav class="navbar">
             <ul>        
-                <li><a href="#">About</a></li>
+                <li><a href="#/src/js/about">About</a></li>
                 <li class="dropdown">
                 <button class="dropbtn">Recipes
                     <i class="fa fa-caret-down"></i>

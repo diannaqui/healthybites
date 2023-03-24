@@ -226,7 +226,7 @@ transition: all 0.5s ease;
 border: var(--dark-grey) .5px solid;
 }
 
-/* Dropdown button */
+/* Dropdown button
 .dropdown .dropbtn {
     /* font-size: 16px;
     border: none;
@@ -236,7 +236,7 @@ border: var(--dark-grey) .5px solid;
     font-family: inherit;
     margin: 0;  */
     /* Important for vertical align on mobile phones */
-}
+ 
 
 .navbar a {
 display: block;
@@ -728,3 +728,25 @@ ul.goodNutrients .nutrient.color6 {
   75%   { rotate: -5deg; }
   100%  { rotate: 0deg;  }
 }
+
+/* ========================= ABOUT PAGE ===================== */
+.floatingImages .recipeContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin: 5rem auto;
+
+}
+
+.floatingImages .container:nth-child(odd) {
+  transform: translateY(-30px);
+}
+
+.floatingImages .container:nth-child(even) {
+  transform: translateY(30px);
+}
+
+.floatingImages .container:last-child {
+  transform: translateY(10px);}
+
+
+  

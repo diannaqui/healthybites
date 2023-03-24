@@ -2,6 +2,7 @@ import mainPage from './mainPage.js';
 import RecipePageDetailsEntrance from './recipePageDetailsEntrance.js';
 import { mealtypeListingPage } from './mealtypeListingPage.js';
 import Nutrition from './recipeNutrientsDetailsEntrance.js'
+import aboutPage from './about.js';
 
 export function initRouter(mainView) {
     // mainView.innerHTML = ""
@@ -40,6 +41,9 @@ export function initRouter(mainView) {
                 updateView(Nutrition(id));
                 break;
 
+                case '#/src/js/about':
+                    updateView(aboutPage());
+                    break;
             default:
                 updateView(page404());
                 break;
