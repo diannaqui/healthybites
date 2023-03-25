@@ -13,21 +13,19 @@ export function makeRecipeView(recipeName, recipeIngredients, recipeInstructions
     instructionsDisplay.textContent = `Instructions: ${recipeInstructions}`;
     recipeContainer.appendChild(instructionsDisplay);
   
-    const recipeItem = document.createElement("div");
-  
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
     deleteButton.setAttribute("data-index", index);
     deleteButton.addEventListener("click", (event) => {
       event.preventDefault();
+      const storedRecipes = JSON.parse(localStorage.getItem("recipes")) || [];
       const index = event.target.getAttribute("data-index");
       storedRecipes.splice(index, 1);
       localStorage.setItem("recipes", JSON.stringify(storedRecipes));
-      recipeItem.remove();
+      recipeContainer.remove();
     });
   
-    recipeItem.appendChild(deleteButton);
-    recipeContainer.appendChild(recipeItem);
+    recipeContainer.appendChild(deleteButton);
   
     return recipeContainer;
   }
