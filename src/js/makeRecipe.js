@@ -1,5 +1,3 @@
-import { createRecipeView } from "./makeRecipeView.js";
-
 export function createRecipeForm() {
   const recipeFormContainer = document.createElement('div');
   const title = document.createElement('h2');
@@ -33,7 +31,8 @@ export function createRecipeForm() {
   const saveButton = document.createElement('button');
   saveButton.textContent = 'Save';
 
-  const recipeViewsContainer = document.createElement('div'); // create container element for recipe views
+  // Define variables outside of the event listener
+  let recipeNameDisplay, ingredientsDisplay, instructionsDisplay;
 
   saveButton.addEventListener('click', (event) => {
     event.preventDefault();
@@ -52,34 +51,43 @@ export function createRecipeForm() {
     ingredientsTextarea.value = '';
     instructionsTextarea.value = '';
   
-    // Get the index of the newly added recipe
-    const index = storedRecipes.length - 1;
+    recipeNameDisplay = document.createElement('p');
+    recipeNameDisplay.textContent = `Recipe Name: ${newRecipe.name}`;
+    form.appendChild(recipeNameDisplay);
   
-    // Create a new recipe view and append it to the container
-    const recipeView = createRecipeView();
-    recipeView.innerHTML = `
-      <h3>${newRecipe.name}</h3>
-      <p>Ingredients: ${newRecipe.ingredients}</p>
-      <p>Instructions: ${newRecipe.instructions}</p>
-    `;
-    recipeViewsContainer.appendChild(recipeView);
-  });
+    ingredientsDisplay = document.createElement('p');
+    ingredientsDisplay.textContent = `Ingredients: ${newRecipe.ingredients}`;
+    form.appendChild(ingredientsDisplay);
+  
+    instructionsDisplay = document.createElement('p');
+    instructionsDisplay.textContent = `Instructions: ${newRecipe.instructions}`;
+    
+    // Add data-index attribute to each display element
+    const index = storedRecipes.length - 1;
+    recipeNameDisplay.setAttribute('data-index', storedRecipes.length - 1);
+    ingredientsDisplay.setAttribute('data-index', storedRecipes.length - 1);
+    instructionsDisplay.setAttribute('data-index', storedRecipes.length - 1);
 
+    form.appendChild(instructionsDisplay);
+  });
+  
   const deleteAllButton = document.createElement('button');
   deleteAllButton.textContent = 'Delete All';
   deleteAllButton.addEventListener('click', (event) => {
     event.preventDefault();
     localStorage.removeItem('recipes');
-    recipeViewsContainer.querySelectorAll('[data-index]').forEach(element => {
+    form.querySelectorAll('[data-index]').forEach(element => {
       element.remove();
     });
   });
-
+  
+  
+  
+    
   form.appendChild(saveButton);
   form.appendChild(deleteAllButton);
   recipeFormContainer.appendChild(title);
   recipeFormContainer.appendChild(form);
-  recipeFormContainer.appendChild(recipeViewsContainer); // append the container element to the form
-
+  
   return recipeFormContainer;
 }
