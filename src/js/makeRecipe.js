@@ -57,10 +57,14 @@ export function createRecipeForm() {
   
     // Call the makeRecipeView function with the necessary parameters, including the index
     const recipeView = makeRecipeView(recipeName, recipeIngredients, recipeInstructions, index);
+  
+    // Set the index of the recipe
     recipeView.setAttribute('data-index', index);
-    recipeViewsContainer.appendChild(recipeView); // append the new recipe view to the container element
-    
+  
+    // Append the recipe view element to the recipeViewsContainer element
+    recipeViewsContainer.appendChild(recipeView);
   });
+  
   
   
   
