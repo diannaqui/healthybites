@@ -1,4 +1,7 @@
-export function createRecipeView(recipe, index) {
+export function createRecipeView(recipe = {}, index) {
+  if (!recipe) {
+    return null;
+  }
   const recipeView = document.createElement('div');
   recipeView.setAttribute('data-index', index);
 
