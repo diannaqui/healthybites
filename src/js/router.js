@@ -59,10 +59,7 @@ export function initRouter(mainView) {
                     break;
                 
                 case '#/src/js/makeRecipeView':
-                    const storedRecipes = JSON.parse(localStorage.getItem('recipes')) || [];
-                    const recipeIndex = parseInt(id);
-                    const recipe = storedRecipes[recipeIndex];
-                    updateView(createRecipeView(recipe,recipeIndex));
+                    updateView(createRecipeView());
                     break;
                     
             default:
