@@ -628,16 +628,12 @@ ul.goodNutrients .nutrient.color6 {
 
 .imageRecipe{
   border-radius: 10rem;
-  animation: rotateImage 3s ease infinite;  
+  box-shadow: 0 4px 3rem 0 rgba(0, 0, 0, 0.2), 0 6px 5rem 0 rgba(25, 33, 22, 0.682);
 }
 
 .containerImg {
   max-width: fit-content;
 }
-/* .cuisinesDiet {
-  display: flex;
-  /* justify-content: left; 
-} */
 
 .dietsDiv, .cuisinesDiv {
   align-items: center;
@@ -657,36 +653,10 @@ ul.goodNutrients .nutrient.color6 {
 .dietsRecipeList, .cuisinesRecipeList {
   padding: 1rem;
 }
-.nutrientsPerServingDiv {
-  margin: 2rem;
-  margin-left: auto;
-  padding: 2rem;
-  background-color: #eaea2d;
-  border: 5px solid var(--primary-yellowGreen);
-  border-top-right-radius: 70%;
-  border-bottom-left-radius: 70%;
-  width: fit-content;
-  text-align: center;
-}
-
-.nutrientsPerServingDiv:hover {
-  background-color: rgb(8, 48, 6);
-  border-radius: 0%;
-  border-bottom-right-radius: 70%;
-  border-top-left-radius: 70%;
-}
-
-.nutrientsPerServingDiv img { 
-  border-radius: 10rem;
-}
 
 .nutrientsPerServingDiv a { 
   text-decoration: none;
-  color: rgb(15, 128, 9);
-}
-
-.nutrientsPerServingDiv a:hover { 
-  color: #eaea2d;
+  color: var(--dark-grey);
 }
 
 .containerInstructionsTitle {
@@ -710,14 +680,22 @@ ul.goodNutrients .nutrient.color6 {
 }
 
 .div2ingredients, .div2equipment {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
   min-width: 9rem;
   text-align: center;
+  position: relative;
+  margin-bottom: 9rem;
 }
 
 .analyzedInstructionsElement {
   padding: 1rem;
-  border: 2px solid var(--primary-yellowGreen);
+  /* border: 2px solid var(--primary-yellowGreen); */
   border-radius: 1rem;
+  box-shadow: 0 1px 0.2rem 0 rgba(117, 116, 97, 0.9);
+
 }
 
 .ingredientsListClassName {
@@ -737,14 +715,14 @@ ul.goodNutrients .nutrient.color6 {
 .links {
   margin: 5rem auto;
   display: flex;
-  /* justify-content: flex-end; */
   width: fit-content;
   flex-wrap: wrap;
 
 }
 .recipeCard {
-  border: 5px solid var(--accent1-maize);
+  box-shadow: 0.5rem 0.5rem 1rem 0 rgba(117, 116, 97, 0.9);
   border-radius: 10%;
+  background-color: white;
   padding: 5rem;
   margin: 5rem auto;
   justify-content: center;
@@ -773,3 +751,71 @@ ul.goodNutrients .nutrient.color6 {
 
 
   
+/* Modal Card */
+
+.modalCard {
+  border-radius: 2rem;
+  box-shadow: 0 4px 3rem 0 rgba(0, 0, 0, 0.2), 0 6px 5rem 0 rgba(25, 33, 22, 0.682);
+  background-color:  #f5f5d3;
+  position: absolute;
+  z-index: 1;
+  top: 2rem;
+  left: 6rem;
+}
+
+.modalCard img {
+  padding: 1rem;
+}
+
+.buttonModal, .nutrientsPerServingDiv, .ingredientsListClassName, .buttonListModal{
+  padding: 15px 25px;
+  margin: 2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background-color: #edf1be;
+  border: none;
+  border-radius: 2rem;
+  box-shadow: 0 9px #999;
+  text-align: center;
+
+  
+}
+
+.nutrientsPerServingDiv {
+  padding: 25px 45px;
+  border-bottom-right-radius: 70%;
+  border-top-left-radius: 70%;
+}
+
+.buttonModal:active, .nutrientsPerServingDiv:active, .ingredientsListClassName:active, .buttonListModal:active {
+  background-color:  #e8ef92;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.ingredientsListClassName{
+  padding: 0.5rem 1rem;
+  margin: 0;
+
+  font-size: 1.2rem;
+  cursor: pointer;
+  background-color: #d7f4cc;
+  border: none;
+  border-radius: 2rem;
+  box-shadow: 0 9px #999;
+  text-align: center;
+}
+
+.ingredientsListClassName:active {
+  background-color:  #bdefab;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.instructionsStep {
+  border-radius: 9rem;
+  background-color:  rgba(235, 230, 73, 0.05);
+  box-shadow: 0 1px 2rem 0 rgba(117, 116, 97, 0.9);
+  padding: 2rem;
+  color: #444141;
+}
