@@ -3,6 +3,7 @@ export default class RecipeDetails {
     constructor(dataSource, idSelected) {
         this.dataSource = dataSource;
         this.idSelected = idSelected;
+        this.listRecipeDetails = '';
     }
 
     async init() {
@@ -184,7 +185,7 @@ export default class RecipeDetails {
         recipeInstructions.appendChild(instructionsRecipeTitle);
 
         // Instructions - child of recipeInstructions
-        const contentIngredients = this.renderTemplateInstructions(listRecipeDetails.analyzedInstructions, 'analyzedInstructions');
+        const contentIngredients = this.renderTemplateInstructions(listRecipeDetails.analyzedInstructions, 'analyzedInstructions', listRecipeDetails);
         recipeInstructions.appendChild(contentIngredients);
 
         return recipeInstructions;
@@ -206,7 +207,7 @@ export default class RecipeDetails {
     }
 
     // Steps with pictures
-    steps(element, className) {
+    steps(element, className, listRecipeDetails) {
         const divElement = document.createElement('div');
         divElement.classList.add(`${className}Element`);
 
@@ -215,17 +216,17 @@ export default class RecipeDetails {
         step.innerHTML = `Step ${element.number}: ${element.step}`;
         divElement.appendChild(step);
 
-        const listIngredients = this.renderTemplateListElement(element.ingredients, 'ingredients', 'ingredientsListClass');
+        const listIngredients = this.renderTemplateListElement(element.ingredients, 'ingredients', 'ingredientsListClass', listRecipeDetails);
         divElement.appendChild(listIngredients);
         
-        const listEquipment = this.renderTemplateListElement(element.equipment, 'equipment', 'ingredientsListClass');
+        const listEquipment = this.renderTemplateListElement(element.equipment, 'equipment', 'ingredientsListClass', listRecipeDetails);
         divElement.appendChild(listEquipment);
 
         return divElement;
     }
 
     // Instructions - how to create de recipe
-    renderTemplateInstructions(list, className) {
+    renderTemplateInstructions(list, className, listRecipeDetails) {
 
         const divcontainer = document.createElement('div');
         divcontainer.classList.add('containerInstructions');
@@ -241,19 +242,42 @@ export default class RecipeDetails {
                 divcontainerTitle.innerHTML = `Face ${face++}  ( ${item.name} )`;
                 divInstructions.appendChild(divcontainerTitle);
                 
-                item.steps.forEach(element => divInstructions.appendChild(this.steps(element, className)))
+                item.steps.forEach(element => divInstructions.appendChild(this.steps(element, className, listRecipeDetails)))
                 divcontainer.appendChild(divInstructions);    
         })
         return divcontainer;
     }
 
-    renderTemplateListElement(list, name, className) {
+    card (id) {
+
+        document.querySelector(`#modalCard${id}`).style.display = 'block';
+        // console.log(listRecipeDetails)
+        // const modal = document.createElement('div');
+        // modal.classList.add('modalCard');
+        // modal.id = `modalCard${id}`;
+        //     const titleModal = document.createElement('h2');
+        //     titleModal.classList.add('titleModal');
+        //     titleModal.textContent = name;
+
+        //     const substitute = document.createElement('h2');
+        //     substitute.innerHTML = data;
+
+        // modal.appendChild(titleModal);
+        // modal.appendChild(substitute);
+        // modal.style.display = 'none';
+
+        // return modal;
+        
+    }
+
+    renderTemplateListElement(list, name, className, listRecipeDetails) {
 
         const divElement = document.createElement('div');
         divElement.classList.add(`div${name}`);
 
         list.forEach(item => {
 
+            console.log(item)
             const divElement2 = document.createElement('div');
             divElement2.classList.add(`div2${name}`);
 
@@ -262,10 +286,26 @@ export default class RecipeDetails {
             imgElement.alt = `Image of ${item.localizedName}`;
             divElement2.appendChild(imgElement);
 
-            const nameElement = document.createElement('h4');
+            const nameElement = document.createElement('button');
             nameElement.classList.add(`${className}Name`);
             nameElement.textContent = item.name;
+            nameElement.id = item.id;
+            nameElement.addEventListener('click', this.card.bind(null, item.id));
             divElement2.appendChild(nameElement);
+
+
+            console.log(listRecipeDetails)
+            const modal = document.createElement('div');
+            modal.classList.add('modalCard');
+            modal.id = `modalCard${item.id}`;
+                const titleModal = document.createElement('h2');
+                titleModal.classList.add('titleModal');
+                titleModal.textContent = item.name;
+
+            modal.appendChild(titleModal);
+            modal.style.display = 'none';
+
+            divElement2.appendChild(modal);
 
             divElement.appendChild(divElement2);
         })

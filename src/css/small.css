@@ -634,10 +634,6 @@ ul.goodNutrients .nutrient.color6 {
 .containerImg {
   max-width: fit-content;
 }
-/* .cuisinesDiet {
-  display: flex;
-  /* justify-content: left; 
-} */
 
 .dietsDiv, .cuisinesDiv {
   align-items: center;
@@ -662,7 +658,10 @@ ul.goodNutrients .nutrient.color6 {
   margin-left: auto;
   padding: 2rem;
   background-color: #eaea2d;
-  border: 5px solid var(--primary-yellowGreen);
+  border-left: 9px solid  #dbdb1a;
+  border-bottom: 9px solid  #dbdb1a;
+  border-right: 3px solid #dbdb1a;
+  border-top: 3px solid  #dbdb1a;
   border-top-right-radius: 70%;
   border-bottom-left-radius: 70%;
   width: fit-content;
@@ -670,10 +669,10 @@ ul.goodNutrients .nutrient.color6 {
 }
 
 .nutrientsPerServingDiv:hover {
-  background-color: rgb(8, 48, 6);
-  border-radius: 0%;
-  border-bottom-right-radius: 70%;
-  border-top-left-radius: 70%;
+  border-left: 3px solid  #dbdb1a;
+  border-bottom: 3px solid  #dbdb1a;
+  border-right: 9px solid  #dbdb1a;
+  border-top: 9px solid   #dbdb1a;
 }
 
 .nutrientsPerServingDiv img { 
@@ -683,10 +682,6 @@ ul.goodNutrients .nutrient.color6 {
 .nutrientsPerServingDiv a { 
   text-decoration: none;
   color: rgb(15, 128, 9);
-}
-
-.nutrientsPerServingDiv a:hover { 
-  color: #eaea2d;
 }
 
 .containerInstructionsTitle {
@@ -712,6 +707,7 @@ ul.goodNutrients .nutrient.color6 {
 .div2ingredients, .div2equipment {
   min-width: 9rem;
   text-align: center;
+  position: relative;
 }
 
 .analyzedInstructionsElement {
@@ -773,3 +769,10 @@ ul.goodNutrients .nutrient.color6 {
 
 
   
+/* Modal Card */
+
+.modalCard {
+  border: 1px solid red;
+  position: absolute;
+  top: 0;
+}

@@ -48,13 +48,13 @@ export function initRouter(mainView) {
                 updateView(Print(id));
                 break;
 
-                case '#/src/js/about':
-                    updateView(aboutPage());
-                    break;
-                
-                case '#/src/js/makeRecipe':
-                    updateView(createRecipeForm());
-                    break;
+            case '#/src/js/about':
+                updateView(aboutPage());
+                break;
+            
+            case '#/src/js/makeRecipe':
+                updateView(createRecipeForm());
+                break;
                     
             default:
                 updateView(page404());
