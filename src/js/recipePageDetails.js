@@ -178,12 +178,6 @@ export default class RecipeDetails {
         const recipeInstructions = document.createElement('div');
         recipeInstructions.classList.add('recipeInstructions');       
 
-        // Instructions Title - child of recipeInstructions
-        const instructionsRecipeTitle = document.createElement('h2');
-        instructionsRecipeTitle.classList.add('instructionsRecipeTitle');
-        instructionsRecipeTitle.textContent = 'Instructions';
-        recipeInstructions.appendChild(instructionsRecipeTitle);
-
         // Instructions - child of recipeInstructions
         const contentIngredients = this.renderTemplateInstructions(listRecipeDetails.analyzedInstructions, 'analyzedInstructions', listRecipeDetails);
         recipeInstructions.appendChild(contentIngredients);
@@ -211,15 +205,15 @@ export default class RecipeDetails {
         const divElement = document.createElement('div');
         divElement.classList.add(`${className}Element`);
 
-        const step = document.createElement('h3');
+        const step = document.createElement('h2');
         step.classList.add('instructionsStep');
         step.innerHTML = `Step ${element.number}: ${element.step}`;
         divElement.appendChild(step);
 
-        const listIngredients = this.renderTemplateListElement(element.ingredients, 'ingredients', 'ingredientsListClass', listRecipeDetails);
+        const listIngredients = this.renderTemplateListElement(element.ingredients, 'ingredients', 'ingredientsListClass', element.number);
         divElement.appendChild(listIngredients);
         
-        const listEquipment = this.renderTemplateListElement(element.equipment, 'equipment', 'ingredientsListClass', listRecipeDetails);
+        const listEquipment = this.renderTemplateListElement(element.equipment, 'equipment', 'ingredientsListClass', element.number);
         divElement.appendChild(listEquipment);
 
         return divElement;
@@ -239,7 +233,7 @@ export default class RecipeDetails {
 
                 const divcontainerTitle = document.createElement('h2');
                 divcontainerTitle.classList.add('containerInstructionsTitle');
-                divcontainerTitle.innerHTML = `Face ${face++}  ( ${item.name} )`;
+                divcontainerTitle.innerHTML = `Part ${face++} . . .  ${item.name}`;
                 divInstructions.appendChild(divcontainerTitle);
                 
                 item.steps.forEach(element => divInstructions.appendChild(this.steps(element, className, listRecipeDetails)))
@@ -248,66 +242,75 @@ export default class RecipeDetails {
         return divcontainer;
     }
 
-    card (id) {
-
-        document.querySelector(`#modalCard${id}`).style.display = 'block';
-        // console.log(listRecipeDetails)
-        // const modal = document.createElement('div');
-        // modal.classList.add('modalCard');
-        // modal.id = `modalCard${id}`;
-        //     const titleModal = document.createElement('h2');
-        //     titleModal.classList.add('titleModal');
-        //     titleModal.textContent = name;
-
-        //     const substitute = document.createElement('h2');
-        //     substitute.innerHTML = data;
-
-        // modal.appendChild(titleModal);
-        // modal.appendChild(substitute);
-        // modal.style.display = 'none';
-
-        // return modal;
-        
+    cardDisplay (id, show) {
+        document.getElementById(`modalCard${id}`).style.display = show;
     }
 
-    renderTemplateListElement(list, name, className, listRecipeDetails) {
+    shoppingList (id, show) {
+
+    }
+
+    modalCard (item, name, id) {
+        const modal = document.createElement('div');
+        modal.classList.add('modalCard');
+        modal.id = `modalCard${id}`;
+
+            const titleModal = document.createElement('h2');
+            titleModal.classList.add('titleModal');
+            titleModal.textContent = item.name;
+        modal.appendChild(titleModal);
+
+            const imgElement = document.createElement('img');
+            imgElement.src = `https://spoonacular.com/cdn/${name}_500x500/${item.image}`;
+            imgElement.alt = `Image of ${item.localizedName}`;
+            console.log(imgElement)
+        modal.appendChild(imgElement);
+
+        modal.style.display = 'none';
+
+            const buttonList = document.createElement('button');
+            buttonList.classList.add(`buttonListModal`);
+            buttonList.textContent = 'Add to Shopping List';
+            buttonList.addEventListener('click', this.shoppingList.bind(null, id, 'none'));
+        modal.appendChild(buttonList);
+
+            const button = document.createElement('button');
+            button.classList.add(`buttonModal`);
+            button.textContent = 'Close';
+            button.addEventListener('click', this.cardDisplay.bind(null, id, 'none'));
+        modal.appendChild(button);
+
+        return modal;
+    }
+
+    renderTemplateListElement(list, name, className, step) {
 
         const divElement = document.createElement('div');
         divElement.classList.add(`div${name}`);
 
         list.forEach(item => {
 
-            console.log(item)
             const divElement2 = document.createElement('div');
             divElement2.classList.add(`div2${name}`);
 
-            const imgElement = document.createElement('img');
-            imgElement.src = `https://spoonacular.com/cdn/${name}_100x100/${item.image}`;
-            imgElement.alt = `Image of ${item.localizedName}`;
+                const imgElement = document.createElement('img');
+                imgElement.src = `https://spoonacular.com/cdn/${name}_100x100/${item.image}`;
+                imgElement.alt = `Image of ${item.localizedName}`;
             divElement2.appendChild(imgElement);
 
-            const nameElement = document.createElement('button');
-            nameElement.classList.add(`${className}Name`);
-            nameElement.textContent = item.name;
-            nameElement.id = item.id;
-            nameElement.addEventListener('click', this.card.bind(null, item.id));
+                const nameElement = document.createElement('button');
+                nameElement.classList.add(`${className}Name`);
+                nameElement.textContent = item.name;
+
+                const id = `${item.id}${step}`;
+                nameElement.id = id;
+        
+                nameElement.addEventListener('click', this.cardDisplay.bind(null, id, 'block'));
             divElement2.appendChild(nameElement);
 
+            divElement2.appendChild(this.modalCard(item, name, id));
 
-            console.log(listRecipeDetails)
-            const modal = document.createElement('div');
-            modal.classList.add('modalCard');
-            modal.id = `modalCard${item.id}`;
-                const titleModal = document.createElement('h2');
-                titleModal.classList.add('titleModal');
-                titleModal.textContent = item.name;
-
-            modal.appendChild(titleModal);
-            modal.style.display = 'none';
-
-            divElement2.appendChild(modal);
-
-            divElement.appendChild(divElement2);
+        divElement.appendChild(divElement2);
         })
         return divElement;
     }

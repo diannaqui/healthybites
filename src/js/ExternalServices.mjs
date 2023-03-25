@@ -7,8 +7,7 @@ const mealTypeUrl = "https://api.spoonacular.com/recipes/complexSearch";
 // const apiKeyNumber = "bd9690f36eb2416991bd24870cd5b0e3";        // Diana
 // const apiKeyNumber = "079ad1367c2e40e79eb0363dd32b6c51";        // Felix
 
- const apiKeyNumber = "99b477b548cb43ed9b1835958dde8ddf";   
-
+const apiKeyNumber = "a03e54e623ae4bc088269b82143e1497";   
 export function convertToJson(res) {
     if (res.ok) {
       return res.json();
