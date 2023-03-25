@@ -780,7 +780,6 @@ ul.goodNutrients .nutrient.color6 {
 
   
 }
-
 .nutrientsPerServingDiv {
   padding: 25px 45px;
   border-bottom-right-radius: 70%;
@@ -818,4 +817,81 @@ ul.goodNutrients .nutrient.color6 {
   box-shadow: 0 1px 2rem 0 rgba(117, 116, 97, 0.9);
   padding: 2rem;
   color: #444141;
+}
+/* ==============form make your recipe=+================= */
+div.makeYourRecipeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5rem auto;
+  width: 100%;
+}
+
+div.makeYourRecipeContainer form {
+  /* form look like card */
+  border-radius: 2rem;
+  box-shadow: 0 4px 1rem 0 rgba(0, 0, 0, 0.2), 0 6px 1rem 0 rgba(25, 33, 22, 0.682);
+  /* nice grey background color */
+  background-color: #f1f1f1;
+  position: relative;
+  z-index: 1;
+  top: 2rem;
+  left: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  padding: 2rem 0 0 0;
+}
+
+div.makeYourRecipeContainer form input {
+  margin: 1rem;
+  padding: 1rem;
+  width: 50%;
+  border-radius: 1rem;
+  border: none;
+  background-color: rgb(255, 255, 255);
+}
+
+div.makeYourRecipeContainer form textarea {
+  margin: 1rem;
+  padding: 1rem;
+  width: 50%;
+  height: 10rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: rgb(255, 255, 255);
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 5rem auto;
+}
+
+.buttonsContainer button {
+  margin: 1rem;
+  padding: 1rem;
+  width: 10rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: #333;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+.buttonsContainer button:hover {
+  background-color: #555;
+  transition: all 0.2s ease-in-out;
+}
+
+.buttonsContainer button:active {
+  background-color: #555;
 }
