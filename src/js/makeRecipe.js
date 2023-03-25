@@ -1,6 +1,6 @@
 import { createRecipeView } from "./makeRecipeView";
 
-export function createRecipeForm(recipeViewsContainer) {
+export function createRecipeForm() {
   const recipeFormContainer = document.createElement('div');
   const title = document.createElement('h2');
   title.textContent = 'Make your recipe';
@@ -33,6 +33,8 @@ export function createRecipeForm(recipeViewsContainer) {
   const saveButton = document.createElement('button');
   saveButton.textContent = 'Save';
 
+  const recipeViewsContainer = document.createElement('div'); // create container element for recipe views
+
   saveButton.addEventListener('click', (event) => {
     event.preventDefault();
     const storedRecipes = JSON.parse(localStorage.getItem('recipes')) || [];
@@ -57,7 +59,11 @@ export function createRecipeForm(recipeViewsContainer) {
     const recipeView = createRecipeView(newRecipe, index);
     recipeViewsContainer.appendChild(recipeView);
   });
-
+  
+  
+  
+  
+  
   const deleteAllButton = document.createElement('button');
   deleteAllButton.textContent = 'Delete All';
   deleteAllButton.addEventListener('click', (event) => {
@@ -67,14 +73,15 @@ export function createRecipeForm(recipeViewsContainer) {
       element.remove();
     });
   });
-
+  
+  
+  
   form.appendChild(saveButton);
   form.appendChild(deleteAllButton);
   recipeFormContainer.appendChild(title);
   recipeFormContainer.appendChild(form);
-
-  // Append the recipe form container to the recipe views container
-  recipeViewsContainer.appendChild(recipeFormContainer);
+  recipeFormContainer.appendChild(recipeViewsContainer); // append the container element to the form
+  
 
   return recipeFormContainer;
 }
