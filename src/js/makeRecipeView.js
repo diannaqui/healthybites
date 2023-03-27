@@ -1,4 +1,4 @@
-export function makeRecipeView(callback) {
+export function makeRecipeView(callback = () => {}) {
   const recipeViewContainer = document.createElement('div');
   const title = document.createElement('h2');
   title.textContent = 'Your Recipes';

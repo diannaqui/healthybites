@@ -8,7 +8,7 @@ import { createRecipeForm } from './makeRecipe.js';
 import {makeRecipeView} from './makeRecipeView.js';
 
 
-export function initRouter(mainView) {
+export function initRouter(mainView, callback) {
     //mainView.innerHTML = ""
 
     function updateView(newView) {
