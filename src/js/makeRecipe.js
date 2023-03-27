@@ -1,5 +1,6 @@
 export function createRecipeForm() {
   const recipeFormContainer = document.createElement('div');
+  recipeFormContainer.classList.add("makeYourRecipeContainer")
   const title = document.createElement('h2');
   title.textContent = 'Make your recipe';
   const form = document.createElement('form');
@@ -80,12 +81,13 @@ export function createRecipeForm() {
       element.remove();
     });
   });
-  
-  
-  
-    
-  form.appendChild(saveButton);
-  form.appendChild(deleteAllButton);
+  //define a container for the buttons
+  const buttonsContainer = document.createElement('div');
+  buttonsContainer.classList.add('buttonsContainer');
+
+  buttonsContainer.appendChild(saveButton);
+  buttonsContainer.appendChild(deleteAllButton);
+  form.appendChild(buttonsContainer);
   recipeFormContainer.appendChild(title);
   recipeFormContainer.appendChild(form);
   
