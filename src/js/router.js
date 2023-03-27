@@ -5,9 +5,11 @@ import Nutrition from './recipeNutrientsDetailsEntrance.js'
 import Print from './recipePrint.js'
 import aboutPage from './about.js';
 import { createRecipeForm } from './makeRecipe.js';
+import {makeRecipeView} from './makeRecipeView.js';
 
-export function initRouter(mainView) {
-    // mainView.innerHTML = ""
+
+export function initRouter(mainView, callback) {
+    //mainView.innerHTML = ""
 
     function updateView(newView) {
         console.log(newView);
@@ -48,13 +50,17 @@ export function initRouter(mainView) {
                 updateView(Print(id));
                 break;
 
-            case '#/src/js/about':
-                updateView(aboutPage());
-                break;
-            
-            case '#/src/js/makeRecipe':
-                updateView(createRecipeForm());
-                break;
+                case '#/src/js/about':
+                    updateView(aboutPage());
+                    break;
+                
+                case '#/src/js/makeRecipe':
+                    updateView(createRecipeForm());
+                    break;
+                
+                case '#/src/js/makeRecipeView':
+                    updateView(makeRecipeView(callback));
+                    break;
                     
             default:
                 updateView(page404());
