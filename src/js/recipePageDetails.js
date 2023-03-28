@@ -1,9 +1,11 @@
+import ShoppingList from './ShoppingList.js';
 
 export default class RecipeDetails {
     constructor(dataSource, idSelected) {
         this.dataSource = dataSource;
         this.idSelected = idSelected;
         this.listRecipeDetails = '';
+        this.shopping = new ShoppingList();
     }
 
     async init() {
@@ -34,13 +36,23 @@ export default class RecipeDetails {
 
             const links = document.createElement('div');
             links.classList.add('links');
-                links.appendChild(this.nutrientsPerServing());                   // NUTRIENTS
-                links.appendChild(this.print());                                 // PRINT CARD
+                links.appendChild(this.nutrientsPerServing());                       // NUTRIENTS
+                links.appendChild(this.print());                                     // PRINT CARD
 
-        divRecipeDetails.appendChild(titleRecipe);                                  // TITLE
+        divRecipeDetails.appendChild(titleRecipe);                                   // TITLE
         divRecipeDetails.appendChild(containerInfo);
         divRecipeDetails.appendChild(links);
-        divRecipeDetails.appendChild(this.instructionsRecipe(listRecipeDetails));   // INSTRUCTIONS
+
+            const containerIngredients = document.createElement('div');
+            containerIngredients.classList.add('containerList');
+                containerIngredients.appendChild(this.instructionsRecipe(listRecipeDetails));    // INSTRUCTIONS
+
+                const divShoppingOut = document.createElement('div');
+                divShoppingOut.classList.add('shoppingListOut');
+                divShoppingOut.appendChild(this.shopping.displayShoppingList());
+                containerIngredients.appendChild(divShoppingOut);                    // SHOPPING LIST
+        
+        divRecipeDetails.appendChild(containerIngredients);
                 
         return divRecipeDetails;
     }
@@ -179,7 +191,7 @@ export default class RecipeDetails {
         recipeInstructions.classList.add('recipeInstructions');       
 
         // Instructions - child of recipeInstructions
-        const contentIngredients = this.renderTemplateInstructions(listRecipeDetails.analyzedInstructions, 'analyzedInstructions', listRecipeDetails);
+        const contentIngredients = this.renderTemplateInstructions(listRecipeDetails.analyzedInstructions, 'analyzedInstructions');
         recipeInstructions.appendChild(contentIngredients);
 
         return recipeInstructions;
@@ -201,7 +213,7 @@ export default class RecipeDetails {
     }
 
     // Steps with pictures
-    steps(element, className, listRecipeDetails) {
+    steps(element, className) {
         const divElement = document.createElement('div');
         divElement.classList.add(`${className}Element`);
 
@@ -220,7 +232,7 @@ export default class RecipeDetails {
     }
 
     // Instructions - how to create de recipe
-    renderTemplateInstructions(list, className, listRecipeDetails) {
+    renderTemplateInstructions(list, className) {
 
         const divcontainer = document.createElement('div');
         divcontainer.classList.add('containerInstructions');
@@ -236,7 +248,7 @@ export default class RecipeDetails {
                 divcontainerTitle.innerHTML = `Part ${face++} . . .  ${item.name}`;
                 divInstructions.appendChild(divcontainerTitle);
                 
-                item.steps.forEach(element => divInstructions.appendChild(this.steps(element, className, listRecipeDetails)))
+                item.steps.forEach(element => divInstructions.appendChild(this.steps(element, className)))
                 divcontainer.appendChild(divInstructions);    
         })
         return divcontainer;
@@ -244,10 +256,6 @@ export default class RecipeDetails {
 
     cardDisplay (id, show) {
         document.getElementById(`modalCard${id}`).style.display = show;
-    }
-
-    shoppingList (id, show) {
-
     }
 
     modalCard (item, name, id) {
@@ -263,7 +271,6 @@ export default class RecipeDetails {
             const imgElement = document.createElement('img');
             imgElement.src = `https://spoonacular.com/cdn/${name}_500x500/${item.image}`;
             imgElement.alt = `Image of ${item.localizedName}`;
-            console.log(imgElement)
         modal.appendChild(imgElement);
 
         modal.style.display = 'none';
@@ -271,7 +278,10 @@ export default class RecipeDetails {
             const buttonList = document.createElement('button');
             buttonList.classList.add(`buttonListModal`);
             buttonList.textContent = 'Add to Shopping List';
-            buttonList.addEventListener('click', this.shoppingList.bind(null, id, 'none'));
+            
+            buttonList.addEventListener('click', this.shopping.shoppingList.bind(null, item.name));
+            buttonList.addEventListener('click', this.cardDisplay.bind(null, id, 'none'));
+            
         modal.appendChild(buttonList);
 
             const button = document.createElement('button');
