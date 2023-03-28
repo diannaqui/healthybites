@@ -654,7 +654,7 @@ ul.goodNutrients .nutrient.color6 {
   padding: 1rem;
 }
 
-.nutrientsPerServingDiv a { 
+.nutrientsPerServingDiv a, .divLast a{ 
   text-decoration: none;
   color: var(--dark-grey);
 }
@@ -833,7 +833,7 @@ ul.goodNutrients .nutrient.color6 {
   box-shadow: 0 4px 3rem 0 rgba(0, 0, 0), 0 6px 5rem 0 rgba(25, 33, 22);
 }
 
-.buttonModal, .nutrientsPerServingDiv, .ingredientsListClassName, .buttonListModal, .buttoD{
+.buttonModal, .nutrientsPerServingDiv, .ingredientsListClassName, .buttonListModal, .buttoD, .buttonList, .divLast{
   padding: 15px 25px;
   margin: 2rem;
   font-size: 1.2rem;
@@ -852,7 +852,7 @@ ul.goodNutrients .nutrient.color6 {
   border-top-left-radius: 70%;
 }
 
-.buttonModal:active, .nutrientsPerServingDiv:active, .ingredientsListClassName:active, .buttonListModal:active, .buttoD:active{
+.buttonModal:active, .nutrientsPerServingDiv:active, .ingredientsListClassName:active, .buttonListModal:active, .buttoD:active, .buttonList:active, .divLast:active{
   background-color:  #e8ef92;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
@@ -896,6 +896,20 @@ ul.goodNutrients .nutrient.color6 {
   color: #444141;
 }
 
+/* Print Recipe */
+
+.divPrint {
+  display: flex;
+  column-gap: 3rem;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
+.titleListPrint {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+}
 /* ==============form make your recipe=+================= */
 div.makeYourRecipeContainer {
   display: flex;
