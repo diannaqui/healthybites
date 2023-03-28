@@ -103,6 +103,4 @@ export default class ExternalServices {
       console.log(err);
     }
   }
-
-
  }
