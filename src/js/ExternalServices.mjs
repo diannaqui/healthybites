@@ -4,7 +4,7 @@ const mealTypeUrl = "https://api.spoonacular.com/recipes/complexSearch";
 // const apiKeyNumber = "85fc6e9102e54cd3b863cc238b62f727";        // Josue 
 // const apiKeyNumber = "11ba0971201241a89d43b8e7edef3ce1";        // Nikita
 // const apiKeyNumber = "d3803da0dba2444fac1dbeeb579fe87f";        // Zeir
-// const apiKeyNumber = "bd9690f36eb2416991bd24870cd5b0e33";        // Diana
+ const apiKeyNumber = "bd9690f36eb2416991bd24870cd5b0e3";        // Diana
 // const apiKeyNumber = "079ad1367c2e40e79eb0363dd32b6c51";        // Felix
     
 export function convertToJson(res) {
@@ -51,7 +51,6 @@ export default class ExternalServices {
     try {
         const response = await fetch(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${apiKeyNumber}`);
         const data = await convertToJson(response);
-        console.log(data);
         return data.url;
     } 
    catch (err){

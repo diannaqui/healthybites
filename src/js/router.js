@@ -12,7 +12,6 @@ export function initRouter(mainView, callback) {
     //mainView.innerHTML = ""
 
     function updateView(newView) {
-        console.log(newView);
         mainView.innerHTML = '';
         mainView.appendChild(newView);
     }

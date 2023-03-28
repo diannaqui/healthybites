@@ -1,7 +1,7 @@
 export default class ShoppingList {
-    // constructor {
+    constructor() {
 
-    // }
+    }
 
     displayShoppingList() {
 
