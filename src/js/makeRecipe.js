@@ -81,15 +81,20 @@ export function createRecipeForm() {
       element.remove();
     });
   });
-  //define a container for the buttons
-  const buttonsContainer = document.createElement('div');
-  buttonsContainer.classList.add('buttonsContainer');
 
-  buttonsContainer.appendChild(saveButton);
-  buttonsContainer.appendChild(deleteAllButton);
-  form.appendChild(buttonsContainer);
-  recipeFormContainer.appendChild(title);
-  recipeFormContainer.appendChild(form);
+  
+   //define a container for the buttons
+   const buttonsContainer = document.createElement('div');
+   buttonsContainer.classList.add('buttonsContainer');
+   //add buttons to container
+   buttonsContainer.appendChild(saveButton);
+   buttonsContainer.appendChild(deleteAllButton);
+   //add container to form
+   form.appendChild(buttonsContainer);
+   
+   recipeFormContainer.appendChild(title);
+   recipeFormContainer.appendChild(form);
+
   
   return recipeFormContainer;
 }
