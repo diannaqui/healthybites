@@ -65,13 +65,17 @@ export default class ShoppingList {
                     const divLast = document.createElement('div');
                     divLast.classList.add('divLast');
 
-                            const buttonP = document.createElement('button');
-                            buttonP.classList.add('buttoD');
-                            buttonP.innerHTML = 'Print';  
+                            const buttonP = document.createElement('a');
+                            buttonP.classList.add('buttonListPrint');
+                            buttonP.href = `#/src/js/recipePrint?idSelected=shoppingList`;
+                                const printList = document.createElement('h2');
+                                printList.textContent = 'Print';
+                                buttonP.appendChild(printList);
                         divLast.appendChild(buttonP);
 
                         divShoppingList.appendChild(divLast);
         }
+        console.log(divShoppingList);
         return divShoppingList;
     }
 
@@ -109,7 +113,7 @@ export default class ShoppingList {
     }
 
 
-    shoppingChange(option, name) {
+    shoppingChange(option, name, path) {
 
         const shoppingList = JSON.parse(localStorage.getItem('list'));
     
