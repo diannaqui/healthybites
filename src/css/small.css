@@ -690,13 +690,24 @@ ul.goodNutrients .nutrient.color6 {
   margin-bottom: 9rem;
 }
 
-.analyzedInstructionsElement {
+.analyzedInstructionsElement, .shoppingList, .messageError {
   padding: 1rem;
   /* border: 2px solid var(--primary-yellowGreen); */
   border-radius: 1rem;
   box-shadow: 0 1px 0.2rem 0 rgba(117, 116, 97, 0.9);
 
 }
+
+.messageError {
+  margin:1rem auto;
+  width: fit-content;
+}
+
+.alertMessage{
+  display: flex;
+  flex-direction: row;
+}
+
 
 .ingredientsListClassName {
   margin: 0;
@@ -727,7 +738,50 @@ ul.goodNutrients .nutrient.color6 {
   margin: 5rem auto;
   justify-content: center;
   width: fit-content;
+}
 
+.containerList {
+  display: flex;
+}
+
+.quantityShoppingList {
+  border: none;
+  background-color: transparent;
+  height: fit-content;
+  margin: 0;
+}
+
+.shoppingList {
+  margin: 8rem auto;
+  background-color: #eef0d7;
+}
+
+.divSL {
+  display: flex;
+  flex-direction: column;
+  
+  /* justify-content: space-evenly; */
+}
+
+.divButtons {
+  display: flex;
+  justify-content: space-evenly;
+  height: fit-content;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.nameShoppingList {
+  margin:1rem;
+}
+
+.divInfoList {
+  display: flex;
+  align-items: center;
+}
+
+.deleteShoppingList {
+  height: fit-content;
 }
 
 /* ========================= ABOUT PAGE ===================== */
@@ -767,7 +821,19 @@ ul.goodNutrients .nutrient.color6 {
   padding: 1rem;
 }
 
-.buttonModal, .nutrientsPerServingDiv, .ingredientsListClassName, .buttonListModal{
+.deleteShoppingList {
+  padding: 0.5rem;
+  border-radius: 2rem;
+  border: none;
+  background-color: rgb(239, 206, 206);
+}
+
+.deleteShoppingList:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 3rem 0 rgba(0, 0, 0), 0 6px 5rem 0 rgba(25, 33, 22);
+}
+
+.buttonModal, .nutrientsPerServingDiv, .ingredientsListClassName, .buttonListModal, .buttoD{
   padding: 15px 25px;
   margin: 2rem;
   font-size: 1.2rem;
@@ -786,7 +852,7 @@ ul.goodNutrients .nutrient.color6 {
   border-top-left-radius: 70%;
 }
 
-.buttonModal:active, .nutrientsPerServingDiv:active, .ingredientsListClassName:active, .buttonListModal:active {
+.buttonModal:active, .nutrientsPerServingDiv:active, .ingredientsListClassName:active, .buttonListModal:active, .buttoD:active{
   background-color:  #e8ef92;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
@@ -805,19 +871,31 @@ ul.goodNutrients .nutrient.color6 {
   text-align: center;
 }
 
-.ingredientsListClassName:active {
+.ingredientsListClassName:active{
   background-color:  #bdefab;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
 
-.instructionsStep {
-  border-radius: 9rem;
+.divButtons button{ 
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 0.9rem 0 rgba(117, 116, 97, 0.9);
+}
+
+.divButtons button:active {
+  box-shadow: 0 1px 0.9rem 1px rgba(176, 19, 19, 0.9);
+}
+
+.instructionsStep, .titleShoppingList {
+  border-radius: 3rem;
   background-color:  rgba(235, 230, 73, 0.05);
   box-shadow: 0 1px 2rem 0 rgba(117, 116, 97, 0.9);
   padding: 2rem;
   color: #444141;
 }
+
 /* ==============form make your recipe=+================= */
 div.makeYourRecipeContainer {
   display: flex;
