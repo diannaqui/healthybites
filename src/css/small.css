@@ -449,6 +449,8 @@ div.cardProduct img{
 div.recipeContainer {
   max-width: 100%;
   padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
 
 div.container {

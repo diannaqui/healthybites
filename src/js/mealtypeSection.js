@@ -1,7 +1,7 @@
-import img1 from "../images/logoPlaceholder.webp"
-import img2 from "../images/logoPlaceholder.webp"
-import img3 from "../images/logoPlaceholder.webp"
-import img4 from "../images/logoPlaceholder.webp"
+import img1 from "../images/breakfast.webp"
+import img2 from "../images/main-course.jpg"
+import img3 from "../images/alfajores-maicena.jpg"
+import img4 from "../images/drink.webp"
 
 export default function mealtypeSection() {
   const links = [

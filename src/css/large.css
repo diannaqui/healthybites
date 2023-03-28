@@ -45,15 +45,15 @@
     }
 /*     ==========make your ceipe form============== */
     div.makeYourRecipeContainer {
-        width: 80%;
+        width: 40%;
     }
     
     div.makeYourRecipeContainer form {
-        width: 60%;
+        width: 100%;
     }
     
     div.makeYourRecipeContainer form input,
     div.makeYourRecipeContainer form textarea {
-        width: 60%;
+        width: 100%;
     }
 }
