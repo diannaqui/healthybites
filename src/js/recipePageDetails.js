@@ -1,4 +1,4 @@
-import ShoppingList from './ShoppingList.js';
+import ShoppingList from './shoppingList.js';
 
 export default class RecipeDetails {
     constructor(dataSource, idSelected) {
