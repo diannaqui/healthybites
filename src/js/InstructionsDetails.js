@@ -6,19 +6,19 @@ export default class IntructionsDetails {
     }
 
     // Instructions - how to create de recipe - child of divRecipeDetails     
-    instructionsRecipe(listRecipeDetails) {
+    instructionsRecipe(listRecipeDetails, divShoppingOut) {
         const recipeInstructions = document.createElement('div');
         recipeInstructions.classList.add('recipeInstructions');       
 
         // Instructions - child of recipeInstructions
-        const contentIngredients = this.renderTemplateInstructions(listRecipeDetails.analyzedInstructions, 'analyzedInstructions');
+        const contentIngredients = this.renderTemplateInstructions(listRecipeDetails.analyzedInstructions, 'analyzedInstructions', divShoppingOut);
         recipeInstructions.appendChild(contentIngredients);
 
         return recipeInstructions;
     }
 
     // Steps with pictures
-    steps(element, className) {
+    steps(element, className, divShoppingOut) {
         const divElement = document.createElement('div');
         divElement.classList.add(`${className}Element`);
 
@@ -27,17 +27,17 @@ export default class IntructionsDetails {
         step.innerHTML = `Step ${element.number}: ${element.step}`;
         divElement.appendChild(step);
 
-        const listIngredients = this.modal.renderTemplateListElement(element.ingredients, 'ingredients', 'ingredientsListClass', element.number);
+        const listIngredients = this.modal.renderTemplateListElement(element.ingredients, 'ingredients', 'ingredientsListClass', element.number, divShoppingOut);
         divElement.appendChild(listIngredients);
         
-        const listEquipment = this.modal.renderTemplateListElement(element.equipment, 'equipment', 'ingredientsListClass', element.number);
+        const listEquipment = this.modal.renderTemplateListElement(element.equipment, 'equipment', 'ingredientsListClass', element.number, divShoppingOut);
         divElement.appendChild(listEquipment);
 
         return divElement;
     }
 
     // Instructions - how to create de recipe
-    renderTemplateInstructions(list, className) {
+    renderTemplateInstructions(list, className, divShoppingOut) {
 
         const divcontainer = document.createElement('div');
         divcontainer.classList.add('containerInstructions');
@@ -53,7 +53,7 @@ export default class IntructionsDetails {
                 divcontainerTitle.innerHTML = `Part ${face++} . . .  ${item.name}`;
                 divInstructions.appendChild(divcontainerTitle);
                 
-                item.steps.forEach(element => divInstructions.appendChild(this.steps(element, className)))
+                item.steps.forEach(element => divInstructions.appendChild(this.steps(element, className, divShoppingOut)))
                 divcontainer.appendChild(divInstructions);    
         })
         return divcontainer;

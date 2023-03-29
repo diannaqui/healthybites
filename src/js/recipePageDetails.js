@@ -51,15 +51,19 @@ export default class RecipeDetails {
 
             const containerIngredients = document.createElement('div');
             containerIngredients.classList.add('containerList');
-                containerIngredients.appendChild(this.instructions.instructionsRecipe(listRecipeDetails)); // INSTRUCTIONS
 
                 const divShoppingOut = document.createElement('div');
                 divShoppingOut.classList.add('shoppingListOut');
-                divShoppingOut.appendChild(this.shopping.displayShoppingList());
+                divShoppingOut.appendChild(this.shopping.displayShoppingList(divShoppingOut));
+                containerIngredients.appendChild(this.instructions.instructionsRecipe(listRecipeDetails, divShoppingOut)); // INSTRUCTIONS
                 containerIngredients.appendChild(divShoppingOut);                                       // SHOPPING LIST
         
         divRecipeDetails.appendChild(containerIngredients);
-                
         return divRecipeDetails;
     }
+
+    reloadDiv(divShoppingOut) {
+        divShoppingOut.innerHTML = '';
+        divShoppingOut.appendChild(this.shopping.displayShoppingList(divShoppingOut));
+     }
 }

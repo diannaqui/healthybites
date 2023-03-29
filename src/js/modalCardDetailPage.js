@@ -1,4 +1,6 @@
 import ShoppingList from './shoppingList.js';
+import RecipeDetails from "./recipePageDetails";
+
 
 // Modal container that appear in the Detail Page section
 export default class ModalCard {
@@ -12,7 +14,7 @@ export default class ModalCard {
     }
 
 
-    modalCard (item, name, id) {
+    modalCard (item, name, id, divShoppingOut) {
         const modal = document.createElement('div');
         modal.classList.add('modalCard');
         modal.id = `modalCard${id}`;
@@ -34,7 +36,10 @@ export default class ModalCard {
             buttonList.textContent = 'Add to Shopping List';
             
             buttonList.addEventListener('click', this.shopping.shoppingList.bind(null, item.name));
-            buttonList.addEventListener('click', this.cardDisplay.bind(null, id, 'none'));
+            buttonList.addEventListener('click', this.cardDisplay.bind(null, id, 'none')); 
+            buttonList.addEventListener('click', function() {
+                const go = new RecipeDetails();
+                go.reloadDiv(divShoppingOut)})
             
         modal.appendChild(buttonList);
 
@@ -48,7 +53,7 @@ export default class ModalCard {
     }
 
 
-    renderTemplateListElement(list, name, className, step) {
+    renderTemplateListElement(list, name, className, step, divShoppingOut) {
 
         const divElement = document.createElement('div');
         divElement.classList.add(`div${name}`);
@@ -73,7 +78,7 @@ export default class ModalCard {
                 nameElement.addEventListener('click', this.cardDisplay.bind(null, id, 'block'));
             divElement2.appendChild(nameElement);
 
-            divElement2.appendChild(this.modalCard(item, name, id));
+            divElement2.appendChild(this.modalCard(item, name, id, divShoppingOut));
 
         divElement.appendChild(divElement2);
         })

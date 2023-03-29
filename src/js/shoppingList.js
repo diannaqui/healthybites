@@ -1,9 +1,11 @@
+import RecipeDetails from "./recipePageDetails";
+
 export default class ShoppingList {
     constructor() {
 
     }
 
-    displayShoppingList() {
+    displayShoppingList(divShoppingOut) {
 
             const divShoppingList = document.createElement('div');
             divShoppingList.classList.add('shoppingList');
@@ -28,6 +30,9 @@ export default class ShoppingList {
                             buttonDelete.classList.add('deleteShoppingList');
                             buttonDelete.innerHTML = '❌';  
                             buttonDelete.addEventListener('click', this.shoppingDelete.bind(null, item.nameFood));
+                            buttonDelete.addEventListener('click', function() {
+                                const go = new RecipeDetails();
+                                go.reloadDiv(divShoppingOut)})
                         divInfo.appendChild(buttonDelete);
                         
                             const nameItem = document.createElement('h2');
@@ -42,6 +47,9 @@ export default class ShoppingList {
                             buttonMore.classList.add('quantityShoppingList');
                             buttonMore.innerHTML = '➕';  
                             buttonMore.addEventListener('click', this.shoppingChange.bind(null, 1, item.nameFood));
+                            buttonMore.addEventListener('click', function() {
+                                const go = new RecipeDetails();
+                                go.reloadDiv(divShoppingOut)})
                         
                         divButtons.appendChild(buttonMore);
 
@@ -54,6 +62,10 @@ export default class ShoppingList {
                             buttonLess.classList.add('quantityShoppingList');
                             buttonLess.innerHTML = '➖';  
                             buttonLess.addEventListener('click', this.shoppingChange.bind(null, 2, item.nameFood));
+                            buttonLess.addEventListener('click', function() {
+                                const go = new RecipeDetails();
+                                go.reloadDiv(divShoppingOut)})
+
                         divButtons.appendChild(buttonLess);
 
                 div.appendChild(divInfo);
@@ -75,17 +87,15 @@ export default class ShoppingList {
 
                         divShoppingList.appendChild(divLast);
         }
-        console.log(divShoppingList);
         return divShoppingList;
     }
 
 
     shoppingDelete(name) {
+        console.log('qwe')
         let shoppingList = JSON.parse(localStorage.getItem('list'));
         shoppingList = shoppingList.filter((item) => item.nameFood != name);
         localStorage.setItem('list', JSON.stringify(shoppingList));
-    
-        location.reload();
     }
 
     shoppingList(name) {
@@ -105,15 +115,12 @@ export default class ShoppingList {
                 }
             })
         }
-
         if (valid == 0) {item.push(info);}
         localStorage.setItem('list', JSON.stringify(item));
-
-        location.reload();
     }
 
 
-    shoppingChange(option, name, path) {
+    shoppingChange(option, name) {
 
         const shoppingList = JSON.parse(localStorage.getItem('list'));
     
@@ -126,9 +133,7 @@ export default class ShoppingList {
                     if (item.quantity > 0) item.quantity--;
                 }
             }
-        })
-    
+        })   
         localStorage.setItem('list', JSON.stringify(shoppingList));
-        location.reload();
     }
 }
