@@ -1,4 +1,4 @@
-import { getIngredients, getIngredientImage, getIngredientNutrition } from './spoonacular.js';
+import { getIngredients, getIngredientImage, getIngredientNutrition } from './spooncular';
 
 export function createRecipeForm() {
   const recipeFormContainer = document.createElement('div');
