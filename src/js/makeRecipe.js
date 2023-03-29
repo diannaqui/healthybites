@@ -22,29 +22,36 @@ export function createRecipeForm() {
   ingredientsTextarea.setAttribute('required', true);
 
   // add an event listener to the input field to trigger the autocomplete
+  // add an event listener to the input field to trigger the autocomplete
   ingredientsTextarea.addEventListener('change', async (event) => {
     const selectedIngredient = event.target.value.trim();
     const ingredients = await getIngredients(selectedIngredient);
     const ingredient = ingredients.results[0];
-  
+
     // create a div to display the ingredient image and nutrition information
     const ingredientInfoDiv = document.createElement('div');
     ingredientInfoDiv.classList.add('ingredientInfo');
-  
-    // display the ingredient image
-    const ingredientImage = await getIngredientImage(ingredient.id);
-    const imageElement = document.createElement('img');
-    imageElement.src = `https://spoonacular.com/cdn/ingredients_100x100/${ingredientImage}`;
-    ingredientInfoDiv.appendChild(imageElement);
-  
+
+    // display the ingredient image if the ingredient object exists
+    if (ingredient) {
+      const ingredientImage = await getIngredientImage(ingredient.id);
+      const imageElement = document.createElement('img');
+      imageElement.src = `https://spoonacular.com/cdn/ingredients_100x100/${ingredientImage}`;
+      ingredientInfoDiv.appendChild(imageElement);
+    } else {
+      // handle case when ingredient object is undefined
+    }
+    
+
     // display the ingredient nutrition information
     const ingredientNutrition = await getIngredientNutrition(ingredient.id);
     const nutritionElement = document.createElement('div');
     nutritionElement.innerHTML = ingredientNutrition;
     ingredientInfoDiv.appendChild(nutritionElement);
-  
+
     form.insertBefore(ingredientInfoDiv, saveButton);
   });
+
 
   form.appendChild(ingredientsLabel);
   form.appendChild(ingredientsTextarea);
