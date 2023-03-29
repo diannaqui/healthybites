@@ -1,10 +1,8 @@
-import {apiKeyNumber} from "./ExternalServices.mjs";
-
+const apiKeyNumber = "96d8289ad2224dbdb0a5dbb77d49ea0f"; // Replace with your API key
 const baseUrl = 'https://api.spoonacular.com';
 const ingredientEndpoint = '/food/ingredients/search';
 const imageEndpoint = '/food/ingredients/{id}/information';
 const nutritionEndpoint = '/food/ingredients/{id}/nutritionWidget.json';
-
 
 export async function getIngredients(query) {
   const response = await fetch(`${baseUrl}${ingredientEndpoint}?apiKey=${apiKeyNumber}&query=${query}`);
