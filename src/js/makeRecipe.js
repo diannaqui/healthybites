@@ -41,7 +41,24 @@ export function createRecipeForm() {
     ingredientContainer.appendChild(unitInput);
 
     recipeFormContainer.insertBefore(ingredientContainer, addIngredientButton);
+    // Create a select input for ingredients
+    const ingredientsInput = document.createElement('select');
+    ingredientsInput.addEventListener('input', async () => {
+    const query = ingredientsInput.value;
+    const ingredientData = await getIngredients(query);
+    const options = ingredientData.results.map((result) => {
+      return `<option value="${result.id}">${result.name}</option>`;
+    });
+    ingredientsInput.innerHTML = options.join('');
   });
+
+    const defaultOption = document.createElement('option');
+      defaultOption.textContent = 'Select an ingredient...';
+      defaultOption.value = '';
+      defaultOption.disabled = true;
+      defaultOption.selected = true;
+      ingredientsInput.appendChild(defaultOption);
+    });
 
   // Create a button to submit the recipe form
   const submitButton = document.createElement('button');
@@ -99,20 +116,4 @@ export function createRecipeForm() {
     
   return recipeFormContainer;
 }
-// Create a select input for ingredients
-const ingredientsInput = document.createElement('select');
-ingredientsInput.addEventListener('input', async () => {
-  const query = ingredientsInput.value;
-  const ingredientData = await getIngredients(query);
-  const options = ingredientData.results.map((result) => {
-    return `<option value="${result.id}">${result.name}</option>`;
-  });
-  ingredientsInput.innerHTML = options.join('');
-});
 
-const defaultOption = document.createElement('option');
-defaultOption.textContent = 'Select an ingredient...';
-defaultOption.value = '';
-defaultOption.disabled = true;
-defaultOption.selected = true;
-ingredientsInput.appendChild(defaultOption);
