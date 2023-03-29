@@ -1,3 +1,4 @@
+import { getIngredients } from "./spooncular";
 
 export function createRecipeForm() {
   const recipeFormContainer = document.createElement('div');
@@ -33,6 +34,14 @@ export function createRecipeForm() {
   ingredientsLabel.appendChild(ingredientsDatalist);
   form.appendChild(ingredientsLabel);
 
+  const instructionsLabel = document.createElement('label');
+  instructionsLabel.textContent = 'Instructions: ';
+  const instructionsTextarea = document.createElement('textarea');
+  instructionsTextarea.setAttribute('name', 'recipeInstructions');
+  instructionsTextarea.setAttribute('required', true);
+  instructionsTextarea.setAttribute('id', 'instructionsTextarea');
+  instructionsLabel.appendChild(instructionsTextarea);
+  form.appendChild(instructionsLabel);
 
   const saveButton = document.createElement('button');
   saveButton.textContent = 'Save';
@@ -45,7 +54,7 @@ export function createRecipeForm() {
     const storedRecipes = JSON.parse(localStorage.getItem('recipes')) || [];
     const recipeName = nameInput.value;
     const recipeIngredients = [...ingredientsInput.value.split(',')];
-    const recipeInstructions = instructionsTextarea.value;
+    const recipeInstructions = document.getElementById('instructionsTextarea').value;
     const newRecipe = {
       name: recipeName,
       ingredients: recipeIngredients,
@@ -56,53 +65,43 @@ export function createRecipeForm() {
     nameInput.value = '';
     ingredientsInput.value = '';
     instructionsTextarea.value = '';
-  
+
     recipeNameDisplay = document.createElement('p');
     recipeNameDisplay.textContent = `Recipe Name: ${newRecipe.name}`;
     form.appendChild(recipeNameDisplay);
-  
+
     for (const ingredient of newRecipe.ingredients) {
       const ingredientId = document.querySelector(`#ingredientList [value="${ingredient}"]`).getAttribute('data-id');
       const nutritionData = await getIngredientNutrition(ingredientId);
-  
+
       const ingredientDisplay = document.createElement('p');
       ingredientDisplay.textContent = `${ingredient} - ${nutritionData.calories} calories`;
       form.appendChild(ingredientDisplay);
     }
-  
+
     instructionsDisplay = document.createElement('p');
     instructionsDisplay.textContent = `Instructions: ${newRecipe.instructions}`;
-  
-    // Add data-index attribute to each display element
-    const index = storedRecipes.length - 1;
+
+    // Add data-index attribute to the recipe name display and ingredients display elements for later use in editing the recipe
     recipeNameDisplay.setAttribute('data-index', storedRecipes.length - 1);
-    instructionsDisplay.setAttribute('data-index', storedRecipes.length - 1);
-  
     form.appendChild(instructionsDisplay);
+    instructionsDisplay.setAttribute('data-index', storedRecipes.length - 1);
+
+    ingredientsDisplay = document.createElement('p');
+    const ingredientsList = document.createElement('ul');
+    for (const ingredient of newRecipe.ingredients) {
+      const ingredientItem = document.createElement('li');
+      ingredientItem.textContent = ingredient;
+      ingredientsList.appendChild(ingredientItem);
+    }
+    ingredientsDisplay.appendChild(ingredientsList);
+    form.appendChild(ingredientsDisplay);
+    ingredientsDisplay.setAttribute('data-index', storedRecipes.length - 1);
   });
-  
-  
-  const deleteAllButton = document.createElement('button');
-  deleteAllButton.textContent = 'Delete All';
-  deleteAllButton.addEventListener('click', (event) => {
-    event.preventDefault();
-    localStorage.removeItem('recipes');
-    form.querySelectorAll('[data-index]').forEach(element => {
-      element.remove();
-    });
-  });
-   //define a container for the buttons
-   const buttonsContainer = document.createElement('div');
-   buttonsContainer.classList.add('buttonsContainer');
-   //add buttons to container
-   buttonsContainer.appendChild(saveButton);
-   buttonsContainer.appendChild(deleteAllButton);
-   //add container to form
-   form.appendChild(buttonsContainer);
-   
-   recipeFormContainer.appendChild(title);
-   recipeFormContainer.appendChild(form);
-   
+
+  form.appendChild(saveButton);
+  recipeFormContainer.appendChild(title);
+  recipeFormContainer.appendChild(form);
   
   return recipeFormContainer;
-}
+  }
