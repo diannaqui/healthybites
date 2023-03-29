@@ -6,7 +6,7 @@ import Print from './recipePrint.js'
 import aboutPage from './about.js';
 import { createRecipeForm } from './makeRecipe.js';
 import {makeRecipeView} from './makeRecipeView.js';
-import {searchIngredients} from './spooncular';
+import {getIngredients, getIngredientNutrition, getIngredientImage} from './spooncular';
 
 export function initRouter(mainView, callback) {
     //mainView.innerHTML = ""
@@ -69,9 +69,11 @@ export function initRouter(mainView, callback) {
                     break;
                     
                 case '#/src/js/spooncular':
-                    searchIngredients('your query').then((results) => {
+                    getIngredients('your query').then((results) => {
                         console.log(results);
                     });
+                    getIngredientNutrition();
+                    getIngredientImage();
                     break;
                 
                     
