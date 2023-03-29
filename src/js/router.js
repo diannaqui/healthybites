@@ -6,7 +6,8 @@ import Print from './recipePrint.js'
 import aboutPage from './about.js';
 import { createRecipeForm } from './makeRecipe.js';
 import {makeRecipeView} from './makeRecipeView.js';
-
+import { login } from "./login.js";
+import { signUp } from "./signUp.js";
 
 export function initRouter(mainView, callback) {
     //mainView.innerHTML = ""
@@ -60,6 +61,14 @@ export function initRouter(mainView, callback) {
                 
                 case '#/src/js/makeRecipeView':
                     updateView(makeRecipeView(callback));
+                    break;
+
+                case '#/src/js/signUp':
+                    updateView(signUp());
+                    break;
+
+                case '#/src/js/login':
+                    updateView(login());
                     break;
                     
             default:
