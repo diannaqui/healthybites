@@ -14,8 +14,14 @@ export function initRouter(mainView, callback) {
     function updateView(newView) {
         console.log(newView);
         mainView.innerHTML = '';
-        mainView.appendChild(newView);
+        if (newView instanceof Node) {
+            mainView.appendChild(newView);
+        }
+        else {
+            console.error('Invalid DOM node');
+        }
     }
+    
 
     function page404() {
         const page = document.createElement('h3');
