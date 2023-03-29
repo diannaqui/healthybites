@@ -1,6 +1,6 @@
 import { getIngredients, getIngredientImage, getIngredientNutrition } from './spooncular';
 
-export function createRecipeForm() {
+export async function createRecipeForm() {
   const recipeFormContainer = document.createElement('div');
   recipeFormContainer.classList.add("makeYourRecipeContainer")
   const title = document.createElement('h2');
@@ -21,48 +21,28 @@ export function createRecipeForm() {
   ingredientsTextarea.setAttribute('name', 'recipeIngredients');
   ingredientsTextarea.setAttribute('required', true);
 
-  // add an event listener to the input field to trigger the autocomplete
-  // add an event listener to the input field to trigger the autocomplete
-  ingredientsTextarea.addEventListener('change', async (event) => {
-    const selectedIngredient = event.target.value.trim();
+    // add an event listener to the input field to trigger the autocomplete
     const ingredients = await getIngredients(selectedIngredient);
-    const ingredient = ingredients.results[0];
+    const ingredient = ingredients[0];
+
+    const ingredientId = ingredient.id;
+    const idElement = document.createElement('div');
+    idElement.textContent = `ID: ${ingredientId}`;
+    ingredientInfoDiv.appendChild(idElement);
 
     // create a div to display the ingredient image and nutrition information
     const ingredientInfoDiv = document.createElement('div');
     ingredientInfoDiv.classList.add('ingredientInfo');
 
-    // display the ingredient image if the ingredient object exists
-    if (ingredient) {
-      const ingredientImage = await getIngredientImage(ingredient.id);
-      const imageElement = document.createElement('img');
-      imageElement.src = `https://spoonacular.com/cdn/ingredients_100x100/${ingredientImage}`;
-      ingredientInfoDiv.appendChild(imageElement);
-    } else {
-      // handle case when ingredient object is undefined
-    }
-    
+    const ingredientImage = `https://spoonacular.com/cdn/ingredients_100x100/${ingredient.image}`;
+    const nutritionResponse = await fetch(`https://api.spoonacular.com/food/ingredients/${ingredientId}/information?amount=100&apiKey=96d8289ad2224dbdb0a5dbb77d49ea0f`);
+    const nutritionData = await nutritionResponse.json();
+    const ingredientNutrition = nutritionData.nutrition;
 
-    // display the ingredient nutrition information
-    const ingredientNutrition = await getIngredientNutrition(ingredient.id);
-    const nutritionElement = document.createElement('div');
-    nutritionElement.innerHTML = ingredientNutrition;
-    ingredientInfoDiv.appendChild(nutritionElement);
-
-    form.insertBefore(ingredientInfoDiv, saveButton);
-  });
-
+  
 
   form.appendChild(ingredientsLabel);
   form.appendChild(ingredientsTextarea);
-
-  const instructionsLabel = document.createElement('label');
-  instructionsLabel.textContent = 'Instructions: ';
-  const instructionsTextarea = document.createElement('textarea');
-  instructionsTextarea.setAttribute('name', 'recipeInstructions');
-  instructionsTextarea.setAttribute('required', true);
-  form.appendChild(instructionsLabel);
-  form.appendChild(instructionsTextarea);
 
   const saveButton = document.createElement('button');
   saveButton.textContent = 'Save';
@@ -92,21 +72,42 @@ export function createRecipeForm() {
     form.appendChild(recipeNameDisplay);
   
     ingredientsDisplay = document.createElement('p');
-       // Display the list of ingredients
-       const ingredientList = recipeIngredients.split('\n');
-       ingredientsDisplay = document.createElement('p');
-       ingredientsDisplay.textContent = `Ingredients: ${ingredientList.join(', ')}`;
-       form.appendChild(ingredientsDisplay);
+    ingredientsDisplay.textContent = `Ingredients: ${newRecipe.ingredients}`;
+    form.appendChild(ingredientsDisplay);
+  
+    instructionsDisplay = document.createElement('p');
+    instructionsDisplay.textContent = `Instructions: ${newRecipe.instructions}`;
+    
+    // Add data-index attribute to each display element
+    const index = storedRecipes.length - 1;
+    recipeNameDisplay.setAttribute('data-index', storedRecipes.length - 1);
+    ingredientsDisplay.setAttribute('data-index', storedRecipes.length - 1);
+    instructionsDisplay.setAttribute('data-index', storedRecipes.length - 1);
+
+    form.appendChild(instructionsDisplay);
+  });
+  
+  const deleteAllButton = document.createElement('button');
+  deleteAllButton.textContent = 'Delete All';
+  deleteAllButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    localStorage.removeItem('recipes');
+    form.querySelectorAll('[data-index]').forEach(element => {
+      element.remove();
+    });
+  });
+   //define a container for the buttons
+   const buttonsContainer = document.createElement('div');
+   buttonsContainer.classList.add('buttonsContainer');
+   //add buttons to container
+   buttonsContainer.appendChild(saveButton);
+   buttonsContainer.appendChild(deleteAllButton);
+   //add container to form
+   form.appendChild(buttonsContainer);
    
-       instructionsDisplay = document.createElement('p');
-       instructionsDisplay.textContent = `Instructions: ${recipeInstructions}`;
-       form.appendChild(instructionsDisplay);
-     });
-   
-     form.appendChild(saveButton);
-     recipeFormContainer.appendChild(title);
-     recipeFormContainer.appendChild(form);
-   
-     return recipeFormContainer;
-   }
-   
+   recipeFormContainer.appendChild(title);
+   recipeFormContainer.appendChild(form);
+
+  
+  return recipeFormContainer;
+}
