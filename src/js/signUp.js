@@ -1,12 +1,22 @@
-export function login() {
-    const loginContainer = document.createElement("div");
-    loginContainer.classList.add("login");
+export function signUp() {
+    const signUpContainer = document.createElement("div");
+    signUpContainer.classList.add("signUp");
 
     const title = document.createElement("h1");
-    title.classList.add("title")
+    title.classList.add("signUp")
 
     // Create a <form> element
     const form = document.createElement("form");
+
+    // Creare a <label> element for the name field
+    const nameLabel = document.createElement("label");
+    nameLabel.textContent = "Name";
+
+    // Create an <input> element for the name field
+    const nameInput = document.createElement("input");
+    nameInput.setAttribute("type", "text");
+    nameInput.setAttribute("name", "name");
+    nameInput.required = true;
 
     // Creare a <label> element for the email field
     const emailLabel = document.createElement("label");
@@ -28,21 +38,23 @@ export function login() {
     passwordInput.required = true;
 
     // Create a login <button> element
-    const loginButton = document.createElement("button");
-    loginButton.setAttribute("type", "submit");
-    loginButton.textContent = "Login";
+    const signUpButton = document.createElement("button");
+    signUpButton.setAttribute("type", "submit");
+    signUpButton.textContent = "Sign Up";
 
     // Append the <label> and <input> elements to the <form> element
+    form.appendChild(nameLabel);
+    form.appendChild(nameInput);
     form.appendChild(emailLabel);
     form.appendChild(emailInput);
     form.appendChild(passwordLabel);
     form.appendChild(passwordInput);
-    form.appendChild(loginButton);
+    form.appendChild(signUpButton);
 
     // Append the title, image and form to the testimonial container
-    loginContainer.appendChild(title);
-    loginContainer.appendChild(form);
+    signUpContainer.appendChild(title);
+    signUpContainer.appendChild(form);
 
-    const section = loginContainer;
+    const section = signUpContainer;
     return section;
 }
