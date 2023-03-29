@@ -74,46 +74,31 @@ export function createRecipeForm() {
       const ingredientOption = document.querySelector(`#ingredientList [value="${ingredient}"]`);
       const ingredientId = ingredientOption.getAttribute('data-id');
       const nutritionData = await getIngredientNutrition(ingredientId);
-      const imageUrl = await getIngredientImage(ingredientId);
+      const ingredientImage = await getIngredientImage(ingredient);
       ingredientsDisplay = document.createElement('div');
-      ingredientsDisplay.classList.add('ingredients-display');
-
-      const ingredientName = document.createElement('p');
-      ingredientName.textContent = `Ingredient: ${ingredient}`;
-      ingredientsDisplay.appendChild(ingredientName);
-
-      const ingredientImage = document.createElement('img');
-      ingredientImage.setAttribute('src', imageUrl);
-      ingredientsDisplay.appendChild(ingredientImage);
-
-      const calories = document.createElement('p');
-      calories.textContent = `Calories: ${nutritionData.calories}`;
-      ingredientsDisplay.appendChild(calories);
-
-      const protein = document.createElement('p');
-      protein.textContent = `Protein: ${nutritionData.protein} g`;
-      ingredientsDisplay.appendChild(protein);
-
-      const carbs = document.createElement('p');
-      carbs.textContent = `Carbohydrates: ${nutritionData.carbs} g`;
-      ingredientsDisplay.appendChild(carbs);
-
-      const fat = document.createElement('p');
-      fat.textContent = `Fat: ${nutritionData.fat} g`;
-      ingredientsDisplay.appendChild(fat);
-
+      const ingredientImageElement = document.createElement('img');
+      ingredientImageElement.setAttribute('src', ingredientImage);
+      ingredientsDisplay.appendChild(ingredientImageElement);
+      const ingredientNameElement = document.createElement('h3');
+      ingredientNameElement.textContent = ingredient;
+      ingredientsDisplay.appendChild(ingredientNameElement);
+      const nutritionListElement = document.createElement('ul');
+      for (const nutrient in nutritionData) {
+      const nutrientElement = document.createElement('li');
+      nutrientElement.textContent = `${nutrient}: ${nutritionData[nutrient]}`;
+      nutritionListElement.appendChild(nutrientElement);
+      }
+      ingredientsDisplay.appendChild(nutritionListElement);
       form.appendChild(ingredientsDisplay);
+      }
+      instructionsDisplay = document.createElement('p');
+      instructionsDisplay.textContent = `Instructions: ${newRecipe.instructions}`;
+      form.appendChild(instructionsDisplay);
+    });
+
+    recipeFormContainer.appendChild(title);
+    recipeFormContainer.appendChild(form);
+    recipeFormContainer.appendChild(saveButton);
+    
+    return recipeFormContainer;
     }
-
-    instructionsDisplay = document.createElement('p');
-    instructionsDisplay.textContent = `Instructions: ${newRecipe.instructions}`;
-    form.appendChild(instructionsDisplay);
-  });
-
-  form.appendChild(saveButton);
-  recipeFormContainer.appendChild(title);
-  recipeFormContainer.appendChild(form);
-
-  return recipeFormContainer;
-}
-
