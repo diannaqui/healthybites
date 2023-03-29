@@ -63,6 +63,11 @@ export function initRouter(mainView, callback) {
                     break;
                     
                 case '#/src/js/spooncular':
+                    searchIngredients('your query').then((results) => {
+                        console.log(results);
+                    });
+                    break;
+                
                     
             default:
                 updateView(page404());
