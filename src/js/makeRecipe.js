@@ -1,162 +1,136 @@
-import { getIngredientImage, getIngredientNutrition, getIngredients } from './spooncular';
+import { getIngredients } from "./spooncular";
+import { getIngredientNutrition } from "./spooncular";
+import { getIngredientImage } from "./spooncular";
 
-export function createRecipe() {
-  const recipeContainer = document.createElement('div');
-
-  // Create form elements
-  const form = document.createElement('form');
-  const titleInput = document.createElement('input');
-  const ingredientInput = document.createElement('input');
-  const instructionInput = document.createElement('textarea');
-  const submitButton = document.createElement('button');
-
-  // Set form attributes
-  form.setAttribute('id', 'recipe-form');
-  titleInput.setAttribute('type', 'text');
-  titleInput.setAttribute('name', 'title');
-  titleInput.setAttribute('placeholder', 'Recipe Title');
-  ingredientInput.setAttribute('type', 'text');
-  ingredientInput.setAttribute('name', 'ingredients');
-  ingredientInput.setAttribute('placeholder', 'Ingredients (separated by commas)');
-  instructionInput.setAttribute('name', 'instructions');
-  instructionInput.setAttribute('placeholder', 'Instructions');
-  submitButton.setAttribute('type', 'submit');
-  submitButton.textContent = 'Create Recipe';
-
-  // Add form elements to form
-  form.appendChild(titleInput);
-  form.appendChild(ingredientInput);
-  form.appendChild(instructionInput);
-  form.appendChild(submitButton);
-
-  // Add form to recipe container
-  recipeContainer.appendChild(form);
-
-  // Add recipe title to recipe container
+export function createRecipeForm() {
+  const recipeFormContainer = document.createElement('div');
+  recipeFormContainer.classList.add("makeYourRecipeContainer")
   const title = document.createElement('h2');
   title.textContent = 'Make your recipe';
-  recipeContainer.appendChild(title);
+  const form = document.createElement('form');
 
-  // Add ingredients and images to recipe container
-  ingredientInput.addEventListener('blur', async () => {
-    const ingredients = await getIngredients(ingredientInput.value);
+  const nameLabel = document.createElement('label');
+  nameLabel.textContent = 'Recipe Name: ';
+  const nameInput = document.createElement('input');
+  nameInput.setAttribute('name', 'recipeName');
+  nameInput.setAttribute('required', true);
+  form.appendChild(nameLabel);
+  form.appendChild(nameInput);
 
-    const ingredientsList = document.createElement('ul');
+  const ingredientsLabel = document.createElement('label');
+  ingredientsLabel.textContent = 'Ingredients: ';
+  const ingredientsTextarea = document.createElement('textarea');
+  ingredientsTextarea.setAttribute('name', 'recipeIngredients');
+  ingredientsTextarea.setAttribute('required', true);
+  form.appendChild(ingredientsLabel);
+  form.appendChild(ingredientsTextarea);
 
-    for (const ingredient of ingredients.results) {
-      const image = await getIngredientImage(ingredient.id);
-      const nutrition = await getIngredientNutrition(ingredient.id);
+  const instructionsLabel = document.createElement('label');
+  instructionsLabel.textContent = 'Instructions: ';
+  const instructionsTextarea = document.createElement('textarea');
+  instructionsTextarea.setAttribute('name', 'recipeInstructions');
+  instructionsTextarea.setAttribute('required', true);
+  form.appendChild(instructionsLabel);
+  form.appendChild(instructionsTextarea);
+
+  const saveButton = document.createElement('button');
+  saveButton.textContent = 'Save';
+
+  // Define variables outside of the event listener
+  let recipeNameDisplay, ingredientsDisplay, instructionsDisplay;
+
+  saveButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    const storedRecipes = JSON.parse(localStorage.getItem('recipes')) || [];
+    const recipeName = nameInput.value;
+    const recipeIngredients = ingredientsTextarea.value;
+    const recipeInstructions = instructionsTextarea.value;
+    const newRecipe = {
+      name: recipeName,
+      ingredients: recipeIngredients,
+      instructions: recipeInstructions,
+    };
+    storedRecipes.push(newRecipe);
+    localStorage.setItem('recipes', JSON.stringify(storedRecipes));
+    nameInput.value = '';
+    ingredientsTextarea.value = '';
+    instructionsTextarea.value = '';
+  
+    recipeNameDisplay = document.createElement('p');
+    recipeNameDisplay.textContent = `Recipe Name: ${newRecipe.name}`;
+    form.appendChild(recipeNameDisplay);
+  
+    ingredientsDisplay = document.createElement('p');
+    ingredientsDisplay.textContent = `Ingredients: ${newRecipe.ingredients}`;
+    form.appendChild(ingredientsDisplay);
+  
+    instructionsDisplay = document.createElement('p');
+    instructionsDisplay.textContent = `Instructions: ${newRecipe.instructions}`;
     
-      const ingredientDiv = document.createElement('div');
-      ingredientDiv.classList.add('ingredient');
-      ingredientDiv.dataset.id = ingredient.id;
-      ingredientDiv.dataset.name = ingredient.name;
-      ingredientDiv.dataset.image = image;
-      ingredientDiv.dataset.nutrition = JSON.stringify(nutrition);
-    
-      const img = document.createElement('img');
-      img.setAttribute('src', image);
-      img.setAttribute('alt', ingredient.name);
-      ingredientDiv.appendChild(img);
-    
-      const name = document.createElement('p');
-      name.textContent = ingredient.name;
-      ingredientDiv.appendChild(name);
-    
-      // Add the ingredientDiv to the recipe container
-      recipeContainer.appendChild(ingredientDiv);
-    }
-    submitButton.addEventListener('click', (event) => {
-      event.preventDefault();
-    
-      const title = titleInput.value;
-      const ingredients = Array.from(document.querySelectorAll('.ingredient')).map((ingredientDiv) => ({
-        id: ingredientDiv.dataset.id,
-        name: ingredientDiv.dataset.name,
-        image: ingredientDiv.dataset.image,
-        nutrition: JSON.parse(ingredientDiv.dataset.nutrition),
-      }));
-      const instructions = instructionInput.value;
-    
-      const recipe = {
-        title,
-        ingredients,
-        instructions,
-      };
-    
-      const recipeHtml = generateRecipe(recipe);
-      // Add the recipeHtml to the DOM
+    // Add data-index attribute to each display element
+    const index = storedRecipes.length - 1;
+    recipeNameDisplay.setAttribute('data-index', storedRecipes.length - 1);
+    ingredientsDisplay.setAttribute('data-index', storedRecipes.length - 1);
+    instructionsDisplay.setAttribute('data-index', storedRecipes.length - 1);
+
+    form.appendChild(instructionsDisplay);
+  });
+  
+  const deleteAllButton = document.createElement('button');
+  deleteAllButton.textContent = 'Delete All';
+  deleteAllButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    localStorage.removeItem('recipes');
+    form.querySelectorAll('[data-index]').forEach(element => {
+      element.remove();
     });
-    function generateRecipe(recipe) {
-      const recipeContainer = document.createElement('div');
-      recipeContainer.classList.add('recipe');
-    
-      // Create and add the recipe title
-      const title = document.createElement('h1');
-      title.textContent = recipe.title;
-      recipeContainer.appendChild(title);
-    
-      // Create and add the ingredient list
-      const ingredientsTitle = document.createElement('h2');
-      ingredientsTitle.textContent = 'Ingredients';
-      recipeContainer.appendChild(ingredientsTitle);
-    
-      const ingredientsList = document.createElement('ul');
-      recipe.ingredients.forEach(ingredient => {
-        const ingredientItem = document.createElement('li');
-        ingredientItem.classList.add('ingredient');
-        ingredientItem.dataset.id = ingredient.id;
-        ingredientItem.dataset.name = ingredient.name;
-        ingredientItem.dataset.image = ingredient.image;
-        ingredientItem.dataset.nutrition = JSON.stringify(ingredient.nutrition);
-    
-        const img = document.createElement('img');
-        img.setAttribute('src', ingredient.image);
-        img.setAttribute('alt', ingredient.name);
-        ingredientItem.appendChild(img);
-    
-        const name = document.createElement('span');
-        name.textContent = ingredient.name;
-        ingredientItem.appendChild(name);
-    
-        const nutritionButton = document.createElement('button');
-        nutritionButton.textContent = 'Nutrition';
-        nutritionButton.classList.add('nutrition-button');
-        ingredientItem.appendChild(nutritionButton);
-    
-        ingredientsList.appendChild(ingredientItem);
+  });
+   //define a container for the buttons
+   const buttonsContainer = document.createElement('div');
+   buttonsContainer.classList.add('buttonsContainer');
+   //add buttons to container
+   buttonsContainer.appendChild(saveButton);
+   buttonsContainer.appendChild(deleteAllButton);
+   //add container to form
+   form.appendChild(buttonsContainer);
+   
+   recipeFormContainer.appendChild(title);
+   recipeFormContainer.appendChild(form);
+
+   const ingredientLabel = document.createElement('label');
+   ingredientLabel.textContent = 'Ingredients: ';
+   const ingredientInput = document.createElement('input');
+   ingredientInput.setAttribute('name', 'recipeIngredients');
+   ingredientInput.setAttribute('required', true);
+   form.appendChild(ingredientLabel);
+   form.appendChild(ingredientInput);
+   
+   const nutrientDisplay = document.createElement('p');
+   form.appendChild(nutrientDisplay);
+   
+   ingredientInput.addEventListener('blur', async (event) => {
+    const query = event.target.value;
+    const data = await getIngredients(query);
+    if (data.results.length > 0) {
+      const ingredient = data.results[0];
+      const nutrientData = await getIngredientNutrition(ingredient.id);
+      const nutrients = nutrientData.nutrition.nutrients;
+      let nutrientString = '';
+      nutrients.forEach(nutrient => {
+        nutrientString += `${nutrient.title}: ${nutrient.amount} ${nutrient.unit}\n`;
       });
-      recipeContainer.appendChild(ingredientsList);
-    
-      // Create and add the instructions
-      const instructionsTitle = document.createElement('h2');
-      instructionsTitle.textContent = 'Instructions';
-      recipeContainer.appendChild(instructionsTitle);
-    
-      const instructions = document.createElement('p');
-      instructions.textContent = recipe.instructions;
-      recipeContainer.appendChild(instructions);
-    
-      // Add event listener for nutrition buttons
-      recipeContainer.addEventListener('click', async (event) => {
-        if (event.target.classList.contains('nutrition-button')) {
-          const ingredient = event.target.parentElement;
-          const nutrition = JSON.parse(ingredient.dataset.nutrition);
-          const nutritionHtml = generateNutrition(nutrition);
-          ingredient.appendChild(nutritionHtml);
-        }
-      });
-    
-      return recipeContainer;
-    }
-    
-    function generateNutrition(nutrition) {
-      const nutritionContainer = document.createElement('div');
-      nutritionContainer.classList.add('nutrition');
-    
-      const nutritionTitle = document.createElement('h3');
-      nutritionTitle.textContent = 'Nutrition Facts';
-      nutritionContainer.appendChild(nutritionTitle);
+      nutrientDisplay.textContent = nutrientString;
+  
+      const ingredientImage = await getIngredientImage(ingredient.id);
+      const img = document.createElement('img');
+      img.setAttribute('src', `https://spoonacular.com/cdn/ingredients_100x100/${ingredientImage}`);
+      form.insertBefore(img, nutrientDisplay);
+    } else {
+      nutrientDisplay.textContent = 'No ingredients found.';
     }
   });
-}    
+  
+   
+  
+  return recipeFormContainer;
+}
