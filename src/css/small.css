@@ -72,7 +72,6 @@ header#main-header {
   align-items: center;
   padding: 0;
   background-color: var(--primary-yellowGreen);
-  border-bottom: 2px solid var(--secondary-persianRed);
 }
 
 div.logo {
@@ -99,7 +98,6 @@ div.logo:hover {
   background-color: var(--accent3-ivory);
   padding: 0;
   margin: 0;
-  border-bottom: 2px solid var(--secondary-persianRed);
   position: relative;
 }
 
@@ -107,13 +105,34 @@ div.logo:hover {
   max-width: 100%;
 }
 
-.titleHero {
+/* Style the search bar container */
+.searchContainer {
+  /* position: relative; */
+  display: inline-block;
+  margin: 10px;
+  position: absolute;
+  top: 500px; /* adjust this value to position the search bar vertically */
+  left: 100px; /* adjust this value to position the search bar horizontally */
+}
+
+/* Style the search input */
+.searchInput {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  width: 200px;
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* .titleHero {
 position: absolute;
 top: 1rem;
 color: rgb(255, 132, 0);
 font-family: var(--font-headline);
 text-shadow: 1px 1px 0px #fff;
-}
+} */
 
 /* Food-grid section home page */
 .food-grid {
@@ -199,31 +218,31 @@ width: 100%;
 }
 
 .navbar ul {
-display: flex;
-flex-direction: column;
-justify-content: space-around;
-align-items: center;
-list-style-type: none;
-margin: 0;
-padding: 0;
-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 .navbar li {
-margin-right: 20px;
-position: relative;
-transition: all 0.5s ease;
+  margin-right: 20px;
+  position: relative;
+  transition: all 0.5s ease;
 }
 
 .navbar li a {
-font-size: 1rem;
+  font-size: 1rem;
 }
 
 .navbar li:hover, .dropbtn:hover, .dropdown a:hover {
-background-color: var(--accent1-maize);
-border-radius: 2rem 1rem;
-transition: all 0.5s ease;
-border: var(--dark-grey) .5px solid;
+  background-color: var(--accent1-maize);
+  border-radius: 2rem 1rem;
+  transition: all 0.5s ease;
+  border: var(--dark-grey) .5px solid;
 }
 
 /* Dropdown button
@@ -239,63 +258,64 @@ border: var(--dark-grey) .5px solid;
  
 
 .navbar a {
-display: block;
-color: #333;
-font-size: 16px;
-font-weight: bold;
-text-decoration: none;
-padding: 10px;
+  display: block;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px;
 }
 
 .dropdown-content {
-display: none;
-position: absolute;
-top: 100%;
-left: 0;
-background-color: var(--primary-yellowGreen);
-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-z-index: 1;
-padding: 0;
-margin: 0;
-border-radius: 2rem 1rem;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--primary-yellowGreen);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  padding: 0;
+  margin: 0;
+  border-radius: 2rem 1rem;
 }
 
 .dropdown-content a {
-display: block;
-color: #333;
-font-size: 16px;
-font-weight: bold;
-text-decoration: none;
-padding: 10px;
-text-align: center;
+  display: block;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px;
+  text-align: center;
 }
 
 .dropdown:hover .dropdown-content {
-display: block;
+  display: block;
 }
 
 .dropbtn {
-background-color: var(--primary-yellowGreen);
-color: #333;
-border: none;
-font-size: 16px;
-font-weight: bold;
-cursor: pointer;
-padding: 10px;
+  background-color: var(--primary-yellowGreen);
+  color: #333;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px;
 }
 
 .fa-caret-down {
-margin-left: 5px;
+  margin-left: 5px;
 }
+
 /* Main content styles */
 .form-group {
-margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 label {
-display: block;
-margin-bottom: 0.5rem;
-font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
 }
 
 input[type="text"], input[type="email" i], textarea {
@@ -571,6 +591,7 @@ ul.goodNutrients .nutrient.color6 {
   left: calc(var(--measure-base) + 3rem);
 }
 /* ======================ends bubbles====================== */
+
 .goodNutrients li:nth-child(even):hover {
   transform: rotate(360deg);
   transform: scale(1.5);
@@ -597,9 +618,7 @@ ul.goodNutrients .nutrient.color6 {
   top: 2.6rem;
 }
 
-
 /* Render Recipe Details */
-
 .pageDetails {
   margin: 5rem auto;
   max-width: 90%;
@@ -708,7 +727,6 @@ ul.goodNutrients .nutrient.color6 {
   flex-direction: row;
 }
 
-
 .ingredientsListClassName {
   margin: 0;
   margin-bottom: 3rem;
@@ -722,7 +740,6 @@ ul.goodNutrients .nutrient.color6 {
 }
 
 /* Print Recipe  */
-
 .links {
   margin: 5rem auto;
   display: flex;
@@ -730,6 +747,7 @@ ul.goodNutrients .nutrient.color6 {
   flex-wrap: wrap;
 
 }
+
 .recipeCard {
   box-shadow: 0.5rem 0.5rem 1rem 0 rgba(117, 116, 97, 0.9);
   border-radius: 10%;
@@ -759,7 +777,6 @@ ul.goodNutrients .nutrient.color6 {
 .divSL {
   display: flex;
   flex-direction: column;
-  
   /* justify-content: space-evenly; */
 }
 
@@ -801,12 +818,10 @@ ul.goodNutrients .nutrient.color6 {
 }
 
 .floatingImages .container:last-child {
-  transform: translateY(10px);}
+  transform: translateY(10px);
+}
 
-
-  
 /* Modal Card */
-
 .modalCard {
   border-radius: 2rem;
   box-shadow: 0 4px 3rem 0 rgba(0, 0, 0, 0.2), 0 6px 5rem 0 rgba(25, 33, 22, 0.682);
@@ -843,9 +858,8 @@ ul.goodNutrients .nutrient.color6 {
   border-radius: 2rem;
   box-shadow: 0 9px #999;
   text-align: center;
-
-  
 }
+
 .nutrientsPerServingDiv {
   padding: 25px 45px;
   border-bottom-right-radius: 70%;
@@ -861,7 +875,6 @@ ul.goodNutrients .nutrient.color6 {
 .ingredientsListClassName{
   padding: 0.5rem 1rem;
   margin: 0;
-
   font-size: 1.2rem;
   cursor: pointer;
   background-color: #d7f4cc;
@@ -897,7 +910,6 @@ ul.goodNutrients .nutrient.color6 {
 }
 
 /* Print Recipe */
-
 .divPrint {
   display: flex;
   column-gap: 3rem;
@@ -910,6 +922,7 @@ ul.goodNutrients .nutrient.color6 {
   margin-bottom: 3rem;
   font-size: 2.5rem;
 }
+
 /* ==============form make your recipe=+================= */
 div.makeYourRecipeContainer {
   display: flex;
