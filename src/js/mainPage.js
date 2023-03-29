@@ -2,9 +2,10 @@ import { InspirationalQuote } from "./quote.js";
 import { testimonial } from "./testimonial.js";
 import RecipeListingSide from "./RecipeListingSide.mjs"
 import ExternalServices from "./ExternalServices.mjs";
-import heroImg from "../images/hero-image.webp"
+import heroImg from "../images/heroImage1.webp"
 import mealtypeSection from "./mealtypeSection.js";
 import { newsletter } from "./newsletter.js"
+import { searchBar } from "./searchBar.js"
 
 function mainContent() {
 
@@ -12,15 +13,20 @@ function mainContent() {
     const mainDivContainer = document.createElement('div');
     mainDivContainer.classList.add('mainCantainer');
 
-    // children of mainPage
+    // New container for hero image and search bar
+    const heroContainer = document.createElement("div");
+    heroContainer.classList.add("heroContainer");
 
-    // first child mainPage - Hero Image
+    // Hero image
     const heroImage = document.createElement('div');
     heroImage.classList.add('hero');
     heroImage.innerHTML = `
-        <img src=${heroImg} alt="Spoons Image">
-        <h1 class="titleHero">Love Life</h1>
+        <img src=${heroImg} alt="someone is holding a bowl of salad">
         `
+    heroContainer.appendChild(heroImage);
+    
+    // Search bar
+    heroContainer.appendChild(searchBar());
 
     // second child mainPage - Content
     const containerRecipes = document.createElement('div');
@@ -47,22 +53,20 @@ function mainContent() {
 
     containerRecipes.appendChild(divContainer);
 
-
     // second child recipeRightSide - Four recipes on the right side on main
     async function renderRecipeSide(containerRecipes) {
         const dataSource = new ExternalServices();
-        
         const listing = new RecipeListingSide(dataSource,1); // 2 is the amount of random images that we want to render
         containerRecipes.appendChild(await listing.init());    
 
     }
     renderRecipeSide(containerRecipes);
 
-    mainDivContainer.appendChild(heroImage);
+    mainDivContainer.appendChild(heroContainer);
     mainDivContainer.appendChild(mealtypeSection())
     mainDivContainer.appendChild(containerRecipes);
 
     return mainDivContainer;
-    }
+}
 
 export default mainContent;
