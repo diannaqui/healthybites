@@ -1,5 +1,6 @@
 const baseURL = "https://api.spoonacular.com/recipes/";
 const mealTypeUrl = "https://api.spoonacular.com/recipes/complexSearch";
+const allFoodURL = "https://api.spoonacular.com/food/search";
 
 // const apiKeyNumber = "85fc6e9102e54cd3b863cc238b62f727";        // Josue 
 // const apiKeyNumber = "11ba0971201241a89d43b8e7edef3ce1";        // Who's API?
@@ -32,9 +33,9 @@ export default class ExternalServices {
         main.prepend(alert);
   }
 
-    // 4 random foods for the main page  // typeFood = breakfast - dinner - main course - drinks
+  // 4 random foods for the main page  // typeFood = breakfast - dinner - main course - drinks
   async getRandom(typeFood) {
-      try {
+    try {
           const response = await fetch(baseURL + `random?apiKey=${apiKeyNumber}&tags=${typeFood},image&number=1`);
           const data = await convertToJson(response);
           return data.recipes;
@@ -46,14 +47,14 @@ export default class ExternalServices {
     }
   }  
 
-   // Recipe ready to be printed
+  // Recipe ready to be printed
   async printRecipe(id) {
     try {
         const response = await fetch(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${apiKeyNumber}`);
         const data = await convertToJson(response);
         return data.url;
     } 
-   catch (err){
+    catch (err){
       const jsonResponse = await err.message;
       this.message(jsonResponse);
       console.log(err);
@@ -101,4 +102,20 @@ export default class ExternalServices {
       console.log(err);
     }
   }
- }
+
+  // Search all food content
+  async searchAllFood() {
+    try {
+      const response = await fetch(allFoodURL + `?apiKey=${apiKeyNumber}&query=apple&number=2`);
+      const data = await convertToJson(response);
+      console.log(data);
+      // return data;
+    } 
+    catch (err) {
+      const jsonResponse = await err.message;
+      this.message(jsonResponse);
+      console.log(err);
+    } 
+  } 
+}
+
