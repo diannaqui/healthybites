@@ -60,7 +60,7 @@ export function initRouter(mainView, callback) {
                 break;
             
             case '#/src/js/makeRecipeView':
-                updateView(makeRecipeView(callback));
+                updateView(makeRecipeView());
                 break;
 
             case '#/src/js/signUp':
