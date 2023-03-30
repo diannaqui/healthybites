@@ -711,7 +711,6 @@ ul.goodNutrients .nutrient.color6 {
 
 .analyzedInstructionsElement, .shoppingList, .messageError {
   padding: 1rem;
-  /* border: 2px solid var(--primary-yellowGreen); */
   border-radius: 1rem;
   box-shadow: 0 1px 0.2rem 0 rgba(117, 116, 97, 0.9);
 
@@ -745,7 +744,6 @@ ul.goodNutrients .nutrient.color6 {
   display: flex;
   width: fit-content;
   flex-wrap: wrap;
-
 }
 
 .recipeCard {
@@ -777,7 +775,6 @@ ul.goodNutrients .nutrient.color6 {
 .divSL {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-evenly; */
 }
 
 .divButtons {
@@ -789,7 +786,7 @@ ul.goodNutrients .nutrient.color6 {
 }
 
 .nameShoppingList {
-  margin:1rem;
+  margin-left:0.4rem;
 }
 
 .divInfoList {
@@ -806,7 +803,6 @@ ul.goodNutrients .nutrient.color6 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   margin: 5rem auto;
-
 }
 
 .floatingImages .container:nth-child(odd) {
@@ -837,18 +833,17 @@ ul.goodNutrients .nutrient.color6 {
 }
 
 .deleteShoppingList {
-  padding: 0.5rem;
-  border-radius: 2rem;
   border: none;
-  background-color: rgb(239, 206, 206);
+  background-color: transparent;
 }
 
 .deleteShoppingList:hover {
   cursor: pointer;
-  box-shadow: 0 4px 3rem 0 rgba(0, 0, 0), 0 6px 5rem 0 rgba(25, 33, 22);
+  border-radius: 5rem;
+  box-shadow: 0 1px 1rem 0 rgba(176, 19, 19, 0.9), 0 1px 1rem 0 rgba(176, 19, 19, 0.9);
 }
 
-.buttonModal, .nutrientsPerServingDiv, .ingredientsListClassName, .buttonListModal, .buttoD, .buttonList, .divLast{
+.buttonModal, .nutrientsPerServingDiv, .ingredientsListClassName, .buttoD, .buttonList, .divLast{
   padding: 15px 25px;
   margin: 2rem;
   font-size: 1.2rem;
@@ -866,7 +861,7 @@ ul.goodNutrients .nutrient.color6 {
   border-top-left-radius: 70%;
 }
 
-.buttonModal:active, .nutrientsPerServingDiv:active, .ingredientsListClassName:active, .buttonListModal:active, .buttoD:active, .buttonList:active, .divLast:active{
+.buttonModal:active, .nutrientsPerServingDiv:active, .ingredientsListClassName:active, .buttoD:active, .buttonList:active, .divLast:active{
   background-color:  #e8ef92;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
@@ -907,6 +902,27 @@ ul.goodNutrients .nutrient.color6 {
   box-shadow: 0 1px 2rem 0 rgba(117, 116, 97, 0.9);
   padding: 2rem;
   color: #444141;
+}
+
+.divSubImg {
+  display: flex;
+  position: relative;
+}
+
+.divSubstitutes {
+  width: max-content;
+  position: absolute;
+  border-radius: 2rem;
+  box-shadow: 0 4px 3rem 0 rgba(0, 0, 0, 0.2), 0 6px 5rem 0 rgba(25, 33, 22, 0.682);
+  background-color:  #f5f5d3;
+  padding: 0.5rem 1.5rem;
+  font-weight: bold;
+}
+
+.ingredienteSubstitute, .textSubstitute{
+  border-radius: 1rem;
+  box-shadow: 0 6px 5rem 0 rgba(151, 151, 148, 0.682);
+  padding: 0.5rem;
 }
 
 /* Print Recipe */
