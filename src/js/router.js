@@ -56,7 +56,8 @@ export function initRouter(mainView, callback) {
                 break;
             
             case '#/src/js/makeRecipe':
-                updateView(createRecipeForm());
+                const recipeForm = createRecipeForm();
+                updateView(recipeForm);
                 break;
             
             case '#/src/js/makeRecipeView':
