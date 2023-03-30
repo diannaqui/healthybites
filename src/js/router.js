@@ -8,6 +8,7 @@ import { createRecipeForm } from './makeRecipe.js';
 import {makeRecipeView} from './makeRecipeView.js';
 import { login } from "./login.js";
 import { signUp } from "./signUp.js";
+import { searchResult } from './searchResult.js';
 
 export function initRouter(mainView, callback) {
     //mainView.innerHTML = ""
@@ -68,6 +69,10 @@ export function initRouter(mainView, callback) {
 
                 case '#/src/js/login':
                     updateView(login());
+                    break;
+                    
+                case '#/src/js/searchResult':
+                    updateView(searchResult());
                     break;
                     
             default:

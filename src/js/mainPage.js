@@ -5,7 +5,7 @@ import ExternalServices from "./ExternalServices.mjs";
 import heroImg from "../images/heroImage1.webp"
 import mealtypeSection from "./mealtypeSection.js";
 import { newsletter } from "./newsletter.js"
-import { searchBar } from "./searchBar.js"
+import { displaySearchBar } from "./searchBar.js"
 
 function mainContent() {
 
@@ -26,7 +26,7 @@ function mainContent() {
     heroContainer.appendChild(heroImage);
     
     // Search bar
-    heroContainer.appendChild(searchBar());
+    heroContainer.appendChild(displaySearchBar());
 
     // second child mainPage - Content
     const containerRecipes = document.createElement('div');

@@ -1,4 +1,4 @@
-export function searchBar() {
+export function displaySearchBar() {
     const searchContainer = document.createElement("div");
     searchContainer.classList.add("searchContainer");
 
@@ -7,18 +7,18 @@ export function searchBar() {
     searchInput.classList.add("searchInput");
     searchInput.placeholder = "🔍 Search Recipes"
     
-    const submitButton = document.createElement("button");
-    submitButton.setAttribute("type", "submit");
-    submitButton.classList.add("searchButton");
-    submitButton.textContent = "Search";
+    const a = document.createElement("a");
+    a.href = "#/src/js/searchResult";
+    a.classList.add("searchButton");
+    a.textContent = "Search";
 
-    submitButton.addEventListener("click", function() {
-        const searchTerm = searchInput.value;
-        console.log("Your search for:", searchTerm);
-    })
+    // a.addEventListener("click", function() {
+    //     const searchTerm = searchInput.value;
+    //     console.log("Your search for:", searchTerm);
+    // })
 
     searchContainer.appendChild(searchInput);
-    searchContainer.appendChild(submitButton);
+    searchContainer.appendChild(a);
 
     const section = searchContainer;
     return section;
