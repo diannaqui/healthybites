@@ -51,25 +51,25 @@ export function initRouter(mainView, callback) {
                 updateView(Print(id));
                 break;
 
-                case '#/src/js/about':
-                    updateView(aboutPage());
-                    break;
-                
-                case '#/src/js/makeRecipe':
-                    updateView(createRecipeForm());
-                    break;
-                
-                case '#/src/js/makeRecipeView':
-                    updateView(makeRecipeView(callback));
-                    break;
+            case '#/src/js/about':
+                updateView(aboutPage());
+                break;
+            
+            case '#/src/js/makeRecipe':
+                updateView(createRecipeForm());
+                break;
+            
+            case '#/src/js/makeRecipeView':
+                updateView(makeRecipeView(callback));
+                break;
 
-                case '#/src/js/signUp':
-                    updateView(signUp());
-                    break;
+            case '#/src/js/signUp':
+                updateView(signUp());
+                break;
 
-                case '#/src/js/login':
-                    updateView(login());
-                    break;
+            case '#/src/js/login':
+                updateView(login());
+                break;
                     
                 case '#/src/js/searchResult':
                     updateView(searchResult());

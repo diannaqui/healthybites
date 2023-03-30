@@ -1,5 +1,6 @@
 import ShoppingList from './shoppingList.js';
 import RecipeDetails from "./recipePageDetails";
+import DisplaySubstitutes from './DisplaySubstitutes.js';
 
 
 // Modal container that appear in the Detail Page section
@@ -24,15 +25,22 @@ export default class ModalCard {
             titleModal.textContent = item.name;
         modal.appendChild(titleModal);
 
-            const imgElement = document.createElement('img');
-            imgElement.src = `https://spoonacular.com/cdn/${name}_500x500/${item.image}`;
-            imgElement.alt = `Image of ${item.localizedName}`;
-        modal.appendChild(imgElement);
+            const divSubImg = document.createElement('div');
+            divSubImg.classList.add('divSubImg');
+                const imgElement = document.createElement('img');
+                imgElement.src = `https://spoonacular.com/cdn/${name}_500x500/${item.image}`;
+                imgElement.alt = `Image of ${item.localizedName}`;
+            divSubImg.appendChild(imgElement);
+
+                const divinfoSub = document.createElement('div');
+                divinfoSub.classList.add('divinfoSub');
+            divSubImg.appendChild(divinfoSub);
+        modal.appendChild(divSubImg);
 
         modal.style.display = 'none';
 
             const buttonList = document.createElement('button');
-            buttonList.classList.add(`buttonListModal`);
+            buttonList.classList.add(`buttonModal`);
             buttonList.textContent = 'Add to Shopping List';
             
             buttonList.addEventListener('click', this.shopping.shoppingList.bind(null, item.name));
@@ -42,6 +50,19 @@ export default class ModalCard {
                 go.reloadDiv(divShoppingOut)})
             
         modal.appendChild(buttonList);
+
+            const modalSubstitutes = document.createElement('div');
+            modalSubstitutes.classList.add('modalSubstitutes');
+                const buttonSubstitutes = document.createElement('button');
+                buttonSubstitutes.classList.add(`buttonModal`);
+                buttonSubstitutes.textContent = 'Substitutes';
+                
+                buttonSubstitutes.addEventListener('click', async function() {
+                    const info = new DisplaySubstitutes(item.name);
+                    divinfoSub.appendChild(await info.displayModal());
+                });
+            
+        modal.appendChild(buttonSubstitutes);
 
             const button = document.createElement('button');
             button.classList.add(`buttonModal`);
