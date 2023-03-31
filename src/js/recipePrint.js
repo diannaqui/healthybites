@@ -17,7 +17,7 @@ async function dataPrint(dataSource, id) {
 function printer(div) {
     let content = div.innerHTML;
     let printWindow = window.open('', '', 'height=500,width=800');
-    printWindow.document.write('<html><head><title>Spoonacular Shopping List</title>');
+    printWindow.document.write('<html><head><title>🖤 Shopping List 🖤</title>');
     printWindow.document.write('</head><body>');
     printWindow.document.write(content);
     printWindow.document.write('</body></html>');

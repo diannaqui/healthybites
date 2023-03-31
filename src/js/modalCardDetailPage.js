@@ -7,13 +7,11 @@ import DisplaySubstitutes from './DisplaySubstitutes.js';
 export default class ModalCard {
     constructor() {
         this.shopping = new ShoppingList();
-
     }
 
     cardDisplay (id, show) {
         document.getElementById(`modalCard${id}`).style.display = show;
     }
-
 
     modalCard (item, name, id, divShoppingOut) {
         const modal = document.createElement('div');
@@ -28,7 +26,7 @@ export default class ModalCard {
             const divSubImg = document.createElement('div');
             divSubImg.classList.add('divSubImg');
                 const imgElement = document.createElement('img');
-                imgElement.src = `https://spoonacular.com/cdn/${name}_500x500/${item.image}`;
+                imgElement.src = `https://spoonacular.com/cdn/${name}_250x250/${item.image}`;
                 imgElement.alt = `Image of ${item.localizedName}`;
             divSubImg.appendChild(imgElement);
 
@@ -50,7 +48,6 @@ export default class ModalCard {
                 go.reloadDiv(divShoppingOut)})
             
         modal.appendChild(buttonList);
-
             const modalSubstitutes = document.createElement('div');
             modalSubstitutes.classList.add('modalSubstitutes');
                 const buttonSubstitutes = document.createElement('button');

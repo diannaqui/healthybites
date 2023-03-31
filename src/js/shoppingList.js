@@ -81,6 +81,7 @@ export default class ShoppingList {
                             buttonP.classList.add('buttonListPrint');
                             buttonP.href = `#/src/js/recipePrint?idSelected=shoppingList`;
                                 const printList = document.createElement('h2');
+                                printList.classList.add('printButton');
                                 printList.textContent = 'Print';
                                 buttonP.appendChild(printList);
                         divLast.appendChild(buttonP);
