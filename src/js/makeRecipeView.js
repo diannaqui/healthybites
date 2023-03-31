@@ -17,6 +17,19 @@ export function makeRecipeView(callback = () => {}) {
       recipeName.textContent = recipe.name;
       recipeItem.appendChild(recipeName);
 
+      // Retrieve recipe information from Spoonacular API
+      const API_KEY = '76bc81e74645481e8099e336501a31c7';
+      const ingredients = encodeURIComponent(recipe.ingredients);
+      const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${API_KEY}&number=1`;
+      fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          const recipeImage = document.createElement('img');
+          recipeImage.src = data[0].image;
+          recipeItem.appendChild(recipeImage);
+        })
+        .catch((error) => console.error(error));
+
       const ingredientsDisplay = document.createElement('p');
       ingredientsDisplay.textContent = `Ingredients: ${recipe.ingredients}`;
       recipeItem.appendChild(ingredientsDisplay);
