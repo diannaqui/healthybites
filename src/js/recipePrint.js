@@ -16,12 +16,14 @@ async function dataPrint(dataSource, id) {
 
 function printer(div) {
     let content = div.innerHTML;
-    let printWindow = window.open('', '', 'height=500,width=800');
-    printWindow.document.write('<html><head><title>🖤 Shopping List 🖤</title>');
+    let printWindow = window.open('', '', 'height=500,width=800,top=100,left=100');
+    printWindow.document.write('<html><head><title>.</title>');
     printWindow.document.write('</head><body>');
+    printWindow.document.write('<h1 class="titlePrint">🍎 Shopping List 🍎</h1>');
     printWindow.document.write(content);
     printWindow.document.write('</body></html>');
     printWindow.document.close();
+    printWindow.focus();
     printWindow.print();
 }
 

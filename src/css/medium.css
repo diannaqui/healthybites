@@ -68,14 +68,16 @@
     
     div.makeYourRecipeContainer form input,
     div.makeYourRecipeContainer form textarea {
-    width: 80%;
-    }  div.makeYourRecipeContainer form {
-    width: 70%;
-    padding: 2rem;
+        width: 80%;
+    }  
+    
+    div.makeYourRecipeContainer form {
+        width: 70%;
+        padding: 2rem;
     }
     
     div.makeYourRecipeContainer form input,
     div.makeYourRecipeContainer form textarea {
-    width: 80%;
+        width: 80%;
     }
 }
