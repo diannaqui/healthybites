@@ -13,9 +13,6 @@ export function makeRecipeView(callback = () => {}) {
     for (let i = 0; i < storedRecipes.length; i++) {
       const recipe = storedRecipes[i];
       const recipeItem = document.createElement('li');
-      const recipeImage = document.createElement('img');
-      recipeImage.src = recipe.image;
-      recipeItem.appendChild(recipeImage);
       const recipeName = document.createElement('h3');
       recipeName.textContent = recipe.name;
       recipeItem.appendChild(recipeName);
@@ -24,9 +21,8 @@ export function makeRecipeView(callback = () => {}) {
       ingredientsDisplay.textContent = `Ingredients: ${recipe.ingredients}`;
       recipeItem.appendChild(ingredientsDisplay);
 
-
       const instructionsDisplay = document.createElement('p');
-      instructionsDisplay.innerHTML = `Instructions: ${recipe.instructions.replace(/<li><li>/g, '<br>')}`;
+      instructionsDisplay.textContent = `Instructions: ${recipe.instructions}`;
       recipeItem.appendChild(instructionsDisplay);
 
       const deleteButton = document.createElement('button');
