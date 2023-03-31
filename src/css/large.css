@@ -56,4 +56,27 @@
     div.makeYourRecipeContainer form textarea {
         width: 60%;
     }
+
+    /* Modal Card */
+
+    .modalCard {
+        left: 4rem;
+      }
+
+    .divSubstitutes {
+        left: 13rem;
+        top: 0;
+    }
+
+    /* Shopping List */
+
+    .containerList {
+        flex-direction: row;
+        column-gap: 6rem;
+    }
+
+    .shoppingList {
+        min-width: max-content;
+    }
+
 }
