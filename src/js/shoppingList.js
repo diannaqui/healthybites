@@ -16,7 +16,7 @@ export default class ShoppingList {
                     titleShoppingList.textContent = 'Shopping List';
             divShoppingList.appendChild(titleShoppingList);
 
-        const shoppingList = JSON.parse(localStorage.getItem('list'));
+        const shoppingList = JSON.parse(localStorage.getItem('list')) || [];
 
         if (shoppingList) {
             shoppingList.forEach( item => {
@@ -107,7 +107,7 @@ export default class ShoppingList {
         };
 
         let valid = 0;
-        const item = JSON.parse(localStorage.getItem('list'));
+        const item = JSON.parse(localStorage.getItem('list')) || [];
         if (item) {
             item.forEach (product => {
                 if (product.nameFood == name) {

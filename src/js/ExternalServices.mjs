@@ -9,8 +9,6 @@ const substitutesUrl = "https://api.spoonacular.com/food/ingredients/substitutes
 // const apiKeyNumber = "d3803da0dba2444fac1dbeeb579fe87f";        // Nikita
 // const apiKeyNumber = "bd9690f36eb2416991bd24870cd5b0e3";        // Diana
 // const apiKeyNumber = "079ad1367c2e40e79eb0363dd32b6c51";        // Felix
- 
-const apiKeyNumber = "e145b93c7bd1495e80b7ad9a207d6640";   
 
 export function convertToJson(res) {
     if (res.ok) {
