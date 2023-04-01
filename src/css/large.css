@@ -32,10 +32,6 @@
     }
 
     /* Newsletter form */
-    form {
-        display: inline-block;
-        width: 50%;
-    }
 
     /* =======================cards type of meal in homepage==================== */
     section div.product-grid {
@@ -61,7 +57,7 @@
 
     .modalCard {
         left: 4rem;
-      }
+    }
 
     .divSubstitutes {
         left: 13rem;
@@ -78,5 +74,16 @@
     .shoppingList {
         min-width: max-content;
     }
-
+    .recipeContainer {
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+    /* =============sign up--------------------- */
+    div.signUp form, div.login form {
+        width: 50%;
+    }
+    div.floatingImages {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
 }
