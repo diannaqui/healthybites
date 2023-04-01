@@ -72,7 +72,6 @@ header#main-header {
   align-items: center;
   padding: 0;
   background-color: var(--primary-yellowGreen);
-  border-bottom: 2px solid var(--secondary-persianRed);
 }
 
 div.logo {
@@ -91,6 +90,9 @@ div.logo:hover {
   max-width: 100%;
 }
 
+.dropdown img{
+  width: 3.5rem;
+}
 .hero {
   display: flex;
   flex-direction: column;
@@ -99,7 +101,6 @@ div.logo:hover {
   background-color: var(--accent3-ivory);
   padding: 0;
   margin: 0;
-  border-bottom: 2px solid var(--secondary-persianRed);
   position: relative;
 }
 
@@ -107,13 +108,34 @@ div.logo:hover {
   max-width: 100%;
 }
 
-.titleHero {
+/* Style the search bar container */
+.searchContainer {
+  /* position: relative; */
+  display: inline-block;
+  margin: 10px;
+  position: absolute;
+  top: 500px; /* adjust this value to position the search bar vertically */
+  left: 100px; /* adjust this value to position the search bar horizontally */
+}
+
+/* Style the search input */
+.searchInput {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  width: 200px;
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* .titleHero {
 position: absolute;
 top: 1rem;
 color: rgb(255, 132, 0);
 font-family: var(--font-headline);
 text-shadow: 1px 1px 0px #fff;
-}
+} */
 
 /* Food-grid section home page */
 .food-grid {
@@ -144,18 +166,18 @@ text-shadow: 1px 1px 0px #fff;
 
 /* Inspirational quote */
 div.quote {
-    background-image: linear-gradient(90deg, #b5ff7c, #fff189);
-    background-size: 400% 400%;
-    animation: rotateColor 5s ease infinite;
-    /* max-width: 30em; */
-    margin: 1.5rem 1rem;
-    text-align: center;
-    font-size: 1rem;
-    padding: 1rem 1.5rem;
-    border: solid var(--dark-grey);
-    border-radius: 2rem;
-    /* add box shadow to appear a card */
-    box-shadow: 1px 1px 0.5px 0.5px var(--dark-grey);
+  background-image: linear-gradient(90deg, #b5ff7c, #fff189);
+  background-size: 400% 400%;
+  animation: rotateColor 5s ease infinite;
+  /* max-width: 30em; */
+  margin: 1.5rem 1rem;
+  text-align: center;
+  font-size: 1rem;
+  padding: 1rem 1.5rem;
+  border: solid var(--dark-grey);
+  border-radius: 2rem;
+  /* add box shadow to appear a card */
+  box-shadow: 1px 1px 0.5px 0.5px var(--dark-grey);
 }
 
 .quote img {
@@ -189,41 +211,41 @@ margin: 0;
 }
 
 .navbar {
-display: flex;
-justify-content: space-around;
-align-items: center;
-background-color: var(--primary-yellowGreen);
-padding: 10px;
-width: 100%;
-/* display: none; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--primary-yellowGreen);
+  padding: 10px;
+  width: 100%;
+  /* display: none; */
 }
 
 .navbar ul {
-display: flex;
-flex-direction: column;
-justify-content: space-around;
-align-items: center;
-list-style-type: none;
-margin: 0;
-padding: 0;
-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 .navbar li {
-margin-right: 20px;
-position: relative;
-transition: all 0.5s ease;
+  margin-right: 20px;
+  position: relative;
+  transition: all 0.5s ease;
 }
 
 .navbar li a {
-font-size: 1rem;
+  font-size: 1rem;
 }
 
 .navbar li:hover, .dropbtn:hover, .dropdown a:hover {
-background-color: var(--accent1-maize);
-border-radius: 2rem 1rem;
-transition: all 0.5s ease;
-border: var(--dark-grey) .5px solid;
+  background-color: var(--accent1-maize);
+  border-radius: 2rem 1rem;
+  transition: all 0.5s ease;
+  border: var(--dark-grey) .5px solid;
 }
 
 /* Dropdown button
@@ -239,63 +261,64 @@ border: var(--dark-grey) .5px solid;
  
 
 .navbar a {
-display: block;
-color: #333;
-font-size: 16px;
-font-weight: bold;
-text-decoration: none;
-padding: 10px;
+  display: block;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px;
 }
 
 .dropdown-content {
-display: none;
-position: absolute;
-top: 100%;
-left: 0;
-background-color: var(--primary-yellowGreen);
-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-z-index: 1;
-padding: 0;
-margin: 0;
-border-radius: 2rem 1rem;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--primary-yellowGreen);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  padding: 0;
+  margin: 0;
+  border-radius: 2rem 1rem;
 }
 
 .dropdown-content a {
-display: block;
-color: #333;
-font-size: 16px;
-font-weight: bold;
-text-decoration: none;
-padding: 10px;
-text-align: center;
+  display: block;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px;
+  text-align: center;
 }
 
 .dropdown:hover .dropdown-content {
-display: block;
+  display: block;
 }
 
 .dropbtn {
-background-color: var(--primary-yellowGreen);
-color: #333;
-border: none;
-font-size: 16px;
-font-weight: bold;
-cursor: pointer;
-padding: 10px;
+  background-color: var(--primary-yellowGreen);
+  color: #333;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px;
 }
 
 .fa-caret-down {
-margin-left: 5px;
+  margin-left: 5px;
 }
+
 /* Main content styles */
 .form-group {
-margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 label {
-display: block;
-margin-bottom: 0.5rem;
-font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
 }
 
 input[type="text"], input[type="email" i], textarea {
@@ -331,24 +354,24 @@ button[type="submit"]:hover {
 }
 
 h1::before {  
-transform: scaleX(0);
-transform-origin: bottom right;
+  transform: scaleX(0);
+  transform-origin: bottom right;
 }
 
 h1:hover::before {
-transform: scaleX(1);
-transform-origin: bottom left;
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 h1::before {
-content: " ";
-display: block;
-position: absolute;
-top: 0; right: 0; bottom: 0; left: 0;
-inset: 0 0 0 0;
-background: hsl(200 100% 80%);
-z-index: -1;
-transition: transform .3s ease;
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  inset: 0 0 0 0;
+  background: hsl(200 100% 80%);
+  z-index: -1;
+  transition: transform .3s ease;
 }
 
 h1 {
@@ -387,19 +410,19 @@ margin: 0;
 }
 
 .customerTestimonial h3 {
-font-weight: bold;
-font-size: 1.3rem;
+  font-weight: bold;
+  font-size: 1.3rem;
 }
 
 .testimonialsTitle {
-font-size: 2rem;
-font-weight: bold;
-text-align: center;
-margin: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 1rem;
 }
 
 div.testimonial {
-margin-top: 3rem;
+  margin-top: 3rem;
 }
 
 /* =======================cards type of meal in homepage==================== */
@@ -451,7 +474,7 @@ div.recipeContainer {
   padding: 1rem;
 }
 
-div.container {
+div.container, .logo {
   max-width: 97%;
   /* card apperance */
   background-color: #f5f5f5;
@@ -571,6 +594,7 @@ ul.goodNutrients .nutrient.color6 {
   left: calc(var(--measure-base) + 3rem);
 }
 /* ======================ends bubbles====================== */
+
 .goodNutrients li:nth-child(even):hover {
   transform: rotate(360deg);
   transform: scale(1.5);
@@ -597,9 +621,19 @@ ul.goodNutrients .nutrient.color6 {
   top: 2.6rem;
 }
 
+.containerInfoGeneral{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 10rem;;
+}
+
+.containerInfoGeneral img{
+  width: 20rem;
+}
 
 /* Render Recipe Details */
-
 .pageDetails {
   margin: 5rem auto;
   max-width: 90%;
@@ -654,7 +688,7 @@ ul.goodNutrients .nutrient.color6 {
   padding: 1rem;
 }
 
-.nutrientsPerServingDiv a { 
+.nutrientsPerServingDiv a, .divLast a{ 
   text-decoration: none;
   color: var(--dark-grey);
 }
@@ -665,18 +699,13 @@ ul.goodNutrients .nutrient.color6 {
 
 .recipeInstructions {
   margin: 0 auto;
-  width: 70%;
-}
-
-.instructionsStep {
-  margin: 5rem 1rem;
 }
 
 .divingredients, .divequipment {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 15rem);
-  justify-content: center;
-  align-items: end;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-evenly;
 }
 
 .div2ingredients, .div2equipment {
@@ -684,18 +713,26 @@ ul.goodNutrients .nutrient.color6 {
   flex-direction: column;
   gap: 1rem;
   align-items: center;
-  min-width: 9rem;
+  min-width: max-content;
   text-align: center;
   position: relative;
-  margin-bottom: 9rem;
+  margin: 3rem 1rem;
 }
 
-.analyzedInstructionsElement {
+.analyzedInstructionsElement, .shoppingList, .messageError {
   padding: 1rem;
-  /* border: 2px solid var(--primary-yellowGreen); */
   border-radius: 1rem;
   box-shadow: 0 1px 0.2rem 0 rgba(117, 116, 97, 0.9);
+}
 
+.messageError {
+  margin:1rem auto;
+  width: fit-content;
+}
+
+.alertMessage{
+  display: flex;
+  flex-direction: row;
 }
 
 .ingredientsListClassName {
@@ -711,14 +748,14 @@ ul.goodNutrients .nutrient.color6 {
 }
 
 /* Print Recipe  */
-
 .links {
   margin: 5rem auto;
   display: flex;
-  width: fit-content;
+  max-width: fit-content;
   flex-wrap: wrap;
-
+  justify-content: center;
 }
+
 .recipeCard {
   box-shadow: 0.5rem 0.5rem 1rem 0 rgba(117, 116, 97, 0.9);
   border-radius: 10%;
@@ -727,7 +764,51 @@ ul.goodNutrients .nutrient.color6 {
   margin: 5rem auto;
   justify-content: center;
   width: fit-content;
+}
 
+.containerList {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.quantityShoppingList {
+  border: none;
+  background-color: transparent;
+  height: fit-content;
+  margin: 0;
+}
+
+.shoppingList {
+  margin: 8rem auto;
+  background-color: #eef0d7;
+  max-width: fit-content;
+}
+
+.divSL {
+  display: flex;
+  flex-direction: column;
+}
+
+.divButtons {
+  display: flex;
+  justify-content: space-evenly;
+  height: fit-content;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.nameShoppingList {
+  font-size: 1.3rem;
+  margin-left:0.4rem;
+}
+
+.divInfoList {
+  display: flex;
+  align-items: center;
+}
+
+.deleteShoppingList {
+  height: fit-content;
 }
 
 /* ========================= ABOUT PAGE ===================== */
@@ -735,7 +816,6 @@ ul.goodNutrients .nutrient.color6 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   margin: 5rem auto;
-
 }
 
 .floatingImages .container:nth-child(odd) {
@@ -747,12 +827,10 @@ ul.goodNutrients .nutrient.color6 {
 }
 
 .floatingImages .container:last-child {
-  transform: translateY(10px);}
+  transform: translateY(10px);
+}
 
-
-  
 /* Modal Card */
-
 .modalCard {
   border-radius: 2rem;
   box-shadow: 0 4px 3rem 0 rgba(0, 0, 0, 0.2), 0 6px 5rem 0 rgba(25, 33, 22, 0.682);
@@ -760,14 +838,26 @@ ul.goodNutrients .nutrient.color6 {
   position: absolute;
   z-index: 1;
   top: 2rem;
-  left: 6rem;
+  left: -3rem;
+  min-width: min-content;
 }
 
 .modalCard img {
   padding: 1rem;
 }
 
-.buttonModal, .nutrientsPerServingDiv, .ingredientsListClassName, .buttonListModal{
+.deleteShoppingList {
+  border: none;
+  background-color: transparent;
+}
+
+.deleteShoppingList:hover {
+  cursor: pointer;
+  border-radius: 5rem;
+  box-shadow: 0 1px 1rem 0 rgba(176, 19, 19, 0.9), 0 1px 1rem 0 rgba(176, 19, 19, 0.9);
+}
+
+.buttonModal, .nutrientsPerServingDiv, .ingredientsListClassName, .buttoD, .buttonList, .printButton{
   padding: 15px 25px;
   margin: 2rem;
   font-size: 1.2rem;
@@ -777,8 +867,6 @@ ul.goodNutrients .nutrient.color6 {
   border-radius: 2rem;
   box-shadow: 0 9px #999;
   text-align: center;
-
-  
 }
 
 .nutrientsPerServingDiv {
@@ -787,7 +875,7 @@ ul.goodNutrients .nutrient.color6 {
   border-top-left-radius: 70%;
 }
 
-.buttonModal:active, .nutrientsPerServingDiv:active, .ingredientsListClassName:active, .buttonListModal:active {
+.buttonModal:active, .nutrientsPerServingDiv:active, .ingredientsListClassName:active, .buttoD:active, .buttonList:active, .printButton:active{
   background-color:  #e8ef92;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
@@ -796,7 +884,6 @@ ul.goodNutrients .nutrient.color6 {
 .ingredientsListClassName{
   padding: 0.5rem 1rem;
   margin: 0;
-
   font-size: 1.2rem;
   cursor: pointer;
   background-color: #d7f4cc;
@@ -806,16 +893,105 @@ ul.goodNutrients .nutrient.color6 {
   text-align: center;
 }
 
-.ingredientsListClassName:active {
+.ingredientsListClassName:active{
   background-color:  #bdefab;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
 
-.instructionsStep {
-  border-radius: 9rem;
+.divButtons button{ 
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 0.9rem 0 rgba(117, 116, 97, 0.9);
+}
+
+.divButtons button:active {
+  box-shadow: 0 1px 0.9rem 1px rgba(176, 19, 19, 0.9);
+}
+
+.instructionsStep, .titleShoppingList {
+  border-radius: 3rem;
   background-color:  rgba(235, 230, 73, 0.05);
   box-shadow: 0 1px 2rem 0 rgba(117, 116, 97, 0.9);
   padding: 2rem;
+  font-size: 1.3rem;
   color: #444141;
+}
+/* ==============form make your recipe=+================= */
+div.makeYourRecipeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5rem auto;
+  width: 100%;
+}
+
+div.makeYourRecipeContainer form {
+  /* form look like card */
+  border-radius: 2rem;
+  box-shadow: 0 4px 1rem 0 rgba(0, 0, 0, 0.2), 0 6px 1rem 0 rgba(25, 33, 22, 0.682);
+  /* nice grey background color */
+  background-color: #f1f1f1;
+  position: relative;
+  z-index: 1;
+  top: 2rem;
+  left: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  padding: 2rem 0 0 0;
+}
+
+div.makeYourRecipeContainer form input {
+  margin: 1rem;
+  padding: 1rem;
+  width: 50%;
+  border-radius: 1rem;
+  border: none;
+  background-color: rgb(255, 255, 255);
+}
+
+div.makeYourRecipeContainer form textarea {
+  margin: 1rem;
+  padding: 1rem;
+  width: 50%;
+  height: 10rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: rgb(255, 255, 255);
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 5rem auto;
+}
+
+.buttonsContainer button {
+  margin: 1rem;
+  padding: 1rem;
+  width: 10rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: #333;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+.buttonsContainer button:hover {
+  background-color: #555;
+  transition: all 0.2s ease-in-out;
+}
+
+.buttonsContainer button:active {
+  background-color: #555;
 }

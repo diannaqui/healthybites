@@ -5,15 +5,26 @@ import Nutrition from './recipeNutrientsDetailsEntrance.js'
 import Print from './recipePrint.js'
 import aboutPage from './about.js';
 import { createRecipeForm } from './makeRecipe.js';
+import {makeRecipeView} from './makeRecipeView.js';
+import { login } from "./login.js";
+import { signUp } from "./signUp.js";
+import { searchResult } from './searchResult.js';
 
-export function initRouter(mainView) {
-    // mainView.innerHTML = ""
+export function initRouter(mainView, callback) {
+    //mainView.innerHTML = ""
 
     function updateView(newView) {
-        console.log(newView);
         mainView.innerHTML = '';
-        mainView.appendChild(newView);
-    }
+        Promise.resolve(newView).then((node) => {
+          if (node instanceof Node) {
+            mainView.appendChild(node);
+          } else if (node === null || node === undefined) {
+            console.error('Invalid node: null or undefined');
+          } else {
+            console.error('Invalid node:', node);
+          }
+        });
+      }
 
     function page404() {
         const page = document.createElement('h3');
@@ -53,8 +64,25 @@ export function initRouter(mainView) {
                 break;
             
             case '#/src/js/makeRecipe':
-                updateView(createRecipeForm());
+                const recipeForm = createRecipeForm();
+                updateView(recipeForm);
                 break;
+            
+            case '#/src/js/makeRecipeView':
+                updateView(makeRecipeView(callback));
+                break;
+
+            case '#/src/js/signUp':
+                updateView(signUp());
+                break;
+
+            case '#/src/js/login':
+                updateView(login());
+                break;
+                    
+                case '#/src/js/searchResult':
+                    updateView(searchResult());
+                    break;
                     
             default:
                 updateView(page404());

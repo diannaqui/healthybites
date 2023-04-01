@@ -52,10 +52,32 @@
         display: grid;
         margin: 1rem auto auto;
     }
+
     /* =======================cards type of meal in homepage==================== */
     section div.product-grid {
         display: grid;
         grid-template-columns: auto auto;
         gap: 1rem;
+    }
+    
+    /*     ==========make your ceipe form============== */
+    div.makeYourRecipeContainer form {
+        width: 70%;
+        padding: 2rem;
+    }
+    
+    div.makeYourRecipeContainer form input,
+    div.makeYourRecipeContainer form textarea {
+        width: 80%;
+    }  
+    
+    div.makeYourRecipeContainer form {
+        width: 70%;
+        padding: 2rem;
+    }
+    
+    div.makeYourRecipeContainer form input,
+    div.makeYourRecipeContainer form textarea {
+        width: 80%;
     }
 }

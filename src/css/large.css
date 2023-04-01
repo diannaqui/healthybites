@@ -43,4 +43,40 @@
         grid-template-columns: auto auto auto auto;
         gap: 1rem;
     }
+/*     ==========make your ceipe form============== */
+    div.makeYourRecipeContainer {
+        width: 80%;
+    }
+    
+    div.makeYourRecipeContainer form {
+        width: 60%;
+    }
+    
+    div.makeYourRecipeContainer form input,
+    div.makeYourRecipeContainer form textarea {
+        width: 60%;
+    }
+
+    /* Modal Card */
+
+    .modalCard {
+        left: 4rem;
+      }
+
+    .divSubstitutes {
+        left: 13rem;
+        top: 0;
+    }
+
+    /* Shopping List */
+
+    .containerList {
+        flex-direction: row;
+        column-gap: 6rem;
+    }
+
+    .shoppingList {
+        min-width: max-content;
+    }
+
 }
