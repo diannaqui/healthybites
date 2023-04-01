@@ -80,4 +80,22 @@
     div.makeYourRecipeContainer form textarea {
         width: 80%;
     }
+    .recipeContainer {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+    /* =============sign up--------------------- */
+    div.signUp form, div.login form {
+        width: 70%;
+    }
+    div.about {
+        max-width: 70%;
+        margin: 0;
+    }
+    .floatingImages {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }

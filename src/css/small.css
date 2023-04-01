@@ -815,11 +815,11 @@ ul.goodNutrients .nutrient.color6 {
 .floatingImages .recipeContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  margin: 5rem auto;
+  margin: auto;
 }
 
 .floatingImages .container:nth-child(odd) {
-  transform: translateY(-30px);
+  transform: translateY(30px);
 }
 
 .floatingImages .container:nth-child(even) {
@@ -829,7 +829,16 @@ ul.goodNutrients .nutrient.color6 {
 .floatingImages .container:last-child {
   transform: translateY(10px);
 }
-
+div.about div.container {
+  padding: 4rem;
+}
+div.about div.container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 4px 3rem 0 rgba(0, 0, 0, 0.2), 0 6px 5rem 0 rgba(25, 33, 22, 0.682);
+}
 /* Modal Card */
 .modalCard {
   border-radius: 2rem;
@@ -959,7 +968,7 @@ div.makeYourRecipeContainer form textarea {
   margin: 1rem;
   padding: 1rem;
   width: 50%;
-  height: 10rem;
+  height: 5rem;
   border-radius: 1rem;
   border: none;
   background-color: rgb(255, 255, 255);
@@ -970,11 +979,11 @@ div.makeYourRecipeContainer form textarea {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 5rem auto;
+  margin-bottom: 1rem;
 }
 
 .buttonsContainer button {
-  margin: 1rem;
+  margin: .5rem;
   padding: 1rem;
   width: 10rem;
   border-radius: 1rem;
@@ -995,3 +1004,54 @@ div.makeYourRecipeContainer form textarea {
 .buttonsContainer button:active {
   background-color: #555;
 }
+/* =============sign up--------------------- */
+div.signUp, div.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 3rem 0;
+  width: 100%;
+}
+div.signUp form, div.login form {
+  border-radius: 2rem;
+  box-shadow: 0 4px 1rem 0 rgba(0, 0, 0, 0.2), 0 6px 1rem 0 rgba(25, 33, 22, 0.682);
+  background-color: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  padding: 2rem 0 0 0;
+}
+div.signUp form label, div.login form label {
+  margin: 0;
+}
+div.signUp form input, div.login form input {
+  margin: 1rem;
+  padding: 1rem;
+  width: 50%;
+  border-radius: 1rem;
+  border: none;
+  background-color: rgb(255, 255, 255);
+}
+div.signUp form button, div.login form button {
+  margin: 1rem;
+  padding: 1rem;
+  width: 11rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: #333;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
+.notRecipeYet {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 3rem 0;
+}
+/* ===========my recipes============== */

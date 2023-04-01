@@ -5,7 +5,8 @@ export function makeRecipeView(callback = () => {}) {
 
   const storedRecipes = JSON.parse(localStorage.getItem('recipes')) || [];
   if (storedRecipes.length === 0) {
-    const message = document.createElement('p');
+    const message = document.createElement('h3');
+    message.classList.add('notRecipeYet')
     message.textContent = 'You have no saved recipes yet.';
     recipeViewContainer.appendChild(message);
   } else {
