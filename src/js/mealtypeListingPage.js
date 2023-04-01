@@ -3,7 +3,7 @@ import ExternalServices from "./ExternalServices.mjs";
 
 export  function recipeCardTemplate(list) {
     return `
-        <p>${list.title}</h2>
+        <p>${list.title}</p>
         <img src="${list.image}" alt=Recipe Image for ${list.title}>
     `;
 }
