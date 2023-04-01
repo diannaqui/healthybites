@@ -12,11 +12,11 @@
         margin: 0 2rem;
     }
 
-    .recipeContainer {
+    /* .recipeContainer {
         display: flex;
         flex-direction: column;
         row-gap: 2rem;
-    }
+    } */
 
     /* .recipeContainer div{
         border: 2px solid var(--secondary-persianRed);

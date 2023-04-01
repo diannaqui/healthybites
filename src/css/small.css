@@ -474,7 +474,20 @@ div.recipeContainer {
   padding: 1rem;
 }
 
+div.recipeContainerSide {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-width: fit-content;
+  padding: 1rem;
+}
+
 div.container, .logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   max-width: 97%;
   /* card apperance */
   background-color: #f5f5f5;
@@ -488,7 +501,13 @@ div.container, .logo {
 
 div.container h3 {
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
+}
+
+div.container p {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 div.container a {
@@ -514,6 +533,7 @@ div.container a:hover {
 div.container img {
   border-radius: 15rem;
   width: 50%;
+  margin-bottom: 1.5rem;
 }
 
 div.recipeCardImgContainer {
@@ -534,6 +554,12 @@ div.divInfo {
   align-items: center;
   flex-wrap: wrap;
   padding: 0 1rem;
+}
+
+div.divInfo p {
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 /* =======================good nutrition page========================== */
@@ -812,6 +838,7 @@ ul.goodNutrients .nutrient.color6 {
 }
 
 /* ========================= ABOUT PAGE ===================== */
+
 .floatingImages .recipeContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -838,6 +865,10 @@ div.about div.container img {
   object-fit: cover;
   border-radius: 1rem;
   box-shadow: 0 4px 3rem 0 rgba(0, 0, 0, 0.2), 0 6px 5rem 0 rgba(25, 33, 22, 0.682);
+}
+
+.floatingImages {
+  justify-items: center;
 }
 /* Modal Card */
 .modalCard {

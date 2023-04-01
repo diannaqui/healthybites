@@ -56,7 +56,7 @@ function mainContent() {
     // second child recipeRightSide - Four recipes on the right side on main
     async function renderRecipeSide(containerRecipes) {
         const dataSource = new ExternalServices();
-        const listing = new RecipeListingSide(dataSource,1); // 2 is the amount of random images that we want to render
+        const listing = new RecipeListingSide(dataSource,2); // 2 is the amount of random images that we want to render
         containerRecipes.appendChild(await listing.init());    
 
     }

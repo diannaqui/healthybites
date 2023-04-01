@@ -16,7 +16,7 @@ export function recipeCardTemplate(list) {
             <img src="${list[0].image}" alt=Recipe Image for ${list[0].title}>
         </div>
         <div class="divInfo">
-            <p>Estimated time:${list[0].readyInMinutes} min</p>
+            <p>Estimated time: ${list[0].readyInMinutes} min</p>
             <p>Servings: ${list[0].servings}</p>
         </div>
     `;
@@ -38,7 +38,7 @@ export default class RecipeListingSide {
 
     async init() {
         const listElement = document.createElement("div");
-        listElement.classList.add("recipeContainer");
+        listElement.classList.add("recipeContainerSide");
 
         for (let i=0; i<this.amountOfImages; i++) {
 
