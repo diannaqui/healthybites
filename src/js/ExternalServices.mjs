@@ -3,7 +3,6 @@ const mealTypeUrl = "https://api.spoonacular.com/recipes/complexSearch";
 const allFoodURL = "https://api.spoonacular.com/food/search";
 const substitutesUrl = "https://api.spoonacular.com/food/ingredients/substitutes";
 
-
 // const apiKeyNumber = "85fc6e9102e54cd3b863cc238b62f727";        // Josue 
 // const apiKeyNumber = "0bb27aae6f854824aa71de0854a2d4a9";        // Zeir
 // const apiKeyNumber = "d3803da0dba2444fac1dbeeb579fe87f";        // Nikita
@@ -106,11 +105,10 @@ export default class ExternalServices {
   }
 
   // Search all food content
-  async searchAllFood() {
+  async searchAllFood(searchTerm) {
     try {
-      const response = await fetch(allFoodURL + `?apiKey=${apiKeyNumber}`);
+      const response = await fetch(allFoodURL + `?apiKey=${apiKeyNumber}&query=${searchTerm}`);
       const data = await convertToJson(response);
-      console.log(data);
       return data;
     } 
     catch (err) {
