@@ -35,7 +35,7 @@ export function createRecipeForm() {
   buttonsContainer.appendChild(saveButton);
   buttonsContainer.appendChild(deleteAllButton);
   form.appendChild(buttonsContainer);
-  form.style.backgroundColor = 'black';
+  // form.style.backgroundColor = 'black';
 
   let recipeNameDisplay, ingredientsDisplay, instructionsDisplay, imageDisplay;
   const addRecipeDisplay = (recipe) => {

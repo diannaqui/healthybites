@@ -42,6 +42,17 @@ export function signUp() {
     signUpButton.setAttribute("type", "submit");
     signUpButton.textContent = "Sign Up";
 
+    const divMessage = document.createElement('div');
+    divMessage.classList.add('messageNewsletter');
+    divMessage.innerHTML = `<p>Your information will be sent to the server as soon as possible</p>
+                            <p>Come back later to access your account</p>`;
+    divMessage.style.display = 'none';
+
+    signUpButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        divMessage.style.display = 'block';
+    })
+
     // Append the <label> and <input> elements to the <form> element
     form.appendChild(nameLabel);
     form.appendChild(nameInput);
@@ -54,6 +65,8 @@ export function signUp() {
     // Append the title, image and form to the testimonial container
     signUpContainer.appendChild(title);
     signUpContainer.appendChild(form);
+    signUpContainer.appendChild(divMessage);
+
 
     const section = signUpContainer;
     return section;
