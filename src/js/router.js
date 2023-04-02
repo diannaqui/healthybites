@@ -19,7 +19,7 @@ export function initRouter(mainView, callback) {
           if (node instanceof Node) {
             mainView.appendChild(node);
           } else if (node === null || node === undefined) {
-            console.error('Invalid node: null or undefined');
+            // console.error('Invalid node: null or undefined');
           } else {
             console.error('Invalid node:', node);
           }
@@ -81,9 +81,9 @@ export function initRouter(mainView, callback) {
                 updateView(login());
                 break;
                     
-                case '#/src/js/searchResult':
-                    updateView(searchResult());
-                    break;
+            case '#/src/js/searchResult':
+                updateView(searchResult());
+                break;
                     
             default:
                 updateView(page404());

@@ -8,8 +8,6 @@ export  function recipeCardTemplate(list) {
     `;
 }
 
-
-
 export function mealtypeListingPage(id) {
     const dataSource = new ExternalServices();
     const mealTypeData = dataSource.getByMealtype(id);
