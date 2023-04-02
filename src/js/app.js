@@ -1,7 +1,8 @@
 import { initRouter } from "./router.js";
 import logoImg from "../images/healthy-bites.jpg"
+import login from "../images/login.png"
 
-function Heater() {
+function Header() {
 
     const content = `
         <div class="logo">
@@ -9,19 +10,36 @@ function Heater() {
         </div>
         <nav class="navbar">
             <ul>        
-                <li><a href="#/src/js/about">About</a></li>
-                <li><a href="#/src/js/makeRecipe">Make your Recipe</a></li>
-                <li><a href="#/src/js/makeRecipeView">View your Recipe</a></li>
                 <li class="dropdown">
-                <button class="dropbtn">Recipes
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="#/src/js/mealtypeListingPage?idSelected=breakfast">Breakfast</a>
-                    <a href="#/src/js/mealtypeListingPage?idSelected=maincourse">Main Course</a>
-                    <a href="#/src/js/mealtypeListingPage?idSelected=dessert">Dessert</a>
-                    <a href="#/src/js/mealtypeListingPage?idSelected=drinks">Drinks</a>
-                </div>
+                    <button class="dropbtn">Recipes
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#/src/js/mealtypeListingPage?idSelected=breakfast">Breakfast</a>
+                        <a href="#/src/js/mealtypeListingPage?idSelected=maincourse">Main Course</a>
+                        <a href="#/src/js/mealtypeListingPage?idSelected=dessert">Dessert</a>
+                        <a href="#/src/js/mealtypeListingPage?idSelected=drinks">Drinks</a>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <button class="dropbtn">My Recipes
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#/src/js/makeRecipe">Make your Recipe</a>
+                        <a href="#/src/js/makeRecipeView">View your Recipe</a>
+                    </div>
+                </li>
+
+                <li><a href="#/src/js/about">About</a></li>
+
+                <li class="dropdown">
+                    <img src=${login} alt="login">
+                    <div class="dropdown-content">
+                        <a href="#/src/js/signUp">Sign Up</a>
+                        <a href="#/src/js/login">Login</a>
+                    </div>
                 </li>
             </ul>
             </nav>
@@ -56,7 +74,7 @@ function App() {
     // Together / header - main - footer
     const div = document.createElement('div');
     div.id = 'headerMainFooterContainer';
-    div.appendChild(Heater());
+    div.appendChild(Header());
     div.appendChild(main);
     div.appendChild(Footer());
 

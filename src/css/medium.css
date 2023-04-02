@@ -52,12 +52,14 @@
         display: grid;
         margin: 1rem auto auto;
     }
+
     /* =======================cards type of meal in homepage==================== */
     section div.product-grid {
         display: grid;
         grid-template-columns: auto auto;
         gap: 1rem;
     }
+    
     /*     ==========make your ceipe form============== */
     div.makeYourRecipeContainer form {
         width: 70%;
@@ -66,14 +68,34 @@
     
     div.makeYourRecipeContainer form input,
     div.makeYourRecipeContainer form textarea {
-    width: 80%;
-    }  div.makeYourRecipeContainer form {
-    width: 70%;
-    padding: 2rem;
+        width: 80%;
+    }  
+    
+    div.makeYourRecipeContainer form {
+        width: 70%;
+        padding: 2rem;
     }
     
     div.makeYourRecipeContainer form input,
     div.makeYourRecipeContainer form textarea {
-    width: 80%;
+        width: 80%;
+    }
+    .recipeContainer {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+    /* =============sign up--------------------- */
+    div.signUp form, div.login form {
+        width: 70%;
+    }
+    div.about {
+        max-width: 70%;
+        margin: 0;
+    }
+    .floatingImages {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 }

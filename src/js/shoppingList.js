@@ -1,9 +1,11 @@
+import RecipeDetails from "./recipePageDetails";
+
 export default class ShoppingList {
-    // constructor {
+    constructor() {
 
-    // }
+    }
 
-    displayShoppingList() {
+    displayShoppingList(divShoppingOut) {
 
             const divShoppingList = document.createElement('div');
             divShoppingList.classList.add('shoppingList');
@@ -14,7 +16,7 @@ export default class ShoppingList {
                     titleShoppingList.textContent = 'Shopping List';
             divShoppingList.appendChild(titleShoppingList);
 
-        const shoppingList = JSON.parse(localStorage.getItem('list'));
+        const shoppingList = JSON.parse(localStorage.getItem('list')) || [];
 
         if (shoppingList) {
             shoppingList.forEach( item => {
@@ -28,6 +30,9 @@ export default class ShoppingList {
                             buttonDelete.classList.add('deleteShoppingList');
                             buttonDelete.innerHTML = '❌';  
                             buttonDelete.addEventListener('click', this.shoppingDelete.bind(null, item.nameFood));
+                            buttonDelete.addEventListener('click', function() {
+                                const go = new RecipeDetails();
+                                go.reloadDiv(divShoppingOut)})
                         divInfo.appendChild(buttonDelete);
                         
                             const nameItem = document.createElement('h2');
@@ -42,6 +47,9 @@ export default class ShoppingList {
                             buttonMore.classList.add('quantityShoppingList');
                             buttonMore.innerHTML = '➕';  
                             buttonMore.addEventListener('click', this.shoppingChange.bind(null, 1, item.nameFood));
+                            buttonMore.addEventListener('click', function() {
+                                const go = new RecipeDetails();
+                                go.reloadDiv(divShoppingOut)})
                         
                         divButtons.appendChild(buttonMore);
 
@@ -54,6 +62,10 @@ export default class ShoppingList {
                             buttonLess.classList.add('quantityShoppingList');
                             buttonLess.innerHTML = '➖';  
                             buttonLess.addEventListener('click', this.shoppingChange.bind(null, 2, item.nameFood));
+                            buttonLess.addEventListener('click', function() {
+                                const go = new RecipeDetails();
+                                go.reloadDiv(divShoppingOut)})
+
                         divButtons.appendChild(buttonLess);
 
                 div.appendChild(divInfo);
@@ -65,9 +77,13 @@ export default class ShoppingList {
                     const divLast = document.createElement('div');
                     divLast.classList.add('divLast');
 
-                            const buttonP = document.createElement('button');
-                            buttonP.classList.add('buttoD');
-                            buttonP.innerHTML = 'Print';  
+                            const buttonP = document.createElement('a');
+                            buttonP.classList.add('buttonListPrint');
+                            buttonP.href = `#/src/js/recipePrint?idSelected=shoppingList`;
+                                const printList = document.createElement('h2');
+                                printList.classList.add('printButton');
+                                printList.textContent = 'Print';
+                                buttonP.appendChild(printList);
                         divLast.appendChild(buttonP);
 
                         divShoppingList.appendChild(divLast);
@@ -77,11 +93,10 @@ export default class ShoppingList {
 
 
     shoppingDelete(name) {
+        console.log('qwe')
         let shoppingList = JSON.parse(localStorage.getItem('list'));
         shoppingList = shoppingList.filter((item) => item.nameFood != name);
         localStorage.setItem('list', JSON.stringify(shoppingList));
-    
-        location.reload();
     }
 
     shoppingList(name) {
@@ -92,7 +107,7 @@ export default class ShoppingList {
         };
 
         let valid = 0;
-        const item = JSON.parse(localStorage.getItem('list'));
+        const item = JSON.parse(localStorage.getItem('list')) || [];
         if (item) {
             item.forEach (product => {
                 if (product.nameFood == name) {
@@ -101,11 +116,8 @@ export default class ShoppingList {
                 }
             })
         }
-
         if (valid == 0) {item.push(info);}
         localStorage.setItem('list', JSON.stringify(item));
-
-        location.reload();
     }
 
 
@@ -122,9 +134,7 @@ export default class ShoppingList {
                     if (item.quantity > 0) item.quantity--;
                 }
             }
-        })
-    
+        })   
         localStorage.setItem('list', JSON.stringify(shoppingList));
-        location.reload();
     }
 }

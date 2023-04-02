@@ -12,11 +12,11 @@
         margin: 0 2rem;
     }
 
-    .recipeContainer {
+    /* .recipeContainer {
         display: flex;
         flex-direction: column;
         row-gap: 2rem;
-    }
+    } */
 
     /* .recipeContainer div{
         border: 2px solid var(--secondary-persianRed);
@@ -32,10 +32,6 @@
     }
 
     /* Newsletter form */
-    form {
-        display: inline-block;
-        width: 50%;
-    }
 
     /* =======================cards type of meal in homepage==================== */
     section div.product-grid {
@@ -55,5 +51,39 @@
     div.makeYourRecipeContainer form input,
     div.makeYourRecipeContainer form textarea {
         width: 100%;
+    }
+
+    /* Modal Card */
+
+    .modalCard {
+        left: 4rem;
+    }
+
+    .divSubstitutes {
+        left: 13rem;
+        top: 0;
+    }
+
+    /* Shopping List */
+
+    .containerList {
+        flex-direction: row;
+        column-gap: 6rem;
+    }
+
+    .shoppingList {
+        min-width: max-content;
+    }
+    .recipeContainer {
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+    /* =============sign up--------------------- */
+    div.signUp form, div.login form {
+        width: 50%;
+    }
+    div.floatingImages {
+        display: grid;
+        grid-template-columns: auto auto;
     }
 }

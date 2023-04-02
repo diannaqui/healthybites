@@ -28,7 +28,7 @@ export default function aboutPage() {
       async function renderRecipeSide(containerRecipes) {
         const dataSource = new ExternalServices();
         
-        const listing = new RecipeListingSide(dataSource,8);
+        const listing = new RecipeListingSide(dataSource,3);
         containerRecipes.appendChild(about)
   
         containerRecipes.appendChild(await listing.init());  
