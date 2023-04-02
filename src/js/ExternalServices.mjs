@@ -106,10 +106,10 @@ export default class ExternalServices {
   // Search all food content
   async searchAllFood() {
     try {
-      const response = await fetch(allFoodURL + `?apiKey=${apiKeyNumber}&query=apple&number=2`);
+      const response = await fetch(allFoodURL + `?apiKey=${apiKeyNumber}`);
       const data = await convertToJson(response);
       console.log(data);
-      // return data;
+      return data;
     } 
     catch (err) {
       const jsonResponse = await err.message;
