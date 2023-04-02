@@ -84,6 +84,8 @@
     }
     div.floatingImages {
         display: grid;
-        grid-template-columns: auto auto;
+        gap: 7%;
+        align-items: baseline;
+        grid-template-columns: 70% auto;
     }
 }

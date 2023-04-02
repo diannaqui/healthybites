@@ -42,6 +42,17 @@ export function newsletter() {
     submitButton.setAttribute("type", "submit");
     submitButton.textContent = "SUBSCRIBE";
 
+    
+    const message = document.createElement('p');
+    message.classList.add('messageNewsletter');
+    message.textContent = 'Thank you for subscribing to our Newsletter!';
+    message.style.display = 'none';
+
+    submitButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        message.style.display = 'block';
+    })
+
     // Append the <label> and <input> elements to the <form> element
     form.appendChild(nameLabel);
     form.appendChild(nameInput);
@@ -53,6 +64,7 @@ export function newsletter() {
     newsletter.appendChild(title);
     newsletter.appendChild(image);
     newsletter.appendChild(form);
+    newsletter.appendChild(message);
 
     newsletterContainer.appendChild(newsletter);
     const section = newsletterContainer;

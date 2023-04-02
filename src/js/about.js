@@ -2,7 +2,7 @@ import ExternalServices from "./ExternalServices.mjs";
 import RecipeListingSide from "./RecipeListingSide.mjs"
 import heroAboutImg from "../images/about.jpeg"
 const aboutSection = `
-    <div class="container">
+    <div class="">
     <img src="${heroAboutImg}" alt="Our team image">
 
     <h2>About Healthy Bites</h2>

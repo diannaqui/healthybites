@@ -32,6 +32,17 @@ export function login() {
     loginButton.setAttribute("type", "submit");
     loginButton.textContent = "Login";
 
+    const message = document.createElement('p');
+    message.classList.add('messageNewsletter');
+    message.textContent = 'Our servers are under maintenance, please try again later';
+    message.style.display = 'none';
+
+    loginButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        message.style.display = 'block';
+    })
+
+
     // Append the <label> and <input> elements to the <form> element
     form.appendChild(emailLabel);
     form.appendChild(emailInput);
@@ -42,6 +53,8 @@ export function login() {
     // Append the title, image and form to the testimonial container
     loginContainer.appendChild(title);
     loginContainer.appendChild(form);
+    loginContainer.appendChild(message);
+
 
     const section = loginContainer;
     return section;

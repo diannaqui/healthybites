@@ -19,7 +19,7 @@ function printer(div) {
     let printWindow = window.open('', '', 'height=500,width=800,top=100,left=100');
     printWindow.document.write('<html><head><title>.</title>');
     printWindow.document.write('</head><body>');
-    printWindow.document.write('<h1 class="titlePrint">🍎 Shopping List 🍎</h1>');
+    printWindow.document.write('<h1 class="titlePrint">Shopping List</h1>');
     printWindow.document.write(content);
     printWindow.document.write('</body></html>');
     printWindow.document.close();
@@ -46,13 +46,9 @@ function listPrint() {
 
             const nameItem = document.createElement('h2');
             nameItem.classList.add('nameListPrint');
-            nameItem.innerHTML = `⬜ ${item.nameFood}`;
+            nameItem.innerHTML = `⬜ ${item.quantity} ${item.nameFood}`;
         div.appendChild(nameItem);
 
-            const quantityItem = document.createElement('h2');
-            quantityItem.classList.add('nameListPrint');
-            quantityItem.innerHTML = item.quantity;
-        div.appendChild(quantityItem);
         div2.appendChild(div);
        
     })

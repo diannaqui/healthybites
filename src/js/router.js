@@ -28,6 +28,7 @@ export function initRouter(mainView, callback) {
 
     function page404() {
         const page = document.createElement('h3');
+        page.classList.add('page404');
         page.textContent = '404 Page not found';
 
         return page;
