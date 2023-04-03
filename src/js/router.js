@@ -37,7 +37,7 @@ export function initRouter(mainView, callback) {
     function hashToRoute(path) {
 
         let hash = path.split('?')[0];
-        let id = path.split('=')[1];
+        let value = path.split('=')[1];
 
         switch (hash) {
             case '#/src/js/mainPage':
@@ -45,19 +45,19 @@ export function initRouter(mainView, callback) {
                 break;
 
             case '#/src/js/recipePageDetailsEntrance':
-                updateView(RecipePageDetailsEntrance(id));
+                updateView(RecipePageDetailsEntrance(value));
                 break;
 
             case '#/src/js/mealtypeListingPage':
-                updateView(mealtypeListingPage(id));
+                updateView(mealtypeListingPage(value));
                 break;
             
             case '#/src/js/recipeNutrientsDetailsEntrance':
-                updateView(Nutrition(id));
+                updateView(Nutrition(value));
                 break;
 
             case '#/src/js/recipePrint':
-                updateView(Print(id));
+                updateView(Print(value));
                 break;
 
             case '#/src/js/about':
@@ -82,7 +82,7 @@ export function initRouter(mainView, callback) {
                 break;
                     
             case '#/src/js/searchResult':
-                updateView(searchResult());
+                updateView(searchResult(value));
                 break;
                     
             default:
