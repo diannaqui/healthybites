@@ -4,7 +4,7 @@ const allFoodURL = "https://api.spoonacular.com/food/search";
 const substitutesUrl = "https://api.spoonacular.com/food/ingredients/substitutes";
 
 
-// Distributes the use of the api keys in the url
+// Distributes the use of the api keys in the url, it uses one api in 2 turns or less.
 function getRandomApiKey(lastApiKey, apiKeys) {
   // Remove the last API key from the array if it exists
   if (lastApiKey && apiKeys.includes(lastApiKey)) {
