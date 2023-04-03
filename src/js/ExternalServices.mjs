@@ -3,11 +3,40 @@ const mealTypeUrl = "https://api.spoonacular.com/recipes/complexSearch";
 const allFoodURL = "https://api.spoonacular.com/food/search";
 const substitutesUrl = "https://api.spoonacular.com/food/ingredients/substitutes";
 
-// const apiKeyNumber = "85fc6e9102e54cd3b863cc238b62f727";        // Josue 
-// const apiKeyNumber = "0bb27aae6f854824aa71de0854a2d4a9";        // Zeir
-// const apiKeyNumber = "d3803da0dba2444fac1dbeeb579fe87f";        // Nikita
-// const apiKeyNumber = "bd9690f36eb2416991bd24870cd5b0e3";        // Diana
-// const apiKeyNumber = "079ad1367c2e40e79eb0363dd32b6c51";        // Felix
+
+// Distributes the use of the api keys in the url
+function getRandomApiKey(lastApiKey, apiKeys) {
+  // Remove the last API key from the array if it exists
+  if (lastApiKey && apiKeys.includes(lastApiKey)) {
+    const index = apiKeys.indexOf(lastApiKey);
+    if (index !== -1) {
+      apiKeys.splice(index, 1);
+    }
+  }
+
+  // Generate a random index to choose the API key
+  const randomIndex = Math.floor(Math.random() * apiKeys.length);
+  const apiKey = apiKeys[randomIndex];
+
+  return apiKey;
+}
+
+let lastApiKey = null;
+let apiKeys = [
+  "85fc6e9102e54cd3b863cc238b62f727", // Josue
+  "0bb27aae6f854824aa71de0854a2d4a9", // Zeir
+  "d3803da0dba2444fac1dbeeb579fe87f", // Nikita
+  "bd9690f36eb2416991bd24870cd5b0e3", // Diana
+  // "079ad1367c2e40e79eb0363dd32b6c51"  // Felix
+];
+const apisKeyNumber = getRandomApiKey(null, apiKeys);
+lastApiKey = apisKeyNumber;
+apiKeys = apiKeys.slice();
+const apiKeyNumber = getRandomApiKey(lastApiKey, apiKeys);
+
+
+
+
 
 export function convertToJson(res) {
     if (res.ok) {

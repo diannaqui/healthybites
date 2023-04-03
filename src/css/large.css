@@ -88,4 +88,9 @@
         align-items: baseline;
         grid-template-columns: 70% auto;
     }
+    .searchContainer {
+        top: -80px;
+        left: 370px;
+    }
+
 }
