@@ -105,7 +105,7 @@ export default class ExternalServices {
   }
 
   // Search all food content
-  async searchAllFood(searchTerm) {
+  async searchAPI(searchTerm) {
     try {
       const response = await fetch(allFoodURL + `?apiKey=${apiKeyNumber}&query=${searchTerm}`);
       const data = await convertToJson(response);

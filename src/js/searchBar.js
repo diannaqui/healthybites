@@ -8,11 +8,14 @@ export function displaySearchBar() {
     searchInput.placeholder = "🔍 Search Recipes"
 
     const a = document.createElement("a");
-    a.href = "#/src/js/searchResult";
     a.classList.add("searchButton");
     a.textContent = "Search";
 
-    const searchTerm = searchInput.value;
+    a.addEventListener("click", async () => {
+        const searchTerm = searchInput.value;
+        a.href = `#/src/js/searchResult?search=${searchTerm}`
+        console.log(searchTerm)
+    })
 
     searchContainer.appendChild(searchInput);
     searchContainer.appendChild(a);
