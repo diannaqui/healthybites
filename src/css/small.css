@@ -139,6 +139,9 @@ a.searchButton {
   padding: 0px 0px 0px 10px;
 }
 
+a.searchButton:hover {
+  cursor: pointer;
+}
 /* Food-grid section home page */
 .food-grid {
   display: grid;
@@ -734,7 +737,6 @@ ul.badNutrients li{
   border-radius: 1.5rem;
   text-align: center;
   box-shadow: 0 4px 1rem 0 rgba(0, 0, 0, 0.2), 0 6px 1rem 0 rgba(25, 33, 22, 0.682);
-
 }
 
 .cuisinesDiv {
@@ -910,18 +912,6 @@ ul.badNutrients li{
   margin: auto;
 }
 
-/* .floatingImages .container:nth-child(odd) {
-  transform: translateY(30px);
-}
-
-.floatingImages .container:nth-child(even) {
-  transform: translateY(30px);
-}
-
-.floatingImages .container:last-child {
-  transform: translateY(10px);
-} */
-
 div.about div.container {
   padding: 4rem;
 }
@@ -1064,9 +1054,11 @@ div.makeYourRecipeContainer {
   margin: 5rem auto;
   width: 100%;
 }
+
 div.makeYourRecipeContainer h2 {
   color: #ff8400;
 }
+
 div.makeYourRecipeContainer form {
   border-radius: 2rem;
   box-shadow: 0 4px 1rem 0 rgba(0, 0, 0, 0.2), 0 6px 1rem 0 rgba(25, 33, 22, 0.682);
