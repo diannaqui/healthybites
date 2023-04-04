@@ -27,8 +27,7 @@ let apiKeys = [
   "0bb27aae6f854824aa71de0854a2d4a9", // Zeir
   "d3803da0dba2444fac1dbeeb579fe87f", // Nikita
   "bd9690f36eb2416991bd24870cd5b0e3", // Diana
-  "ee213066538049feac473b5f43e9868a", // Felix
-  "079ad1367c2e40e79eb0363dd32b6c51"  // 
+  "ee213066538049feac473b5f43e9868a" // Felix
 ];
 const apisKeyNumber = getRandomApiKey(null, apiKeys);
 lastApiKey = apisKeyNumber;
