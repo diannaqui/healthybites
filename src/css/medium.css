@@ -126,11 +126,6 @@
         justify-content: center;
     }
 
-    /* search bar */
-    .searchContainer {
-        top: -80px;
-        left: 170px;
-    }
     .myrecipeContainer ul {
         margin: 1rem;
         padding: 1rem;
