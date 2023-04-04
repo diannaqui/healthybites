@@ -64,7 +64,7 @@
     }
 
     input[type="text"],
-    input[type="email"i],
+    input[type="email"],
     textarea {
         width: 50%;
     }
