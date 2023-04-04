@@ -94,7 +94,6 @@ export default class ShoppingList {
 
 
     shoppingDelete(name) {
-        console.log('qwe')
         let shoppingList = JSON.parse(localStorage.getItem('list'));
         shoppingList = shoppingList.filter((item) => item.nameFood != name);
         localStorage.setItem('list', JSON.stringify(shoppingList));

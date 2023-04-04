@@ -689,12 +689,13 @@ ul.goodNutrients .nutrient.color6 {
 .titleRecipe {
   line-height: 5rem;
   text-align: center;
-  font-size: 4rem;
+  font-size: 3.5rem;
+  margin: 0;
 }
 
 .generalInfoRecipe {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 15rem);
+  grid-template-columns: repeat(auto-fill, 12rem);
   justify-content: space-evenly;
   text-align: center;
 }
@@ -705,9 +706,11 @@ ul.goodNutrients .nutrient.color6 {
   background-repeat: no-repeat;
   background-size: 10rem;
   background-position: center;
+  font-size: 1.2rem;
 }
 
 .imageRecipe{
+  width: 25rem;
   border-radius: 10rem;
   box-shadow: 0 4px 3rem 0 rgba(0, 0, 0, 0.2), 0 6px 5rem 0 rgba(25, 33, 22, 0.682);
 }
@@ -798,11 +801,18 @@ ul.goodNutrients .nutrient.color6 {
 
 /* Print Recipe  */
 .links {
-  margin: 5rem auto;
+  margin: 4rem auto;
   display: flex;
-  max-width: fit-content;
+  align-items: center;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
+}
+
+.linksInner {
+  margin: 3rem 0;
+  display: flex;
+  gap: 4rem;
+  justify-content: space-between;
 }
 
 .recipeCard {
@@ -931,7 +941,7 @@ div.about div.container img {
   box-shadow: 0 1px 1rem 0 rgba(176, 19, 19, 0.9), 0 1px 1rem 0 rgba(176, 19, 19, 0.9);
 }
 
-.buttonModal, .nutrientsPerServingDiv, .ingredientsListClassName, .buttoD, .buttonList, .printButton{
+.buttonModal, .ingredientsListClassName, .buttoD, .buttonList, .printButton{
   padding: 15px 25px;
   margin: 2rem;
   font-size: 1.2rem;
@@ -944,15 +954,31 @@ div.about div.container img {
 }
 
 .nutrientsPerServingDiv {
-  padding: 25px 45px;
-  border-bottom-right-radius: 70%;
-  border-top-left-radius: 70%;
+  padding: 0;
+  margin: 0;
 }
 
-.buttonModal:active, .nutrientsPerServingDiv:active, .ingredientsListClassName:active, .buttoD:active, .buttonList:active, .printButton:active{
+.nutrientsPerServingDiv img{
+  width: 3rem;
+
+}
+.nutrientsPerServingDiv:hover {
+  border-bottom-right-radius: 60%;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 60%;
+  border-top-right-radius: 50%;
+  background-color: rgba(200, 214, 92, 0.4);
+    box-shadow: 0 1px 5rem 0 rgba(200, 214, 92, 0.9), 0 1px 5rem 0 rgba(200, 214, 92, 0.9);
+
+}
+.nutrientsPerServingDiv:active {
+  transform: rotate(20deg);
+}
+
+.buttonModal:active,  .ingredientsListClassName:active, .buttoD:active, .buttonList:active, .printButton:active{
   background-color:  #e8ef92;
   box-shadow: 0 5px #666;
-  transform: translateY(4px);
+  transform: translateX(4px);
 }
 
 .ingredientsListClassName{

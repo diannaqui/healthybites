@@ -99,8 +99,6 @@ export function initRouter(mainView, callback) {
 
     window.addEventListener('hashchange', (evt) => {
 
-        //console.log(evt.newURL)
-
         const newURL = new URL(evt.newURL);
         const hash = newURL.hash;
 
