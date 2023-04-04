@@ -21,6 +21,7 @@ function getRandomApiKey(lastApiKey, apiKeys) {
   return apiKey;
 }
 
+// lastApiKey is initialized to null. This variable will be used to store the last API key that was selected, to ensure that the same key is not selected twice in a row.
 let lastApiKey = null;
 let apiKeys = [
   "85fc6e9102e54cd3b863cc238b62f727", // Josue
@@ -29,13 +30,15 @@ let apiKeys = [
   "bd9690f36eb2416991bd24870cd5b0e3", // Diana
   "ee213066538049feac473b5f43e9868a" // Felix
 ];
+
+// Select a random API key from the apiKeys array, without excluding any specific key.
 const apisKeyNumber = getRandomApiKey(null, apiKeys);
+// Stored the API key in lastApiKey variable.
 lastApiKey = apisKeyNumber;
+// Creates a new array with the same elements as the original array.
 apiKeys = apiKeys.slice();
-const apiKeyNumber = getRandomApiKey(lastApiKey, apiKeys);
-
-
-
+// Select a random API key from the new array, but will exclude the key that was selected in the previous step (stored in lastApiKey).
+export const apiKeyNumber = getRandomApiKey(lastApiKey, apiKeys);
 
 export function convertToJson(res) {
     if (res.ok) {

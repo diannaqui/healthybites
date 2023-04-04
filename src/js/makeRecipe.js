@@ -1,3 +1,5 @@
+import { apiKeyNumber } from "./ExternalServices.mjs";
+
 export function createRecipeForm() {
   const container = document.createElement('div');
   container.classList.add('makeYourRecipeContainer');
@@ -70,7 +72,7 @@ export function createRecipeForm() {
     form.reset();
 
     // Make API request for image URL
-    const API_KEY = 'ee213066538049feac473b5f43e9868a';
+    const API_KEY = apiKeyNumber;
     const ingredients = encodeURIComponent(recipe.ingredients.replace(/\n/g, ','));
     const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${API_KEY}&number=1`;
     const response = await fetch(url);
