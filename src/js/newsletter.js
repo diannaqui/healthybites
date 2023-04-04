@@ -27,6 +27,7 @@ export function newsletter() {
     const nameInput = document.createElement("input");
     nameInput.setAttribute("type", "text");
     nameInput.setAttribute("name", "name");
+    nameInput.setAttribute("required", true);
 
     // Create a <label> element for the email field
     const emailLabel = document.createElement("label");
@@ -36,7 +37,7 @@ export function newsletter() {
     const emailInput = document.createElement("input");
     emailInput.setAttribute("type", "email");
     emailInput.setAttribute("name", "email");
-
+    emailInput.setAttribute("required", true);
     // Create a submit <button> element
     const submitButton = document.createElement("button");
     submitButton.setAttribute("type", "submit");
@@ -48,7 +49,7 @@ export function newsletter() {
     message.textContent = 'Thank you for subscribing to our Newsletter!';
     message.style.display = 'none';
 
-    submitButton.addEventListener('click', function(event) {
+    submitButton.addEventListener('submit', function(event) {
         event.preventDefault();
         message.style.display = 'block';
     })
