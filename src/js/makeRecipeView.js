@@ -2,6 +2,7 @@ import { apiKeyNumber } from "./ExternalServices.mjs";
 
 export function makeRecipeView(callback = () => {}) {
   const recipeViewContainer = document.createElement('div');
+  recipeViewContainer.classList.add('myrecipeContainer');
   const title = document.createElement('h2');
   title.textContent = 'Your Recipes';
 
