@@ -81,11 +81,6 @@
         grid-template-columns: 70% auto;
     }
 
-    .searchContainer {
-        top: -75px;
-        left: 430px;
-    }
-
     div.about div {
         padding-top: 3.5rem;
     }
