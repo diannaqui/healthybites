@@ -1,8 +1,8 @@
 import RecipeDetails from "./recipePageDetails";
+import { upperCase } from "./utils.js";
 
 export default class ShoppingList {
     constructor() {
-
     }
 
     displayShoppingList(divShoppingOut) {
@@ -35,7 +35,7 @@ export default class ShoppingList {
                                 go.reloadDiv(divShoppingOut)})
                         divInfo.appendChild(buttonDelete);
 
-                            const nameIngredient = item.nameFood.charAt(0).toUpperCase() + item.nameFood.slice(1);
+                            const nameIngredient = upperCase(item.nameFood);
                             const nameItem = document.createElement('h2');
                             nameItem.classList.add('nameShoppingList');
                             nameItem.innerHTML = nameIngredient;

@@ -1,5 +1,7 @@
 import printerImage from '../images/printerCircle.png';
 import nutrientsImag from '../images/nutrientsCircle.png';
+import { timeConvertion } from "./utils.js";
+
 export default class GeneralInformationDetailPage {
     constructor() {
     }
@@ -13,7 +15,10 @@ export default class GeneralInformationDetailPage {
                 // Ready in - child of generalInfoRecipeDiv
                 const readyIn = document.createElement('h3');
                 readyIn.classList.add('generalInfo');
-                readyIn.innerHTML = `Ready In: ${listRecipeDetails.readyInMinutes}min`;
+
+                let time = timeConvertion(listRecipeDetails.readyInMinutes);
+
+                readyIn.innerHTML = `Ready In: ${time}`;
                 generalInfoRecipeDiv.appendChild(readyIn); 
 
                 // Servings - child of generalInfoRecipeDiv
