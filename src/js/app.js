@@ -61,7 +61,6 @@ function Footer() {
     footer.appendChild(copy);
 
     return footer;
-
 }
 
 function App() {
@@ -79,7 +78,6 @@ function App() {
     div.appendChild(Footer());
 
     return div;
-
 } 
 
 export default App;

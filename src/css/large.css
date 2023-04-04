@@ -28,7 +28,8 @@
         grid-template-columns: auto auto auto auto;
         gap: 1rem;
     }
-/*     ==========make your ceipe form============== */
+    
+    /* ==========make your ceipe form============== */
     div.makeYourRecipeContainer {
         width: 40%;
     }
