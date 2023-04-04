@@ -38,7 +38,7 @@ lastApiKey = apisKeyNumber;
 // Creates a new array with the same elements as the original array.
 apiKeys = apiKeys.slice();
 // Select a random API key from the new array, but will exclude the key that was selected in the previous step (stored in lastApiKey).
-const apiKeyNumber = getRandomApiKey(lastApiKey, apiKeys);
+export const apiKeyNumber = getRandomApiKey(lastApiKey, apiKeys);
 
 export function convertToJson(res) {
     if (res.ok) {

@@ -1,3 +1,5 @@
+import { apiKeyNumber } from "./ExternalServices.mjs";
+
 export function makeRecipeView(callback = () => {}) {
   const recipeViewContainer = document.createElement('div');
   const title = document.createElement('h2');
@@ -19,7 +21,7 @@ export function makeRecipeView(callback = () => {}) {
       recipeItem.appendChild(recipeName);
 
       // Retrieve recipe information from Spoonacular API
-      const API_KEY = 'ee213066538049feac473b5f43e9868a';
+      const API_KEY = apiKeyNumber;
       const ingredients = encodeURIComponent(recipe.ingredients);
       const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${API_KEY}&number=1`;
       fetch(apiUrl)
