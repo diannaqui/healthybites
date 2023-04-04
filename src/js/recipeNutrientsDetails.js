@@ -59,7 +59,6 @@ export default class RecipeNutrients {
             divRecipeDetails.appendChild(nutrientsUlContainerbad);
         } 
 
-        console.log(divRecipeDetails)
         return divRecipeDetails;
     }
 

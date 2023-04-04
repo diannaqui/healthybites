@@ -27,13 +27,12 @@ let apiKeys = [
   "0bb27aae6f854824aa71de0854a2d4a9", // Zeir
   "d3803da0dba2444fac1dbeeb579fe87f", // Nikita
   "bd9690f36eb2416991bd24870cd5b0e3", // Diana
-  // "079ad1367c2e40e79eb0363dd32b6c51"  // Felix
+  "ee213066538049feac473b5f43e9868a" // Felix
 ];
 const apisKeyNumber = getRandomApiKey(null, apiKeys);
 lastApiKey = apisKeyNumber;
 apiKeys = apiKeys.slice();
 const apiKeyNumber = getRandomApiKey(lastApiKey, apiKeys);
-
 
 
 
@@ -52,7 +51,6 @@ export default class ExternalServices {
   message(jsonResponse){
 
     let show = jsonResponse.message;
-    console.log(show)
     if (!show) {
         show = jsonResponse;
     }
@@ -73,7 +71,6 @@ export default class ExternalServices {
     catch (err){
       const jsonResponse = await err.message;
       this.message(jsonResponse);
-      console.log(err);
     }
   }  
 
@@ -87,7 +84,6 @@ export default class ExternalServices {
     catch (err){
       const jsonResponse = await err.message;
       this.message(jsonResponse);
-      console.log(err);
    }
   } 
 
@@ -101,7 +97,6 @@ export default class ExternalServices {
     catch (err) {
       const jsonResponse = await err.message;
       this.message(jsonResponse);
-      console.log(err);
     }
   }
 
@@ -115,7 +110,6 @@ export default class ExternalServices {
     catch (err){
       const jsonResponse = await err.message;
       this.message(jsonResponse);
-      console.log(err);
     }
   }
   
@@ -129,7 +123,6 @@ export default class ExternalServices {
     catch (err) {
       const jsonResponse = await err.message;
       this.message(jsonResponse);
-      console.log(err);
     }
   }
 
@@ -143,7 +136,6 @@ export default class ExternalServices {
     catch (err) {
       const jsonResponse = await err.message;
       this.message(jsonResponse);
-      console.log(err);
     }
   }
 
@@ -157,7 +149,6 @@ export default class ExternalServices {
     catch (err) {
       const jsonResponse = await err.message;
       this.message(jsonResponse);
-      console.log(err);
     } 
   } 
 }

@@ -23,9 +23,19 @@ export default class RecipeDetails {
         const listRecipeDetails = await this.dataSource.getRecipeByIdInformation(this.idSelected);
         
             // Title - child of divRecipeDetails
-            const titleRecipe = document.createElement('h1');
-            titleRecipe.classList.add('titleRecipe');
-            titleRecipe.textContent = listRecipeDetails.title;
+            const links = document.createElement('div');
+            links.classList.add('links');
+
+                const titleRecipe = document.createElement('h1');
+                titleRecipe.classList.add('titleRecipe');
+                titleRecipe.textContent = listRecipeDetails.title;
+                links.appendChild(titleRecipe)
+
+                const divInner = document.createElement('div');
+                divInner.classList.add('linksInner');
+                    divInner.appendChild(this.general.nutrientsPerServing(this.idSelected));                   // NUTRIENTS
+                    divInner.appendChild(this.general.print(this.idSelected));                                 // PRINT CARD
+                links.appendChild(divInner);
 
             // Image - child of divRecipeDetails
             const containerInfo = document.createElement('div');
@@ -40,14 +50,8 @@ export default class RecipeDetails {
             containerInfo.appendChild(containerImg);                                                    // IMAGE  /  READY IN - SERVINGS
             containerInfo.appendChild(this.infoCuisineDiets.recipeCuisineDiet(listRecipeDetails));      // CUISINES - DIETS
 
-            const links = document.createElement('div');
-            links.classList.add('links');
-                links.appendChild(this.general.nutrientsPerServing(this.idSelected));                   // NUTRIENTS
-                links.appendChild(this.general.print(this.idSelected));                                 // PRINT CARD
-
-        divRecipeDetails.appendChild(titleRecipe);                                                      // TITLE
+        divRecipeDetails.appendChild(links);                                                      // TITLE
         divRecipeDetails.appendChild(containerInfo);
-        divRecipeDetails.appendChild(links);
 
             const containerIngredients = document.createElement('div');
             containerIngredients.classList.add('containerList');
