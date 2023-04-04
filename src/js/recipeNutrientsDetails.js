@@ -31,19 +31,21 @@ export default class RecipeNutrients {
         const listRecipeDetails = await this.dataSource.getRecipeById(this.idSelected);
 
         if (listRecipeDetails) {
+            const generalDiv = document.createElement('div');
+            generalDiv.classList.add("generalDivNut");
+
             //container for ul element
             const nutrientsUlContainer = document.createElement('div');
             nutrientsUlContainer.classList.add('ContainerForUl')
-
             // list of good nutrients per recipe
             const titleGoodNutrition = document.createElement('h2');
             titleGoodNutrition.classList.add("titleNutrients");
             titleGoodNutrition.textContent = "Good Nutrition";
             const good = this.renderTemplateList(listRecipeDetails.good, "goodNutrients");
 
-            divRecipeDetails.appendChild(titleGoodNutrition);
-            divRecipeDetails.appendChild(nutrientsUlContainer);
+            nutrientsUlContainer.appendChild(titleGoodNutrition);
             nutrientsUlContainer.appendChild(good);
+            generalDiv.appendChild(nutrientsUlContainer);
 
             // list of bad nutrients per recipe
             const nutrientsUlContainerbad = document.createElement('div');
@@ -53,10 +55,11 @@ export default class RecipeNutrients {
             titleBadNutrients.textContent = "Be aware of...";
             const bad = this.renderTemplateList(listRecipeDetails.bad, "badNutrients");
             
-            divRecipeDetails.appendChild(titleBadNutrients);
+            nutrientsUlContainerbad.appendChild(titleBadNutrients);
             nutrientsUlContainerbad.appendChild(bad);
-
-            divRecipeDetails.appendChild(nutrientsUlContainerbad);
+            generalDiv.appendChild(nutrientsUlContainerbad);
+            
+            divRecipeDetails.appendChild(generalDiv);
         } 
 
         return divRecipeDetails;

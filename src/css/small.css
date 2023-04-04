@@ -51,11 +51,11 @@ body {
 }
 
 h1, h2 {
-  font-family: var(--font-body)
+  font-family: var(--font-body);
 }
 
 h3, h4, h5, h6 {
-  font-family: var(--font-headline)
+  font-family: var(--font-headline);
 }
 
 img {
@@ -626,15 +626,41 @@ ul.goodNutrients .nutrient.color6 {
   top: calc(var(--measure-base) * 5);
   left: calc(var(--measure-base) + 3rem);
 }
+
+ul.badNutrients li{
+  margin-bottom: -2rem;
+  text-align: center;
+  padding-top: 1.5rem;
+  background-color: #dcdab6;
+  font-size: 0.9rem;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+}
+
+.badNutrients li:nth-child(even) {
+  margin-left: 9rem;
+}
+
+.titleNutrients{
+  margin: 5rem 0;
+}
+
+.generalDivNut {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rem;
+  justify-content: space-evenly;
+}
 /* ======================ends bubbles====================== */
 
-.goodNutrients li:nth-child(even):hover {
+.goodNutrients li:nth-child(even):hover, .badNutrients li:nth-child(even):hover {
   transform: rotate(360deg);
   transform: scale(1.5);
   transition: all 0.4s ease;
 }
 
-.goodNutrients li:hover {
+.goodNutrients li:hover, .badNutrients li:hover {
   transform: rotate(-360deg);
   transition: all 0.4s ease;
 }
@@ -800,13 +826,6 @@ ul.goodNutrients .nutrient.color6 {
   margin-bottom: 3rem;
 }
 
-@keyframes rotateImage {
-  0%    { rotate: 0deg;  }
-  50%   { rotate: 5deg;  }
-  75%   { rotate: -5deg; }
-  100%  { rotate: 0deg;  }
-}
-
 /* Print Recipe  */
 .links {
   margin: 4rem auto;
@@ -959,7 +978,7 @@ div.about div h2 {
   background-color: #edf1be;
   border: none;
   border-radius: 2rem;
-  box-shadow: 0 9px #999;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   text-align: center;
 }
 
@@ -970,25 +989,25 @@ div.about div h2 {
 
 .nutrientsPerServingDiv img{
   width: 3rem;
-
 }
+
 .nutrientsPerServingDiv:hover {
   border-bottom-right-radius: 60%;
   border-top-left-radius: 50%;
   border-bottom-left-radius: 60%;
   border-top-right-radius: 50%;
   background-color: rgba(200, 214, 92, 0.4);
-    box-shadow: 0 1px 5rem 0 rgba(200, 214, 92, 0.9), 0 1px 5rem 0 rgba(200, 214, 92, 0.9);
-
+  box-shadow: 0 1px 5rem 0 rgba(200, 214, 92, 0.9), 0 1px 5rem 0 rgba(200, 214, 92, 0.9);
 }
+
 .nutrientsPerServingDiv:active {
   transform: rotate(20deg);
 }
 
 .buttonModal:active,  .ingredientsListClassName:active, .buttoD:active, .buttonList:active, .printButton:active{
   background-color:  #e8ef92;
-  box-shadow: 0 5px #666;
-  transform: translateX(4px);
+  box-shadow: 0 3px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: translateY(4px);
 }
 
 .ingredientsListClassName{
@@ -999,13 +1018,13 @@ div.about div h2 {
   background-color: #d7f4cc;
   border: none;
   border-radius: 2rem;
-  box-shadow: 0 9px #999;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   text-align: center;
 }
 
 .ingredientsListClassName:active{
   background-color:  #bdefab;
-  box-shadow: 0 5px #666;
+  box-shadow: 0 3px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   transform: translateY(4px);
 }
 
@@ -1023,7 +1042,7 @@ div.about div h2 {
 .instructionsStep{
   border-radius: 1rem;
   background-color:  rgba(235, 230, 73, 0.05);
-  box-shadow: 2px 2px 2px 0 rgba(117, 116, 97, 0.9);
+  box-shadow: 0 3px 16px 0 rgba(234, 223, 124, 0.2), 0 1px 15px 0 rgba(0,0,0,0.19);
   padding: 1rem;
   font-size: 1.3rem;
   color: #444141;
