@@ -40,10 +40,10 @@ img {
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   line-height: 2rem;
-  max-width: 100%;
+  max-width: 2000px;
   font-family: var(--font-body);
   font-size: var(--font-size-base);
   color: var(--dark-grey);
@@ -831,6 +831,7 @@ ul.goodNutrients .nutrient.color6 {
   margin: 8rem auto;
   background-color: #eef0d7;
   max-width: fit-content;
+  box-shadow: 0 4px 2rem 0 rgba(0, 0, 0, 0.2), 0 6px 3rem 0 rgba(25, 33, 22, 0.682);
 }
 
 .divSL {

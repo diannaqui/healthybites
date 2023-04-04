@@ -34,10 +34,11 @@ export default class ShoppingList {
                                 const go = new RecipeDetails();
                                 go.reloadDiv(divShoppingOut)})
                         divInfo.appendChild(buttonDelete);
-                        
+
+                            const nameIngredient = item.nameFood.charAt(0).toUpperCase() + item.nameFood.slice(1);
                             const nameItem = document.createElement('h2');
                             nameItem.classList.add('nameShoppingList');
-                            nameItem.innerHTML = item.nameFood;
+                            nameItem.innerHTML = nameIngredient;
                         divInfo.appendChild(nameItem);
                                     
                     const divButtons = document.createElement('div');
