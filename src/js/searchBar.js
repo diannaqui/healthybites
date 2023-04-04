@@ -5,11 +5,11 @@ export function displaySearchBar() {
     const searchInput = document.createElement("input");
     searchInput.setAttribute("type", "search");
     searchInput.classList.add("searchInput");
-    searchInput.placeholder = "🔍 Search Recipes"
+    searchInput.placeholder = "Search Recipes"
 
     const a = document.createElement("a");
     a.classList.add("searchButton");
-    a.textContent = "Search";
+    a.textContent = "🔍";
 
     a.addEventListener("click", async () => {
         const searchTerm = searchInput.value;

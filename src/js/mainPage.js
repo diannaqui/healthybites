@@ -16,14 +16,7 @@ function mainContent() {
     // New container for hero image and search bar
     const heroContainer = document.createElement("div");
     heroContainer.classList.add("heroContainer");
-
-    // Hero image
-    const heroImage = document.createElement('div');
-    heroImage.classList.add('hero');
-    heroImage.innerHTML = `
-        <img src=${heroImg} alt="someone is holding a bowl of salad">
-        `
-    heroContainer.appendChild(heroImage);
+    heroContainer.innerHTML = `<img src=${heroImg} alt="someone is holding a bowl of salad">`
     
     // Search bar
     heroContainer.appendChild(displaySearchBar());
