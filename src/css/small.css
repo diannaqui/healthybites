@@ -110,7 +110,7 @@ div.logo:hover {
   max-width: 100%;
 }
 
-/* Style the search bar container */
+/* Seach bar */
 .searchContainer {
   background: hsl(0, 0%, 83%, 0.5);
   border-radius: 0.5rem;
@@ -124,7 +124,6 @@ div.logo:hover {
   max-width: 600px; /* For large screen */
 }
 
-/* Style the search input */
 .searchInput {
   padding: 10px;
   font-size: 16px;
@@ -140,6 +139,7 @@ div.logo:hover {
 a.searchButton {
   padding: 0px 0px 0px 10px;
 }
+
 /* Food-grid section home page */
 .food-grid {
   display: grid;
@@ -379,7 +379,6 @@ body {
 }
 }
 
-/* ------------------testimonials---------------------- */
 div#testimonialsMainContainer {
   padding: 1rem;
 }
@@ -1035,7 +1034,6 @@ div.about div h2 {
   padding: 1rem;
   font-size: 1.6rem;
   border-bottom: 3px double rgb(183, 185, 152);
-  ;
   /* color: #444141; */
 }
 
@@ -1116,6 +1114,7 @@ div.makeYourRecipeContainer form textarea {
 .buttonsContainer button:active {
   background-color: #555;
 }
+
 /* =============sign up--------------------- */
 div.signUp, div.login {
   display: flex;
@@ -1125,6 +1124,7 @@ div.signUp, div.login {
   margin: 0 0 3rem 0;
   width: 100%;
 }
+
 div.signUp form, div.login form {
   border-radius: 2rem;
   box-shadow: 0 4px 1rem 0 rgba(0, 0, 0, 0.2), 0 6px 1rem 0 rgba(25, 33, 22, 0.682);
@@ -1136,9 +1136,11 @@ div.signUp form, div.login form {
   width: 80%;
   padding: 2rem 0 0 0;
 }
+
 div.signUp form label, div.login form label {
   margin: 0;
 }
+
 div.signUp form input, div.login form input {
   margin: 1rem;
   padding: 1rem;
@@ -1147,6 +1149,7 @@ div.signUp form input, div.login form input {
   border: none;
   background-color: rgb(255, 255, 255);
 }
+
 div.signUp form button, div.login form button {
   margin: 1rem;
   padding: 1rem;
@@ -1160,13 +1163,52 @@ div.signUp form button, div.login form button {
   color: white;
   transition: all 0.2s ease-in-out;
 }
+
 .notRecipeYet {
   text-align: center;
   font-size: 2rem;
   font-weight: bold;
   margin: 3rem 0;
 }
-/* ===========my recipes============== */
+
+/* ========== Style the search result page ========== */
+.searchResultContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchResultTitle {
+  text-align: center;
+}
+
+.ulForSearchResult {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ulForSearchResult li {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  box-shadow: 0 4px 8px 4 rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+a.linkToRecipe {
+  display: flex;
+}
+
 .myrecipeContainer {
   display: flex;
   flex-wrap: wrap;
@@ -1180,6 +1222,7 @@ div.signUp form button, div.login form button {
   display: grid;
   grid-template-columns: auto;
 }
+
 .myrecipeContainer ul li {
   display: flex;
   flex-direction: column;
@@ -1192,6 +1235,7 @@ div.signUp form button, div.login form button {
   box-shadow: 0 4px 1rem 0 rgba(0, 0, 0, 0.2), 0 6px 1rem 0 rgba(25, 33, 22, 0.682);
   background-color: #f1f1f1;
 }
+
 .myrecipeContainer ul li p {
   margin: 0;
   padding: 0;
@@ -1199,6 +1243,7 @@ div.signUp form button, div.login form button {
   text-indent: 1rem;
   margin-bottom: 1rem;
 }
+
 .myrecipeContainer ul li h3 {
   margin: 0;
   padding: 0;
@@ -1208,6 +1253,7 @@ div.signUp form button, div.login form button {
   margin-bottom: 1rem;
   color: #ff8400;
 }
+
 /* style button as before */
 .myrecipeContainer ul li button {
   margin: 1rem;
