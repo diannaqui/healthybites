@@ -64,6 +64,7 @@
         min-width: max-content;
     }
     .recipeContainer {
+        padding-top: 0;
         display: grid;
         grid-template-columns: auto auto auto;
     }
@@ -81,5 +82,13 @@
         top: -80px;
         left: 370px;
     }
-
+    div.about div {
+        padding-top: 3.5rem;
+    }
+    .myrecipeContainer ul {
+        margin: 1rem;
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
 }
