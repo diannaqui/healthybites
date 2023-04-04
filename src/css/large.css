@@ -63,23 +63,21 @@
     .shoppingList {
         min-width: max-content;
     }
+    
     .recipeContainer {
         display: grid;
         grid-template-columns: auto auto auto;
     }
+
     /* =============sign up--------------------- */
     div.signUp form, div.login form {
         width: 50%;
     }
+
     div.floatingImages {
         display: grid;
         gap: 7%;
         align-items: baseline;
         grid-template-columns: 70% auto;
     }
-    .searchContainer {
-        top: -80px;
-        left: 370px;
-    }
-
 }
