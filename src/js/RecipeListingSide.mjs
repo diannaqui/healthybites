@@ -1,5 +1,6 @@
 import spoon from "../images/sp2.webp";
-
+import { timeConvertion } from "./utils.js";
+ 
 // Show this HTML on the main page when no API is use / API expire / API problem and etc.
 export function recipeCardTemplateNoList() {
     return `
@@ -10,13 +11,16 @@ export function recipeCardTemplateNoList() {
 
 // Generate HTML on the main page
 export function recipeCardTemplate(list) {
+
+    let time = timeConvertion(list[0].readyInMinutes);
+
     return `
         <h3>${list[0].title}</h3>
         <div class='recipeCardImgContainer'>
             <img src="${list[0].image}" alt=Recipe Image for ${list[0].title}>
         </div>
         <div class="divInfo">
-            <p>Estimated time: ${list[0].readyInMinutes} min</p>
+            <p>Estimated time: ${time}</p>
             <p>Servings: ${list[0].servings}</p>
         </div>
     `;

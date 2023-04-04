@@ -1,8 +1,7 @@
 import ExternalServices from "./ExternalServices.mjs";
+import { upperCase } from "./utils.js";
 
 async function dataPrint(dataSource, id) {
-
-    
 
     const listRecipeDetails = await dataSource.printRecipe(id);
 
@@ -44,7 +43,7 @@ function listPrint() {
         const div = document.createElement('div');
         div.classList.add('divPrint');
 
-            const nameIngredient = item.nameFood.charAt(0).toUpperCase() + item.nameFood.slice(1);
+            const nameIngredient = upperCase(item.nameFood);
             const nameItem = document.createElement('h2');
             nameItem.classList.add('nameListPrint');
             nameItem.innerHTML = `⬜ ${item.quantity} ${nameIngredient}`;
